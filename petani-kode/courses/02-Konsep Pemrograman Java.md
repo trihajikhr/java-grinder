@@ -63,4 +63,19 @@ Selama suatu perangkat memiliki JVM, program Java dapat dijalankan di sana — t
 
 ![](media/img_4.png)
 
-## 4 | Proses
+## 4 | Proses Implementasi Kode Java
+
+Dalam pemrograman Java, proses utama yang dilakukan meliputi tiga tahap:
+
+1. Menulis kode program Java.
+2. Melakukan kompilasi.
+3. Menjalankan program.
+
+Pertama, programmer menulis kode sumber dan menyimpannya sebagai `Program.java`.
+Berkas ini kemudian dikompilasi menggunakan compiler javac, yang menghasilkan `Program.class`.
+
+File `Program.class` berisi bytecode — instruksi tingkat menengah yang dapat dipahami oleh JVM (Java Virtual Machine), mirip dengan bahasa assembly.
+
+JVM kemudian mengeksekusi bytecode tersebut, sehingga program dapat dijalankan.
+
+Tahapan ini akan terus dilakukan setiap kali kita menulis dan menjalankan program Java.
