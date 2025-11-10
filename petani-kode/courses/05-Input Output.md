@@ -21,7 +21,7 @@ Sementara itu, untuk program berbasis antarmuka grafis (*GUI*), Java menyediakan
 
 Untuk menghasilkan keluaran (*output*), Java menyediakan metode bawaan seperti `print()`, `println()`, dan `format()`.
 
-## 1 | Input
+## 1 | Input pada Java
 ### 1.1 | Mengambil Input dengan Class Scanner
 
 Class `Scanner` menyediakan fungsi-fungsi untuk membaca input dari keyboard.
