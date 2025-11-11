@@ -114,15 +114,19 @@ Setelah itu, buat objek ArrayList seperti ini:
  ArrayList al = new ArrayList();
 ```
 
-ArrayList bisa diset untuk menampung tipe data tertentu, class, atau tipe data acak. Cara diatas adalah cara membuat ArrayList dengan tipe data acak.
+Cara diatas adalah cara membuat ArrayList dengan tipe data acak.
 
-Jika ingin menset ArrayList untuk menampung tipe data tertentu atau class, maka deklarasikan dengan cara berikut:
+Tapi, ArrayList tidak bisa langsung digunakan untuk tipe data primitif seperti int atau double. Melainkan harus menggunakan kelas pembungkus (wrapper class) seperti `Integer` atau `Double` karena ArrayList hanya bisa menyimpan objek. Penggunaan kelas pembungkus ini disebut `autoboxing`.
 
 ```java
-// tipe data
+// tipe data autoboxing
+Arraylist<Integer> usia = new ArrayList<>();
+Arraylist<Double> ipk = new ArrayList<>();
+Arraylist<Character> kelas = new ArrayList<>();
+Arraylist<Float> ipk_semester = new ArrayList<>();
 Arraylist<String> nama = new ArrayList<>();
 
-// class
+// class objek
 Arraylist<Mahasiswa> mhs = new ArrayList<>();
 ```
 
