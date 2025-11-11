@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 
 class Matematika {
@@ -54,63 +53,3 @@ class Matematika {
         return min;
     }
 }
-
-class Helper {
-    Scanner scan = new Scanner(System.in);
-
-    // close scanner
-    void close(){
-        scan.close();
-    }
-
-    // angka
-    int safeInputInt(String prompt){
-        int ans;
-        while(true){
-            System.out.print(prompt);
-            if(scan.hasNextInt()){
-                ans = scan.nextInt();
-                break;
-            }
-            System.out.println("Input tidak valid! Harap masukkan angka.\n");
-            scan.nextLine();
-        }
-        return ans;
-    }
-
-    // angka pecahan (float)
-    float safeInputFloat(String prompt){
-        float ans;
-        while(true){
-            System.out.print(prompt);
-            if(scan.hasNextFloat()){
-                ans = scan.nextFloat();
-                break;
-            }
-            System.out.println("Input tidak valid! Harap masukkan angka.\n");
-            scan.nextLine();
-        }
-        return ans;
-    }
-
-    // angka positif
-    int safeInputPositif(String prompt){
-        int ans, border = 0;
-        while(true){
-            System.out.print(prompt);
-            if(scan.hasNextInt()){
-                ans = scan.nextInt();
-                if(ans < border) {
-                    System.out.println("Harap masukkan bilangan positif.\n");
-                    continue;
-                }
-                break;
-            }
-            System.out.println("Input tidak valid! Harap masukkan angka.\n");
-            scan.nextLine();
-        }
-        return ans;
-    }
-}
-
-
