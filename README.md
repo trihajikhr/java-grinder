@@ -19,12 +19,15 @@ Tips: _Baca beberapa kode orang lain jika perlu_
 
 - [1 | Basic Theory](#1--basic-theory)
   - [1.1 | Petani Kode](#11--petani-kode)
+  - [1.2 | Petani Kode - OOP](#12--petani-kode---oop)
 
 
 ---
 
 ## 1 | Basic Theory
+
 ### 1.1 | Petani Kode
+
 Materi dari [Petani Kode](https://www.petanikode.com/tutorial/java/), bagus untuk pemula, namun sudah lama tidak diperbarui. Mungkin terlalu basic untuk anak kuliahan, jadi pelajari saja dengan cepat:
 
 - [Pengenalan Java](petani-kode/theory/01-Pengenalan-Java.md)
@@ -45,6 +48,7 @@ Folder [dev-lab](petani-kode/dev-lab) dan catatan [error-log](petani-kode/error-
 Well, walaupun materinya basic, beberapa error malah memberikan lebih banyak materi penting. Yah.. lumayan.
 
 ### 1.2 | Petani Kode - OOP
+
 Nah ini..., materi [Petani Kode - OOP](https://www.petanikode.com/tutorial/java-oop/) yang ini baru penting! Java adalah pemrograman dengan konsep OOP, sehingga wajib hukumnya mahir dan bisa menguasai OOP untuk bisa dikatakan _memahami_ Java. 
 
 Penjelasanya lebih mudah dipahami, dan karena konsep OOP mungkin sulit dipahami jika teorinya belum paham, maka resource ini lumayan bermanfaat. 
