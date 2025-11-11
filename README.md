@@ -4,7 +4,23 @@
 
 Repositori ini berisi seluruh latihan, eksperimen, dan catatan pribadi selama proses mempelajari bahasa pemrograman Java. Setiap latihan mencakup penjelasan konsep, penerapan kode, dan beberapa pratik. Semua progres disusun agar pembelajaran mudah ditelusuri kembali dimasa depan.
 
+Keterangan folder:
+- 🛠️ _Dev-lab_, tempat file eksperimen dan file latihan Java disimpan.
+- 🐞 _Error-log_, dokumentasi error selama proses latihan. Berisi beberapa materi tambahan tentang penyebab error dan solusi.
+
+Dua file diatas berisi beberapa materi yang didapat melalui praktik _trial-and-error_. Materi lebih praktikal, seharusnya 😀.
+
 ---
+
+## Table of Content
+
+- [1 | Basic Theory](#1--basic-theory)
+  - [1.1 | Petani Kode](#11--petani-kode)
+
+
+
+---
+
 ## 1 | Basic Theory
 ### 1.1 | Petani Kode
 Materi dari [Petani Kode](https://www.petanikode.com/tutorial/java/), bagus untuk pemula, namun sudah lama tidak diperbarui. Mungkin terlalu basic untuk anak kuliahan, jadi pelajari saja dengan cepat:
@@ -22,4 +38,6 @@ Materi dari [Petani Kode](https://www.petanikode.com/tutorial/java/), bagus untu
 - [Class Hashmap Java](petani-kode/courses/11-Class%20Hashmap%20Java.md)
 - [Prosedur dan Fungsi](petani-kode/courses/12-Prosedur%20dan%20Fungsi.md)
 
-Folder [dev-lab](petani-kode/dev-lab) dan catatan [error-log](petani-kode/error-log), berisi beberapa materi yang didapat melalui praktik trial-and-error. Materi masih terlalu basic, error lebih banyak terjadi pada input error dan penggunaa struktur data dasar seperti ArrayList dan HashMap.
+Folder [dev-lab](petani-kode/dev-lab) dan catatan [error-log](petani-kode/error-log).
+
+Well, walaupun materinya basic, beberapa error malah memberikan lebih banyak materi penting. Yah.. lumayan.
