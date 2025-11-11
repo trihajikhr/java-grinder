@@ -1,4 +1,4 @@
-package java.grinder;
+package grinder;
 
 import org.junit.jupiter.api.Test;
 

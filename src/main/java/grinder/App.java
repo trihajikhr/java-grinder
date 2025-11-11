@@ -1,4 +1,4 @@
-package java.grinder;
+package grinder;
 
 public class App {
   public static void main(String[] args) {
