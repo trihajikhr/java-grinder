@@ -58,4 +58,5 @@ Tapi tanpa praktik, lebih baik tidur saja.. karena ngga niat kamu 😏. Percuma 
 Makanya, berlatihlah konsep OOP dibarengi praktik, karena konsep OOP sulit dipahami tanpa praktik. Memang susah diawal, tapi sekalinya dapat moment "Ahaa!", seterusnya bakal mudah.
 
 - [Memahami Konsep Dasar OOP](petani-kode-oop/theory/01-Memahami-Konsep-Dasar-OOP.md)
-- 
+- [Inheritance dan Method Overriding](petani-kode-oop/theory/02-Inheritance-dan-Method-Overriding.md)
+- [Tingkatan-Akses-Member-dan-Class](petani-kode-oop/theory/03-Tingkatan-Akses-Member-dan-Class.md)
