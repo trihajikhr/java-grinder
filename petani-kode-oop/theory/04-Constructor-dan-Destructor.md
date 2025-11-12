@@ -1,4 +1,4 @@
-# 4 | Mengenal Constructor & Destructor dalam Java
+# 4 | Mengenal Constructor dan Destructor dalam Java
 
 ![](media/img.png)
 
