@@ -2,7 +2,6 @@
   <img src="media/img.png" width="1000px" alt="readme img" />
 <br/><br/>
   <h1 style="font-size: 28px; margin: 10px 0;">Java Practice & Learning Log ☕</h1>
-  <hr/>
 </div>
 
 <br/>
@@ -18,8 +17,10 @@
    <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?logo=intellijidea&logoColor=white" /> 
 </div>
 
+<br/>
+
 <div align="center">
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNqNDNpMWt4ZXJkbXJrbWF3aWd3aWNmY252dDgwZTlxd3ZtendqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CcwLAV11cALh3OuEJ5/giphy.gif"/>
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHpxemo4dWs3MnhiZXJ5endpdHhvbjB3NzlrdWhzNTg2MW44MGg3ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Rpl1sod1vCXK0L2SUN/giphy.gif" width="750" />
 </div>
 <br/>
 
