@@ -21,6 +21,7 @@
 <div align="center">
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNqNDNpMWt4ZXJkbXJrbWF3aWd3aWNmY252dDgwZTlxd3ZtendqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CcwLAV11cALh3OuEJ5/giphy.gif"/>
 </div>
+<br/>
 
 Repositori ini berisi seluruh latihan, eksperimen, dan catatan pribadi selama proses mempelajari bahasa pemrograman Java. Setiap latihan mencakup penjelasan konsep, penerapan kode, dan beberapa pratik. Semua progres disusun agar pembelajaran mudah ditelusuri kembali dimasa depan.
 
