@@ -44,15 +44,17 @@ Tips: _Baca beberapa kode orang lain jika perlu_
 <details>
 <summary>Table of contents (Click to show)</summary>
 
-- [1 | Basic Theory](#1--basic-theory)
+- [1 | Introduction](#1--basic-theory)
   - [1.1 | Petani Kode](#11--petani-kode)
   - [1.2 | Petani Kode - OOP](#12--petani-kode---oop)
-  
+- [2 | Basic Theory](#2--basic-theory)
 </details>
 
 ---
 
-## 1 | Basic Theory
+## 1 | Introduction
+
+Pada bagian ini, hanya akan difokuskan untuk mengenal hal-hal basic dari java. Intinya sesuatu yang benar-benar dasar, sehingga materinya cenderung acak. Pelajari beberapa konsep dasar Java ini, supaya tidak terlalu sulit untuk mengikuti beberapa materi yang akan lebih spesifik kedepanya.
 
 ### 1.1 | Petani Kode
 
@@ -77,9 +79,6 @@ Well, walaupun materinya basic, beberapa error malah memberikan lebih banyak mat
 
 ### 1.2 | Petani Kode - OOP
 
-
-
-
 Nah ini..., materi [Petani Kode - OOP](https://www.petanikode.com/tutorial/java-oop/) yang ini baru penting! Java adalah pemrograman dengan konsep OOP, sehingga wajib hukumnya mahir dan bisa menguasai OOP untuk bisa dikatakan _memahami_ Java. 
 
 Penjelasanya lebih mudah dipahami, dan karena konsep OOP mungkin sulit dipahami jika teorinya belum paham, maka resource ini lumayan bermanfaat. 
@@ -96,3 +95,26 @@ Makanya, berlatihlah konsep OOP dibarengi praktik, karena konsep OOP sulit dipah
 - [This dan Super](petani-kode-oop/theory/06-This-dan-Super.md)
 - [Polimorfisme](petani-kode-oop/theory/07-Polimorfisme.md)
 - [Memahami Interface Java](petani-kode-oop/theory/08-Memahami-Interface-Java.md)
+
+---
+
+## 2 | Basic Theory
+
+Java adalah bahasa pemrograman dan platform komputasi yang pertama kali dirilis oleh Sun Microsystems pada tahun 1995. Java merupakan bahasa pemrograman umum, berbasis kelas, dan berorientasi objek yang dirancang agar memiliki ketergantungan implementasi yang minimal.
+
+Java berfungsi sebagai **platform komputasi untuk pengembangan aplikasi**. Bahasa ini cepat, aman, dan andal, sehingga banyak digunakan untuk mengembangkan berbagai aplikasi Java di **laptop, pusat data, konsol game, superkomputer ilmiah, ponsel,** dan sebagainya.
+
+Pelajari dasar-dasar Java seperti sintaks dasar, tipe data, variabel, percabangan (conditionals), fungsi, struktur data, paket (packages), dan lainnya.
+
+- [Basic Syntax](02-learn-the-basics/theory/01-Basic-Syntax.md)
+- [Lifecycle of a Program](02-learn-the-basics/theory/02-Lifecycle-of-a-Program.md)
+- [Data Types and Variables](02-learn-the-basics/theory/03-Data-Types-and-Variables.md)
+- [Variables and Scopes](02-learn-the-basics/theory/04-Variables-and-Scopes.md)
+- [Type Casting](02-learn-the-basics/theory/05-Type-Casting.md)
+- [Strings andMethods](02-learn-the-basics/theory/06-Strings-andMethods.md)
+- [Math Operations](02-learn-the-basics/theory/07-Math-Operations.md)
+- [Arrays](02-learn-the-basics/theory/08-Arrays.md)
+- [Conditionals](02-learn-the-basics/theory/09-Conditionals.md)
+- [Loops](02-learn-the-basics/theory/10-Loops.md)
+- [Basics of OOP](02-learn-the-basics/theory/11-Basics-of-OOP.md)
+
