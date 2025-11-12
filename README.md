@@ -59,4 +59,5 @@ Makanya, berlatihlah konsep OOP dibarengi praktik, karena konsep OOP sulit dipah
 
 - [Memahami Konsep Dasar OOP](petani-kode-oop/theory/01-Memahami-Konsep-Dasar-OOP.md)
 - [Inheritance dan Method Overriding](petani-kode-oop/theory/02-Inheritance-dan-Method-Overriding.md)
-- [Tingkatan-Akses-Member-dan-Class](petani-kode-oop/theory/03-Tingkatan-Akses-Member-dan-Class.md)
+- [Tingkatan Akses Member dan Class](petani-kode-oop/theory/03-Tingkatan-Akses-Member-dan-Class.md)
+- [Constructor & Destructor](petani-kode-oop/theory/04-Constructor-%26-Destructor.md)
