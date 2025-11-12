@@ -3,6 +3,7 @@ package dasaroop;
 import java.util.ArrayList;
 
 public class Buku {
+    public int id;
     public String judul;
     public String penulis;
     public int stok;
@@ -31,7 +32,8 @@ public class Buku {
         add(2);
     }};
 
-    public Buku(String judul, String penulis, int stok) {
+    public Buku(int id, String judul, String penulis, int stok) {
+        this.id = id;
         this.judul = judul;
         this.penulis = penulis;
         this.stok = stok;
@@ -39,12 +41,15 @@ public class Buku {
 
     public Buku(int num, Perpustakaan lib){
         for(int i = 0; i < num; i++){
-            Buku b = new Buku(aJudul.get(i),aPenulis.get(i),aStok.get(i));
-            lib.tamabhBuku(b);
+            Buku b = new Buku((i+1),aJudul.get(i),aPenulis.get(i),aStok.get(i));
+            lib.tambahBuku(b);
         }
     }
 
+    public Buku(){};
+
     void tampilkanInfo() {
+        System.out.println("ID      : " + id);
         System.out.println("Judul   : " + judul);
         System.out.println("Penulis : " + penulis);
         System.out.println("Stok    : " + stok);

@@ -39,7 +39,7 @@ public class Perpustakaan {
             } else if (pil == 2) {
                 Anggota a = new Anggota();
                 a.nama = help.safeInputStringLen("Masukan nama: ", 20);
-                a.idAnggota = help.safeInputStringLen("Masukan id: ", 20);
+                a.id = help.safeInputAngka("Masukan id: ", 0, 100);
                 System.out.println("Menambahkah: ");
                 a.infoAnggota();
                 tambahAnggota(a);
@@ -53,7 +53,7 @@ public class Perpustakaan {
                     String id = help.safeInputStringLen("Masukan id: ",  1000);
                     boolean found = false;
                     for(Anggota a : member){
-                        if(id.equals(a.idAnggota)){
+                        if(id.equals(a.id)){
                             System.out.println("Menyingkirkan " + a.nama + "!");
                             member.remove(a);
                             found = true;
@@ -66,17 +66,39 @@ public class Perpustakaan {
                     }
                 }
             } else if(pil == 4) {
-
+                tampilkanSemuaAnggota();
+                int id = help.safeInputIdAnggota("Pilihan anda: ", member);
+                tampilkanSemuaBuku();
+                int a = help.safeInputIdBuku("Pilihan anda: ", book);
+                member.get(id).pinjamBuku(book.get(a));
             }
         }
         return pil;
     }
 
     public void bukuMenu(){
+        int pil = 0;
+        while(true) {
+            System.out.println("=== MENU BUKU ===");
+            System.out.println("1. Daftar Buku");
+            System.out.println("2. Tambah Buku");
+            System.out.println("3. Kurangi Buku");
+            System.out.println("4. Tambah Stok");
+            System.out.println("5. Kurangi Stok");
+            System.out.println("0. Keluar");
+            pil = help.safeInputAngka("Pilihan anda: ", 0, 5);
 
+            if(pil == 0){
+                break;
+            } else if(pil == 1) {
+                tampilkanSemuaBuku();
+            } else if (pil == 2) {
+                Buku b = new Buku();
+            }
+        }
     }
 
-    public void tamabhBuku(Buku b){
+    public void tambahBuku(Buku b){
         book.add(b);
     }
 
@@ -89,14 +111,16 @@ public class Perpustakaan {
     }
 
     public void tampilkanSemuaBuku(){
-        for(Buku b: book){
-            b.tampilkanInfo();
+        for(int i=0; i<book.size(); i++){
+            System.out.println("Buku ke-" + (i+1));
+            book.get(i).tampilkanInfo();
         }
     }
 
     public void tampilkanSemuaAnggota(){
-        for(Anggota a: member){
-            a.infoAnggota();
+        for(int i=0; i<member.size(); i++){
+            System.out.println("Anggota ke-" + (i+1));
+            member.get(i).infoAnggota();
         }
     }
 }

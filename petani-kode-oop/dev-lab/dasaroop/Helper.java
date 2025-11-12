@@ -1,5 +1,6 @@
 package dasaroop;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Helper {
@@ -44,5 +45,65 @@ public class Helper {
             }
         }
         return ans;
+    }
+
+    // safeinput range Array
+    public <T> int safeInputArray(String prompt, ArrayList<T> arr){
+        int ans;
+        while(true) {
+            System.out.print(prompt);
+            if(scan.hasNextInt()){
+                ans = scan.nextInt();
+                ans--;
+                scan.nextLine();
+                if(ans < 0 || ans >= arr.size()){
+                    System.out.println("Diluar jangkauan");
+                    continue;
+                }
+
+                break;
+            } else {
+                System.out.println("Input tidak valid!");
+            }
+        }
+        return ans;
+    }
+
+    // safeinput id (Anggota)
+    public int safeInputIdAnggota(String prompt, ArrayList<Anggota> arr){
+        int ans;
+        while(true) {
+            System.out.print(prompt);
+            if(scan.hasNextInt()){
+                ans = scan.nextInt();
+                scan.nextLine();
+                for(Anggota t : arr){
+                    if(t.id == ans) {
+                        return ans;
+                    }
+                }
+            } else {
+                System.out.println("Input tidak valid!");
+            }
+        }
+    }
+
+    // safeinput id (Buku)
+    public int safeInputIdBuku(String prompt, ArrayList<Buku> arr){
+        int ans;
+        while(true) {
+            System.out.print(prompt);
+            if(scan.hasNextInt()){
+                ans = scan.nextInt();
+                scan.nextLine();
+                for(Buku t : arr){
+                    if(t.id == ans) {
+                        return ans;
+                    }
+                }
+            } else {
+                System.out.println("Input tidak valid!");
+            }
+        }
     }
 }
