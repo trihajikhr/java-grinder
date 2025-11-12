@@ -88,3 +88,6 @@ Makanya, berlatihlah konsep OOP dibarengi praktik, karena konsep OOP sulit dipah
 - [Tingkatan Akses Member dan Class](petani-kode-oop/theory/03-Tingkatan-Akses-Member-dan-Class.md)
 - [Constructor dan Destructor](petani-kode-oop/theory/04-Constructor-dan-Destructor.md)
 - [Setter dan Getter](petani-kode-oop/theory/05-Setter-dan-Getter.md)
+- [This dan Super](petani-kode-oop/theory/06-This-dan-Super.md)
+- [Polimorfisme](petani-kode-oop/theory/07-Polimorfisme.md)
+- [Memahami Interface Java](petani-kode-oop/theory/08-Memahami-Interface-Java.md)
