@@ -1,6 +1,26 @@
-# Java Practice & Learning Log ☕
+<div align="center">
+  <img src="media/img.png" width="1000px" alt="readme img" />
+<br/><br/>
+  <h1 style="font-size: 28px; margin: 10px 0;">Java Practice & Learning Log ☕</h1>
+  <hr/>
+</div>
 
-![](media/img.png)
+<br/>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Java%20Basic-90%25-brightgreen" />
+  <img src="https://img.shields.io/badge/Basic%20OOP-25%25-red" />
+</div>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white" />
+   <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?logo=intellijidea&logoColor=white" /> 
+</div>
+
+<div align="center">
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNqNDNpMWt4ZXJkbXJrbWF3aWd3aWNmY252dDgwZTlxd3ZtendqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CcwLAV11cALh3OuEJ5/giphy.gif"/>
+</div>
 
 Repositori ini berisi seluruh latihan, eksperimen, dan catatan pribadi selama proses mempelajari bahasa pemrograman Java. Setiap latihan mencakup penjelasan konsep, penerapan kode, dan beberapa pratik. Semua progres disusun agar pembelajaran mudah ditelusuri kembali dimasa depan.
 
@@ -17,10 +37,14 @@ Tips: _Baca beberapa kode orang lain jika perlu_
 
 ## Table of Content
 
+<details>
+<summary>Table of contents (Click to show)</summary>
+
 - [1 | Basic Theory](#1--basic-theory)
   - [1.1 | Petani Kode](#11--petani-kode)
   - [1.2 | Petani Kode - OOP](#12--petani-kode---oop)
-
+  
+</details>
 
 ---
 
@@ -48,6 +72,9 @@ Folder [dev-lab](petani-kode/dev-lab) dan catatan [error-log](petani-kode/error-
 Well, walaupun materinya basic, beberapa error malah memberikan lebih banyak materi penting. Yah.. lumayan.
 
 ### 1.2 | Petani Kode - OOP
+
+
+
 
 Nah ini..., materi [Petani Kode - OOP](https://www.petanikode.com/tutorial/java-oop/) yang ini baru penting! Java adalah pemrograman dengan konsep OOP, sehingga wajib hukumnya mahir dan bisa menguasai OOP untuk bisa dikatakan _memahami_ Java. 
 
