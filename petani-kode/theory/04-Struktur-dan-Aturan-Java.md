@@ -203,6 +203,8 @@ public static void main(String[] args) {
 }
 ```
 
+> Programmiz: Komentar yang baik adalah komentar yang menjelaskan `why`, alih-alih `how`.
+
 ## 5 | Penulisan String dan Karakter
 
 *String* merupakan kumpulan karakter yang biasanya digunakan untuk merepresentasikan teks.

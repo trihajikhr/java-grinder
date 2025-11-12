@@ -10,13 +10,18 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Java%20Basic-90%25-brightgreen" />
-  <img src="https://img.shields.io/badge/Basic%20OOP-25%25-red" />
+  <img src="https://img.shields.io/badge/OOP%20Basic-25%25-red" />
+  <img src="https://img.shields.io/badge/Collection%20Framework-0%25-black" />
+  <img src="https://img.shields.io/badge/Exception%20Handling-0%25-black" />
+  <img src="https://img.shields.io/badge/File%20I/O-0%25-black" />
+  <img src="https://img.shields.io/badge/Java%20Package-0%25-black" />
 </div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white" />
   <img src="https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white" />
-  <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?logo=intellijidea&logoColor=white" /> 
+  <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?logo=intellijidea&logoColor=white" />
+  <img src="https://img.shields.io/badge/🪴PlantUML-1E8449?style=flat" />
 </div>
 
 <br/>

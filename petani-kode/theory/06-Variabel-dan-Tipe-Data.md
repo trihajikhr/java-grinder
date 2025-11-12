@@ -89,3 +89,6 @@ Karena Anda sudah memiliki latar belakang C++, beberapa hal yang perlu diperhati
 * Gaya penulisan variabel (camelCase) dan aturan penamaan di Java lebih baku dibanding banyak kode C++ yang bisa beragam gaya. Disiplin di sini sangat membantu untuk kolaborasi dan kualitas kode.
 * Ketika variabel diinisialisasi, pastikan nilainya sesuai dengan jenis tipe data; misalnya jangan mencoba menyimpan teks ke dalam `int`, karena akan terjadi *compile error*.
 * Untuk tipe data numerik besar atau desimal, pastikan memilih tipe yang tepat (`float`, `double`, `long`), selain hanya `int`. Kebutuhan aplikasi (misalnya hasil perhitungan presisi) akan menentukan tipe.
+
+## 7 | Tambahan Dari Programmiz
+
