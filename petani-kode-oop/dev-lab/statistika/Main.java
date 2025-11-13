@@ -33,7 +33,7 @@ public class Main {
                 System.out.println("===== RUMUS STATISTIKA =====");
                 System.out.println("1. Cari nilai mean");
                 System.out.println("2. Cari Median");
-                System.out.println("3. Mode");
+                System.out.println("3. Modus");
                 System.out.println("4. Range");
                 System.out.println("5. Variasi");
                 System.out.println("6. Simpangan Bakuk");
@@ -49,10 +49,13 @@ public class Main {
                     stats.median(data);
                 } else if(c == 3){
                     stats.modus(data);
+                } else if(c == 4) {
+                    stats.range(data);
                 }
 
                 help.skip();
             }
+            help.skip();
         }
     }
 }

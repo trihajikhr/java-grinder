@@ -51,23 +51,40 @@ public class Statistika {
         }
 
         float max = Float.MIN_VALUE;
-        float maxVal = 0;
         int cnt = 0;
         for (Float key : map.keySet()) {
-            if (map.get(key) >= max) {
+            if (map.get(key) > max) {
                 max = map.get(key);
-                maxVal = key;
             }
         }
 
-        for(Float f : list){
-            cnt += (f == maxVal ? 1 : 0);
+        for(Float f : map.keySet()){
+            cnt += (map.get(f) == max ? 1 : 0);
         }
 
         if(cnt == list.size()){
             System.out.println("Tidak ada modus, semua data muncul tepat " + cnt + " kali");
         } else {
-            System.out.println();
+            System.out.println("Modusnya adalah: ");
+            for(float f : map.keySet()){
+                if(map.get(f) == max) {
+                    System.out.println("Angka " + f + ": " + map.get(f));
+                }
+            }
         }
+    }
+
+    public void range(ArrayList<Float> list) {
+        float max = Float.MIN_VALUE;
+        float min = Float.MAX_VALUE;
+
+        for(float f : list) {
+            if(f > max) max = f;
+            if(f < min) min = f;
+        }
+
+        System.out.println("Max: " + max);
+        System.out.println("Min: " + min);
+        System.out.println("Range: " + max + " - " + min + " = " + (max-min));
     }
 }
