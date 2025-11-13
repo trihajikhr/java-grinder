@@ -96,8 +96,6 @@ Aturan serta konvensi dalam menamai variabel di Java dapat diringkas sebagai ber
    Hal yang sama berlaku untuk garis bawah (`_`): secara teknis boleh, tapi secara gaya penulisan tidak disarankan.
    Selain itu, spasi tidak diizinkan dalam nama variabel.
 
-<br/>
-
 2. Karakter berikutnya setelah karakter pertama boleh berupa huruf, angka, tanda dolar, atau garis bawah.
    Meski begitu, gunakan akal sehat dan konvensi umum saat memilih nama. Gunakan **kata yang jelas dan lengkap** daripada singkatan yang tidak jelas.
    Langkah ini membuat kode lebih mudah dibaca dan dipahami, bahkan bisa membuatnya *self-documenting*.
@@ -105,7 +103,6 @@ Aturan serta konvensi dalam menamai variabel di Java dapat diringkas sebagai ber
    Sebagai contoh, nama variabel seperti `cadence`, `speed`, dan `gear` jauh lebih intuitif dibandingkan versi singkat seperti `c`, `s`, dan `g`.
    Ingat juga, nama variabel tidak boleh menggunakan kata kunci (*keyword*) atau kata yang sudah dipesan (*reserved word*) oleh Java.
 
-<br/>
 
 3. Jika nama variabel hanya terdiri dari satu kata, tulislah seluruhnya dengan huruf kecil.
    Jika terdiri dari lebih dari satu kata, kapitalisasi huruf pertama dari setiap kata berikutnya.
