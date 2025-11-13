@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/Java%20Basic-90%25-brightgreen" />
   <img src="https://img.shields.io/badge/OOP%20Basic-25%25-red" />
   <img src="https://img.shields.io/badge/Collection%20Framework-0%25-black" />
-  <img src="https://img.shields.io/badge/Exception%20Handling-0%25-black" />
+  <img src="https://img.shields.io/badge/Exception%20Handling-50%25-orange" />
   <img src="https://img.shields.io/badge/File%20I/O-0%25-black" />
   <img src="https://img.shields.io/badge/Java%20Package-0%25-black" />
 </div>
@@ -118,3 +118,15 @@ Pelajari dasar-dasar Java seperti sintaks dasar, tipe data, variabel, percabanga
 - [Loops](02-learn-the-basics/theory/10-Loops.md)
 - [Basics of OOP](02-learn-the-basics/theory/11-Basics-of-OOP.md)
 
+---
+## 3 | Basic OOP
+
+---
+## 4 | Advanced OOP
+
+---
+## 5 | Exception Handling
+
+_Exception handling_ dalam Java adalah salah satu cara efektif untuk menangani kesalahan yang terjadi saat program berjalan (runtime errors), sehingga alur normal dari aplikasi tetap dapat dipertahankan. Mekanisme ini digunakan untuk menangani berbagai kesalahan runtime seperti *ClassNotFoundException*, *IOException*, *SQLException*, *RemoteException*, dan lain-lain.
+
+- [Exception Handling](04-exception-handling/theory/01-Exception-Handling-in-Java.md) - Penanganan error dan kesalahan yang memastikan program mampu untuk tetap berjalan normal.
