@@ -130,3 +130,4 @@ Pelajari dasar-dasar Java seperti sintaks dasar, tipe data, variabel, percabanga
 _Exception handling_ dalam Java adalah salah satu cara efektif untuk menangani kesalahan yang terjadi saat program berjalan (runtime errors), sehingga alur normal dari aplikasi tetap dapat dipertahankan. Mekanisme ini digunakan untuk menangani berbagai kesalahan runtime seperti *ClassNotFoundException*, *IOException*, *SQLException*, *RemoteException*, dan lain-lain.
 
 - [Exception Handling](04-exception-handling/theory/01-Exception-Handling-in-Java.md) - Penanganan error dan kesalahan yang memastikan program mampu untuk tetap berjalan normal.
+- [Kasus throws dan try-catch](04-exception-handling/theory/02-Kasus-throws-dan-try-catch.md) - Penanganan exception dengan `throws` dan `try-catch`, dan membuat basic _Custom Exception_.
