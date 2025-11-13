@@ -95,7 +95,7 @@ Kita membuat fungsi `tambah()` untuk melakukan pemanggilan secara aman pada fung
 
 Oleh karena itu, fungsi `tambah()` harus memanggil fungsi `coba()` didalam blok `try`. Ketika program berjalan dengan baik, yaitu inputan sesuai, maka output berikut yang akan ditampilkan:
 
-```bash
+```
 Masukkan dua angka:
 9
 10
@@ -104,7 +104,7 @@ Hasil: 19
 
 Tetapi ketika inputan yang dimasukan tidak sesuai, maka fungsi `coba()` akan melemparkan  exception tersebut, dan blok `catch` akan menangkapnya. Ketika blok `catch` yang bekerja, maka output yang dihasilkan akan berbeda, yaitu seperti ini:
 
-```bash
+```
 Masukkan dua angka:
 8
 p
@@ -175,7 +175,7 @@ Exception `AngkaKelewatBatas` akan terpicu ketika blok `if` mendeteksi bahwa ter
 
 Ketika terjadi exception, alur program akan langsung berpindah ke block `catch` yang sesuai. Karena yang mentrigger exception adalah exception `AngkaKelewatBatas`, maka blok `catch` terakhir akan dieksekusi, menghasilkan output berupa:
 
-```bash
+```
 Masukkan dua angka:
 1
 10000000
@@ -186,7 +186,7 @@ Error: Angka melebihi batas!
 
 Sebelumnya kita sudah menambahkan dua jenis exception pada fungsi `coba()`. Sekarang, kita akan mencoba menanganinya lebih banyak lagi secara bersamaan.
 
-Sejatinya kita bisa menaruh beberapa exception, semisal kita menambahkan 2 fungsi atau method berikut ke dalam file `Handlder.java` sebelumnya.
+Sejatinya kita bisa menaruh beberapa exception, semisal kita menambahkan 2 fungsi atau method berikut ke dalam file `Handler.java` sebelumnya.
 
 Berikut contoh fungsi `cobaBagi()` dan `bagi()` yang menggunakan tiga jenis exception sekaligus:
 
@@ -228,7 +228,7 @@ void bagi() {
 
 Kita menambahkanya menjadi 3 exception sekaligus, dan itu bisa.
 
-Info lagi, ada beberapa exception yang bisa diberikan message, ada juga yang tidak. Pada contoh di atas, A`rithmeticException` bisa diberikan message langsung karena konstruktor-nya mendukung parameter `String`. Sedangkan `InputMismatchException` tidak memiliki konstruktor seperti itu, sehingga kita tidak bisa menambahkan pesan custom tanpa membuat subclass baru. Dengan cara membuat sub-class dari `InputMismatchException`, atau membuat custom exception. Misal seperti ini:
+Info lagi, ada beberapa exception yang bisa diberikan message, ada juga yang tidak. Pada contoh di atas, `ArithmeticException` bisa diberikan message langsung karena konstruktor-nya mendukung parameter `String`. Sedangkan `InputMismatchException` tidak memiliki konstruktor seperti itu, sehingga kita tidak bisa menambahkan pesan custom tanpa membuat subclass baru. Caranya adalah membuat sub-class dari `InputMismatchException`, atau dengan kata lain membuat custom exception. Misal seperti ini:
 
 ```java
 class InputTidakValid extends InputMismatchException {
@@ -238,7 +238,7 @@ class InputTidakValid extends InputMismatchException {
 }
 ```
 
-Kegunaan dari message ini adalah untuk memberikan keterangan tambahan, yang bisa ditampilkan pada blok `catch` dengan `e.getMessage()`.
+Lalu apa gunanya message? Kegunaan dari message ini adalah untuk memberikan keterangan tambahan, yang bisa ditampilkan pada blok `catch` dengan `e.getMessage()`.
 
 Tambahan lagi, jika dirasa beberapa exception bisa digabung menjadi satu, dan keterangan message dibedakan dari isi dari `e.getMessage()`, maka kita bisa menggabungkan beberapa blok `catch` sebagai berikut:
 
@@ -258,7 +258,7 @@ Pendekatan multi-catch ini berguna jika penanganan semua exception tersebut sama
 
 Berikut adalah contoh input dan outputnya, ketika pembagi adalah `0`:
 
-```bash
+```
 Masukkan dua angka: 
 90
 0
@@ -267,7 +267,7 @@ Error: Pembagi tidak boleh kosong!
 
 Atau ketika angka melebihi batas:
 
-```bash
+```
 Masukkan dua angka: 
 10000000
 Error: Angka melebihi batas!

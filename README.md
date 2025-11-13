@@ -48,6 +48,9 @@ Tips: _Baca beberapa kode orang lain jika perlu_
   - [1.1 | Petani Kode](#11--petani-kode)
   - [1.2 | Petani Kode - OOP](#12--petani-kode---oop)
 - [2 | Basic Theory](#2--basic-theory)
+- [3 | Basic OOP](#3--basic-oop)
+- [4 | Advanced OOP](#4--advanced-oop)
+- [5 | Exception Handling](#5--exception-handling)
 </details>
 
 ---
