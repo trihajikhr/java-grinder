@@ -8,7 +8,7 @@ Pada tutorial kali ini, kita akan belajar materi basic dari _exception handling_
 
 ### 1.1 | Apa itu _Exception handling_?
 
-Untuk lebih memahami exception (pengecualian) dan exception handling (penanganan pengecualian), kita perlu membuat sebuah analogi nyata. Bayangkan kita melakukan sebuah pemesanan produk secara online, tetapi dijalan, rute yang biasa dilalui terdapat masalah . Perusahaan pengiriman yang baik akan mengatasi masalah ini dengan cara mencari atau mengalihkan rute pengiriman, sehingga produk akan tetap sampai tepat pada waktunya.
+Untuk lebih memahami _exception_ (pengecualian) dan _exception handling_ (penanganan pengecualian), kita perlu membuat sebuah analogi nyata. Bayangkan kita melakukan sebuah pemesanan produk secara online, tetapi dijalan, rute yang biasa dilalui terdapat masalah . Perusahaan pengiriman yang baik akan mengatasi masalah ini dengan cara mencari atau mengalihkan rute pengiriman, sehingga produk akan tetap sampai tepat pada waktunya.
 
 Seperti halnya pada Java, kode bisa mengalami error ketika dieksekusi dan dijalankan. _Exception handling_ yang baik harus bisa menangani error dan tetap membuat program berjalan dengan baik, memberikan penggunanya pengalaman yang memuaskan.
 
@@ -31,9 +31,9 @@ public static List<Player> getPlayers() throws IOException {
 }
 ```
 
-Kode diatas tidak memiliki penangan `IOException`, dan langsung mengirimkannya ke call stack secara langsung. Pada lingkungan yang baik, kode tersebut mungkin bekerja.
+Kode diatas tidak memiliki penangan `IOException`, dan langsung mengirimkannya ke _call stack_ secara langsung. Pada lingkungan yang baik, kode tersebut mungkin bekerja.
 
-Tapi, apa jadinya jika selama produk, file `player.dat` ternyata hilang?
+Tapi, apa jadinya jika selama produksi, file `player.dat` ternyata hilang?
 
 ```java
 Exception in thread "main" java.nio.file.NoSuchFileException: players.dat <-- players.dat file doesn't exist
@@ -46,15 +46,15 @@ Exception in thread "main" java.nio.file.NoSuchFileException: players.dat <-- pl
     at Exceptions.main(Exceptions.java:19) <-- getPlayers() is called by main(), on line 19
 ```
 
-Tanpa exception handling, kode yang seharusnya bekerja dengan baik akan berhenti bekerja sama sekali. Kode yang bagus seharusnya bisa mengatasi masalah ini, kita sebagai penulis kode harus memiliki rencana jika terdapat sesuatu yang salah.
+Tanpa _exception handling_, kode yang seharusnya bekerja dengan baik akan berhenti bekerja sama sekali. Kode yang bagus seharusnya bisa mengatasi masalah ini, kita sebagai penulis kode harus memiliki rencana jika terdapat sesuatu yang salah.
 
-Catat juga, satu keuntungan dari adalahnya exception handling, adalah kita bisa membuat _stack trace_. Dengan _stack trace_, kita bisa mengetahui bagian mana dari kode yang salah, tanpa perlu menggunakan debugger.
+Catat juga, satu keuntungan dari adanya _exception handling_, adalah kita bisa membuat _stack trace_. Dengan _stack trace_, kita bisa mengetahui bagian mana dari kode yang salah, tanpa perlu menggunakan debugger.
 
 ---
 
 ## 2 | Hierarki Exception
 
-Pada dasarnya, exception hanyalah objek Java, dengan semua exception mewarisi dari `Throwable`:
+Pada dasarnya, _exception_ hanyalah objek Java, dengan semua _exception_ mewarisi dari `Throwable`:
 
 ```
               ---> Throwable <--- 
@@ -74,30 +74,29 @@ Ada tiga kategori utama dari kondisi exception:
 2. Unchecked exceptions / Runtime exceptions
 3. Errors
 
-Runtime exception dan unchecked exception merujuk pada hal yang sama, sehingga seringkali bisa digunakan secara bergantian.
-
+_Runtime exception_ dan _unchecked exception_ merujuk pada hal yang sama, sehingga seringkali bisa digunakan secara bergantian.
 
 
 ### 2.1 | Checked Exception (Pengecualian Terperiksa)
 
-Checked exception adalah jenis pengecualian yang wajib ditangani oleh programmer, karena kompiler Java memeriksanya saat proses kompilasi. Artinya, kita harus menangani pengecualian tersebut secara langsung (menggunakan `try-catch`) atau menyatakannya akan dilempar ke luar metode dengan kata kunci `throws`.
+**Checked exception** adalah jenis pengecualian yang wajib ditangani oleh programmer, karena kompiler Java memeriksanya saat proses kompilasi. Artinya, kita harus menangani pengecualian tersebut secara langsung (menggunakan `try-catch`) atau menyatakannya akan dilempar ke luar metode dengan kata kunci `throws`.
 
-Menurut dokumentasi Oracle, checked exception digunakan ketika pemanggil metode masih mungkin melakukan pemulihan (recovery) dari kesalahan yang terjadi.
+Menurut dokumentasi Oracle, _checked exception_ digunakan ketika pemanggil metode masih mungkin melakukan pemulihan (recovery) dari kesalahan yang terjadi.
 
-Contoh checked exception yang umum adalah: 
+Contoh _checked exception_ yang umum adalah: 
 - `IOException`
 - `ServletException`
 
 
 ### 2.3 | Unchecked Exception (Pengecualian Tidak Terperiksa)
 
-Unchecked exception adalah jenis pengecualian yang tidak diwajibkan oleh kompiler Java untuk ditangani.
+**Unchecked exception** adalah jenis pengecualian yang tidak diwajibkan oleh kompiler Java untuk ditangani.
 
-Secara sederhana, jika kita membuat kelas exception yang mewarisi `RuntimeException`, maka exception tersebut termasuk unchecked; sedangkan jika tidak, maka ia tergolong checked.
+Secara sederhana, jika kita membuat kelas _exception_ yang mewarisi `RuntimeException`, maka _exception_ tersebut termasuk _unchecked_; sedangkan jika tidak, maka ia tergolong _checked_.
 
-Meskipun tampak lebih praktis, dokumentasi Oracle menegaskan bahwa kedua jenis exception memiliki tujuan yang berbeda** — checked digunakan untuk kesalahan situasional yang dapat dipulihkan, sedangkan unchecked digunakan untuk kesalahan akibat penggunaan kode yang salah (usage error).
+Meskipun tampak lebih praktis, dokumentasi Oracle menegaskan bahwa kedua jenis _exception_ memiliki tujuan yang berbeda — _checked_ digunakan untuk kesalahan situasional yang dapat dipulihkan, sedangkan _unchecked_ digunakan untuk kesalahan akibat penggunaan kode yang salah (usage error).
 
-Beberapa contoh unchecked exception:
+Beberapa contoh _unchecked exception_:
 
 - `NullPointerException`
 - `IllegalArgumentException`
@@ -105,9 +104,9 @@ Beberapa contoh unchecked exception:
 
 ### 2.3 | Error (Kesalahan Fatal)
 
-Error mewakili kondisi serius dan umumnya tidak dapat dipulihkan, seperti ketidakcocokan pustaka, rekursi tak berujung, atau kebocoran memori.
+**Error** mewakili kondisi serius dan umumnya tidak dapat dipulihkan, seperti ketidakcocokan pustaka, rekursi tak berujung, atau kebocoran memori.
 
-Meskipun kelas `Error` tidak mewarisi `RuntimeException`, ia tetap termasuk dalam kategori unchecked, artinya kompiler tidak memaksa kita untuk menanganinya.
+Meskipun kelas `Error` tidak mewarisi `RuntimeException`, ia tetap termasuk dalam kategori _unchecked_, artinya kompiler tidak memaksa kita untuk menanganinya.
 
 Dalam praktiknya, menangani, membuat instance, atau menurunkan kelas `Error` adalah hal yang tidak lazim. Biasanya, error dibiarkan mengalir hingga ke level tertinggi agar program berhenti, karena ini menandakan adanya masalah serius pada sistem.
 
@@ -120,7 +119,7 @@ Contoh error yang umum:
 
 ## 3 | Handling Exceptions
 
-Dalam Java API, terdapat banyak bagian kode yang berpotensi menimbulkan kesalahan, dan beberapa di antaranya ditandai dengan exception, baik di deklarasi metode (signature) maupun di dokumentasi Javadoc, seperti berikut:
+Dalam Java API, terdapat banyak bagian kode yang berpotensi menimbulkan kesalahan, dan beberapa di antaranya ditandai dengan _exception_, baik di deklarasi metode (signature) maupun di dokumentasi Javadoc, seperti berikut:
 
 ```java
 /**
@@ -131,13 +130,13 @@ public Scanner(String fileName) throws FileNotFoundException {
 }
 ```
 
-Seperti yang sudah dijelaskan sebelumnya, ketika kita memanggil metode yang “berisiko” semacam ini, kita wajib menangani checked exception, sedangkan unchecked exception boleh ditangani atau tidak — tergantung kebutuhan.
+Seperti yang sudah dijelaskan sebelumnya, ketika kita memanggil metode yang “berisiko” semacam ini, kita wajib menangani _checked exception_, sedangkan _unchecked exception_ boleh ditangani atau tidak — tergantung kebutuhan.
 
-Java menyediakan beberapa cara untuk menangani exception tersebut.
+Java menyediakan beberapa cara untuk menangani _exception_ tersebut.
 
 ### 3.1 | `throws`
 
-Cara paling sederhana untuk "menangani" sebuah exception adalah dengan **melemparkannya kembali** menggunakan kata kunci `throws`:
+Cara paling sederhana untuk "menangani" sebuah _exception_ adalah dengan **melemparkannya kembali** menggunakan kata kunci `throws`:
 
 ```java
 public int getPlayerScore(String playerFile)
@@ -148,9 +147,9 @@ public int getPlayerScore(String playerFile)
 }
 ```
 
-Karena `FileNotFoundException` merupakan checked exception, inilah cara paling sederhana untuk memenuhi aturan kompiler. Namun, akibatnya, setiap kode yang memanggil metode tersebut juga harus menangani exception itu!
+Karena `FileNotFoundException` merupakan _checked exception_, inilah cara paling sederhana untuk memenuhi aturan kompiler. Namun, akibatnya, setiap kode yang memanggil metode tersebut juga harus menangani _exception_ itu!
 
-Sementara itu, `parseInt` dapat melempar `NumberFormatException`, tetapi karena jenisnya unchecked, kita tidak diwajibkan untuk menanganinya.
+Sementara itu, `parseInt` dapat melempar `NumberFormatException`, tetapi karena jenisnya _unchecked_, kita tidak diwajibkan untuk menanganinya.
 
 ### 3.2 | `try-catch`
 
