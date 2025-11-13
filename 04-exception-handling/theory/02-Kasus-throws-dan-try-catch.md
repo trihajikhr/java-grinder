@@ -96,6 +96,7 @@ Kita membuat fungsi `tambah()` untuk melakukan pemanggilan secara aman pada fung
 Oleh karena itu, fungsi `tambah()` harus memanggil fungsi `coba()` didalam blok `try`. Ketika program berjalan dengan baik, yaitu inputan sesuai, maka output berikut yang akan ditampilkan:
 
 ```bash
+Masukkan dua angka:
 9
 10
 Hasil: 19
@@ -104,6 +105,7 @@ Hasil: 19
 Tetapi ketika inputan yang dimasukan tidak sesuai, maka fungsi `coba()` akan melemparkan  exception tersebut, dan blok `catch` akan menangkapnya. Ketika blok `catch` yang bekerja, maka output yang dihasilkan akan berbeda, yaitu seperti ini:
 
 ```bash
+Masukkan dua angka:
 8
 p
 Error: Input tidak valid, hanya angka yang diperbolehkan.
@@ -174,7 +176,99 @@ Exception `AngkaKelewatBatas` akan terpicu ketika blok `if` mendeteksi bahwa ter
 Ketika terjadi exception, alur program akan langsung berpindah ke block `catch` yang sesuai. Karena yang mentrigger exception adalah exception `AngkaKelewatBatas`, maka blok `catch` terakhir akan dieksekusi, menghasilkan output berupa:
 
 ```bash
+Masukkan dua angka:
 1
+10000000
+Error: Angka melebihi batas!
+```
+
+## 3 | Kasus 3 - Multiple Exception
+
+Sebelumnya kita sudah menambahkan dua jenis exception pada fungsi `coba()`. Sekarang, kita akan mencoba menanganinya lebih banyak lagi secara bersamaan.
+
+Sejatinya kita bisa menaruh beberapa exception, semisal kita menambahkan 2 fungsi atau method berikut ke dalam file `Handlder.java` sebelumnya.
+
+Berikut contoh fungsi `cobaBagi()` dan `bagi()` yang menggunakan tiga jenis exception sekaligus:
+
+```java
+float cobaBagi() throws InputMismatchException, AngkaKelewatBatas, ArithmeticException {
+    System.out.println("Masukkan dua angka: ");
+
+    float a = scan.nextFloat();
+    if(a > 1_000_000){
+        throw new AngkaKelewatBatas("Angka melebihi batas!");
+    }
+
+    float b = scan.nextFloat();
+    if(b > 1_000_000){
+        throw new AngkaKelewatBatas("Angka melebihi batas!");
+    }
+
+    if(b==0){
+        throw new ArithmeticException("Pembagi tidak boleh kosong!");
+    }
+
+    return a/b;
+}
+
+void bagi() {
+    float ans;
+    try {
+        ans = cobaBagi();
+        System.out.println("Hasil: " + ans);
+    } catch (InputMismatchException e) {
+        System.out.println("Error: " + e.getMessage());
+    } catch (ArithmeticException e) {
+        System.out.println("Error: " + e.getMessage());
+    } catch (AngkaKelewatBatas e) {
+        System.out.println("Error: " + e.getMessage());
+    }
+}
+```
+
+Kita menambahkanya menjadi 3 exception sekaligus, dan itu bisa.
+
+Info lagi, ada beberapa exception yang bisa diberikan message, ada juga yang tidak. Pada contoh di atas, A`rithmeticException` bisa diberikan message langsung karena konstruktor-nya mendukung parameter `String`. Sedangkan `InputMismatchException` tidak memiliki konstruktor seperti itu, sehingga kita tidak bisa menambahkan pesan custom tanpa membuat subclass baru. Dengan cara membuat sub-class dari `InputMismatchException`, atau membuat custom exception. Misal seperti ini:
+
+```java
+class InputTidakValid extends InputMismatchException {
+    public InputTidakValid(String msg) {
+        super(msg);
+    }
+}
+```
+
+Kegunaan dari message ini adalah untuk memberikan keterangan tambahan, yang bisa ditampilkan pada blok `catch` dengan `e.getMessage()`.
+
+Tambahan lagi, jika dirasa beberapa exception bisa digabung menjadi satu, dan keterangan message dibedakan dari isi dari `e.getMessage()`, maka kita bisa menggabungkan beberapa blok `catch` sebagai berikut:
+
+
+```java
+void bagi() {
+    float ans;
+    try {
+        ans = cobaBagi();
+        System.out.println("Hasil: " + ans);
+    } catch (InputMismatchException | AngkaKelewatBatas | ArithmeticException e) {
+        System.out.println("Error: " + e.getMessage());
+    } 
+}
+```
+Pendekatan multi-catch ini berguna jika penanganan semua exception tersebut sama, misalnya hanya menampilkan pesan error umum dari `getMessage()`.
+
+Berikut adalah contoh input dan outputnya, ketika pembagi adalah `0`:
+
+```bash
+Masukkan dua angka: 
+90
+0
+Error: Pembagi tidak boleh kosong!
+```
+
+Atau ketika angka melebihi batas:
+
+```bash
+Masukkan dua angka: 
 10000000
 Error: Angka melebihi batas!
 ```
