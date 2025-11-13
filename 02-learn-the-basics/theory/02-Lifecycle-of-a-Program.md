@@ -1,4 +1,4 @@
-# Lifecycle of a Program
+# 2 | Lifecycle of a Program
 
 Jika kamu membaca tulisan ini, kemungkinan besar kamu sudah tahu cara menulis kode Java. Itu hal yang bagus — menurutku, semua orang seharusnya tahu cara menulis kode di zaman sekarang, sama seperti semua orang perlu tahu operasi matematika dasar seperti `+`, `-`, `*`, dan `/`, meskipun kita semua punya kalkulator.
 
