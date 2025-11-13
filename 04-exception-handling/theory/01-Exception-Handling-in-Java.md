@@ -209,7 +209,7 @@ public int getPlayerScore(String playerFile)
 Pada contoh di atas, blok `finally` menunjukkan kode yang **akan selalu dijalankan**, apa pun yang terjadi saat mencoba membaca file.
 Bahkan jika `FileNotFoundException` dilempar ke luar metode, isi dari blok `finally` tetap akan dijalankan terlebih dahulu.
 
-Kita juga bisa menangani exception sekaligus memastikan sumber daya ditutup dengan aman:
+Kita juga bisa menangani _exception_ sekaligus memastikan sumber daya ditutup dengan aman:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -232,7 +232,7 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Karena metode `close()` juga termasuk “berisiko”, kita harus menangani exception yang mungkin muncul darinya.
+Karena metode `close()` juga termasuk “berisiko”, kita harus menangani _exception_ yang mungkin muncul darinya.
 
 Meskipun terlihat rumit, setiap bagian dari kode ini memiliki peran penting untuk menangani setiap kemungkinan kesalahan dengan tepat.
 
@@ -262,7 +262,7 @@ Untuk pembahasan lebih lengkap, bisa melihat artikel khusus yang membahas tentan
 
 ### 3.5 | Multiple catch blocks
 
-Kadang, sebuah blok kode bisa melempar lebih dari satu jenis exception, dan kita bisa menanganinya dengan beberapa blok `catch` yang berbeda:
+Kadang, sebuah blok kode bisa melempar lebih dari satu jenis _exception_, dan kita bisa menanganinya dengan beberapa blok `catch` yang berbeda:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -278,7 +278,7 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Beberapa blok `catch` memungkinkan kita menangani setiap exception secara terpisah sesuai kebutuhan.
+Beberapa blok `catch` memungkinkan kita menangani setiap _exception_ secara terpisah sesuai kebutuhan.
 
 Perhatikan bahwa pada contoh di atas, `FileNotFoundException` tidak ditangani secara eksplisit, karena kelas tersebut merupakan turunan dari `IOException`.
 Dengan menangani `IOException`, Java secara otomatis menganggap semua subclass-nya juga sudah ditangani.
@@ -302,11 +302,11 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Java memungkinkan kita menangani subclass exception secara terpisah, tetapi pastikan urutannya benar — exception yang lebih spesifik harus ditangani terlebih dahulu sebelum yang lebih umum.
+Java memungkinkan kita menangani subclass _exception_ secara terpisah, tetapi pastikan urutannya benar — _exception_ yang lebih spesifik harus ditangani terlebih dahulu sebelum yang lebih umum.
 
 ### 3.6 | Union `catch` blocks
 
-Jika kita tahu bahwa beberapa exception akan ditangani dengan cara yang sama, sejak Java 7 kita bisa menggunakan satu blok `catch` untuk menangkap lebih dari satu jenis exception sekaligus:
+Jika kita tahu bahwa beberapa _exception_ akan ditangani dengan cara yang sama, sejak Java 7 kita bisa menggunakan satu blok `catch` untuk menangkap lebih dari satu jenis _exception_ sekaligus:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -319,15 +319,15 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Dengan sintaks seperti ini, Java akan menangkap salah satu dari exception yang disebutkan di dalam tanda pemisah `|`, lalu menanganinya menggunakan blok kode yang sama.
+Dengan sintaks seperti ini, Java akan menangkap salah satu dari _exception_ yang disebutkan di dalam tanda pemisah `|`, lalu menanganinya menggunakan blok kode yang sama.
 
-Fitur ini membantu membuat kode lebih ringkas dan mudah dibaca ketika penanganan untuk beberapa jenis exception identik.
+Fitur ini membantu membuat kode lebih ringkas dan mudah dibaca ketika penanganan untuk beberapa jenis _exception_ identik.
 
 ---
 
 ## 4 | Throwing Exceptions
 
-Jika kita tidak ingin menangani exception secara langsung, atau ingin membuat exception sendiri agar bisa ditangani oleh kode lain, maka kita perlu memahami penggunaan kata kunci `throw`.
+Jika kita tidak ingin menangani _exception_ secara langsung, atau ingin membuat _exception_ sendiri agar bisa ditangani oleh kode lain, maka kita perlu memahami penggunaan kata kunci `throw`.
 
 Misalnya, kita membuat sendiri sebuah checked exception bernama `TimeoutException`:
 
@@ -351,7 +351,7 @@ public List<Player> loadAllPlayers(String playersFile) {
 
 Sama seperti pernyataan `return`, kita bisa menggunakan `throw` kapan saja di dalam metode.
 
-Biasanya, kita melempar exception untuk menandakan bahwa **terjadi kesalahan atau kondisi yang tidak normal**:
+Biasanya, kita melempar _exception_ untuk menandakan bahwa **terjadi kesalahan atau kondisi yang tidak normal**:
 
 ```java
 public List<Player> loadAllPlayers(String playersFile) throws TimeoutException {
@@ -362,12 +362,12 @@ public List<Player> loadAllPlayers(String playersFile) throws TimeoutException {
 }
 ```
 
-Karena `TimeoutException` merupakan checked exception, kita juga harus menambahkan kata kunci `throws` pada deklarasi metode agar pemanggil metode mengetahui bahwa exception tersebut perlu ditangani.
+Karena `TimeoutException` merupakan checked _exception_, kita juga harus menambahkan kata kunci `throws` pada deklarasi metode agar pemanggil metode mengetahui bahwa _exception_ tersebut perlu ditangani.
 
 
 ### 4.2 | Throwing an unchecked exception
 
-Jika kita ingin melakukan sesuatu seperti memvalidasi input, kita bisa menggunakan unchecked exception:
+Jika kita ingin melakukan sesuatu seperti memvalidasi input, kita bisa menggunakan unchecked _exception_:
 
 ```java
 public List<Player> loadAllPlayers(String playersFile) throws TimeoutException {
@@ -379,13 +379,13 @@ public List<Player> loadAllPlayers(String playersFile) throws TimeoutException {
 }
 ```
 
-Karena `IllegalArgumentException` termasuk unchecked exception, kita **tidak wajib menandai metode dengan `throws`**, meskipun tetap boleh dilakukan jika ingin.
+Karena `IllegalArgumentException` termasuk unchecked _exception_, kita **tidak wajib menandai metode dengan `throws`**, meskipun tetap boleh dilakukan jika ingin.
 
-Beberapa developer tetap menuliskannya sebagai bentuk dokumentasi agar lebih jelas bahwa metode tersebut dapat melempar exception tertentu.
+Beberapa developer tetap menuliskannya sebagai bentuk dokumentasi agar lebih jelas bahwa metode tersebut dapat melempar _exception_ tertentu.
 
 ### 4.4 | Wrapping and rethrowing
 
-Kita juga bisa memilih untuk melempar kembali exception yang sudah kita tangkap:
+Kita juga bisa memilih untuk melempar kembali _exception_ yang sudah kita tangkap:
 
 ```java
 public List<Player> loadAllPlayers(String playersFile) 
@@ -398,7 +398,7 @@ public List<Player> loadAllPlayers(String playersFile)
 }
 ```
 
-Atau, kita bisa membungkusnya dalam exception baru sebelum melemparkannya kembali:
+Atau, kita bisa membungkusnya dalam _exception_ baru sebelum melemparkannya kembali:
 
 ```java
 public List<Player> loadAllPlayers(String playersFile) 
@@ -411,7 +411,7 @@ public List<Player> loadAllPlayers(String playersFile)
 }
 ```
 
-Pendekatan ini berguna ketika kita ingin **menyatukan berbagai jenis exception menjadi satu tipe yang lebih umum**, sehingga penanganannya menjadi lebih sederhana di level yang lebih tinggi.
+Pendekatan ini berguna ketika kita ingin **menyatukan berbagai jenis _exception_ menjadi satu tipe yang lebih umum**, sehingga penanganannya menjadi lebih sederhana di level yang lebih tinggi.
 
 ### 4.5 | Rethrowing Throwable atau Exception
 
@@ -431,13 +431,13 @@ public List<Player> loadAllPlayers(String playersFile) {
 
 Meskipun tampak sederhana, kode di atas **tidak dapat melempar checked exception**, sehingga walaupun kita menulis `throw t`, kompiler tidak mengharuskan adanya klausa `throws` pada deklarasi metode.
 
-Teknik ini sering digunakan dalam **proxy class atau metode dinamis**, di mana kita perlu menangani dan melempar ulang berbagai jenis exception tanpa mendefinisikan semuanya satu per satu.
+Teknik ini sering digunakan dalam **proxy class atau metode dinamis**, di mana kita perlu menangani dan melempar ulang berbagai jenis _exception_ tanpa mendefinisikan semuanya satu per satu.
 
 ### 4.5 | Inheritance
 
 Ketika kita menandai suatu metode dengan kata kunci `throws`, hal itu akan memengaruhi bagaimana subclass boleh melakukan override terhadap metode tersebut.
 
-Jika metode di kelas induk melempar checked exception:
+Jika metode di kelas induk melempar checked _exception_:
 
 ```java
 public class Exceptions {
@@ -448,7 +448,7 @@ public class Exceptions {
 }
 ```
 
-Maka subclass masih boleh membuat versi override dengan **signature yang lebih aman** (tidak melempar checked exception apa pun):
+Maka subclass masih boleh membuat versi override dengan **signature yang lebih aman** (tidak melempar checked _exception_ apa pun):
 
 ```java
 public class FewerExceptions extends Exceptions {	
@@ -459,7 +459,7 @@ public class FewerExceptions extends Exceptions {
 }
 ```
 
-Namun subclass **tidak boleh** membuat versi override yang **lebih berisiko**, yaitu yang menambahkan checked exception baru:
+Namun subclass **tidak boleh** membuat versi override yang **lebih berisiko**, yaitu yang menambahkan checked _exception_ baru:
 
 ```java
 public class MoreExceptions extends Exceptions {		
@@ -481,7 +481,7 @@ exceptions.loadAllPlayers("file");
 
 Kompiler hanya akan mengharuskan kita menangani `TimeoutException`, padahal implementasi di subclass `MoreExceptions` justru melempar exception lain (`MyCheckedException`).
 
-Kesimpulannya: subclass boleh melempar **lebih sedikit** checked exception daripada superclass-nya, **tapi tidak boleh lebih banyak**.
+Kesimpulannya: subclass boleh melempar **lebih sedikit** checked _exception_ daripada superclass-nya, **tapi tidak boleh lebih banyak**.
 
 ---
 
@@ -489,7 +489,7 @@ Kesimpulannya: subclass boleh melempar **lebih sedikit** checked exception darip
 
 ### 5.1 | Swallowing exceptions
 
-Ada satu cara lain untuk membuat kode kita tetap lolos dari pemeriksaan kompiler, yaitu dengan menangkap dan mengabaikan exception sepenuhnya:
+Ada satu cara lain untuk membuat kode kita tetap lolos dari pemeriksaan kompiler, yaitu dengan menangkap dan mengabaikan _exception_ sepenuhnya:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -500,9 +500,9 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Teknik ini disebut *swallowing exception* — artinya kita menangkap exception tapi tidak melakukan apa pun terhadapnya. Biasanya ini bukan praktik yang baik, karena masalahnya tidak diselesaikan, dan kode lain pun tidak bisa tahu bahwa ada kesalahan yang terjadi.
+Teknik ini disebut *swallowing exception* — artinya kita menangkap _exception_ tapi tidak melakukan apa pun terhadapnya. Biasanya ini bukan praktik yang baik, karena masalahnya tidak diselesaikan, dan kode lain pun tidak bisa tahu bahwa ada kesalahan yang terjadi.
 
-Ada kalanya memang kita tahu bahwa exception tersebut **tidak mungkin terjadi**, misalnya karena kondisi yang sudah terjamin oleh logika program. Dalam kasus seperti itu, sebaiknya tetap beri komentar yang menjelaskan bahwa exception tersebut sengaja diabaikan:
+Ada kalanya memang kita tahu bahwa _exception_ tersebut **tidak mungkin terjadi**, misalnya karena kondisi yang sudah terjamin oleh logika program. Dalam kasus seperti itu, sebaiknya tetap beri komentar yang menjelaskan bahwa _exception_ tersebut sengaja diabaikan:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -514,7 +514,7 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Cara lain untuk “menelan” exception adalah dengan hanya mencetaknya ke error stream:
+Cara lain untuk “menelan” _exception_ adalah dengan hanya mencetaknya ke error stream:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -541,9 +541,9 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Menangani exception dengan cara ini memang praktis, tapi kita perlu memastikan bahwa **tidak ada informasi penting yang hilang**, terutama jika pemanggil metode membutuhkan informasi itu untuk memperbaiki masalah.
+Menangani _exception_ dengan cara ini memang praktis, tapi kita perlu memastikan bahwa **tidak ada informasi penting yang hilang**, terutama jika pemanggil metode membutuhkan informasi itu untuk memperbaiki masalah.
 
-Kita juga bisa *tanpa sengaja* menelan exception dengan tidak menyertakannya sebagai penyebab ketika melempar exception baru:
+Kita juga bisa *tanpa sengaja* menelan _exception_ dengan tidak menyertakannya sebagai penyebab ketika melempar exception baru:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -555,10 +555,10 @@ public int getPlayerScore(String playerFile) {
 }
 ```
 
-Sekilas terlihat benar, karena kita melempar exception baru untuk memberi tahu bahwa ada kesalahan.
+Sekilas terlihat benar, karena kita melempar _exception_ baru untuk memberi tahu bahwa ada kesalahan.
 Namun, kita kehilangan konteks asli (`IOException`) yang bisa membantu melacak akar masalahnya.
 
-Solusi yang benar adalah menyertakan exception asli sebagai penyebab:
+Solusi yang benar adalah menyertakan _exception_ asli sebagai penyebab:
 
 ```java
 public int getPlayerScore(String playerFile) {
@@ -575,8 +575,8 @@ Perbedaan kecil ini sangat penting — dengan menyertakan `IOException` sebagai 
 
 ### 5.2 | Using return in a finally block
 
-Cara lain yang tanpa sadar bisa *menelan* exception adalah dengan menggunakan `return` di dalam blok `finally`.
-Ini berbahaya karena ketika `finally` mengembalikan nilai secara tiba-tiba, JVM akan **mengabaikan exception yang dilempar** dari blok `try`.
+Cara lain yang tanpa sadar bisa *menelan* _exception_ adalah dengan menggunakan `return` di dalam blok `finally`.
+Ini berbahaya karena ketika `finally` mengembalikan nilai secara tiba-tiba, JVM akan **mengabaikan _exception_ yang dilempar** dari blok `try`.
 
 Contoh:
 
@@ -600,14 +600,14 @@ Menurut *Java Language Specification*:
 > * Jika blok `finally` berakhir secara normal, maka eksekusi `try` juga berakhir secara tiba-tiba karena alasan R.
 > * Namun, jika blok `finally` juga berakhir secara tiba-tiba karena alasan lain S (misalnya `return`, `throw`, atau `break`), maka alasan R akan **dibuang**, dan `try` akan berakhir karena alasan S.
 
-Artinya: jika kamu melakukan `return`, `throw` baru, atau keluar paksa dari `finally`, maka exception yang seharusnya muncul akan hilang total.
+Artinya: jika kamu melakukan `return`, `throw` baru, atau keluar paksa dari `finally`, maka _exception_ yang seharusnya muncul akan hilang total.
 Itu sebabnya, menempatkan `return` di dalam `finally` adalah praktik yang sebaiknya **dihindari sepenuhnya**.
 
 ### 5.3 | Menggunakan `throw` di dalam `finally` block
 
-Mirip seperti penggunaan `return` di dalam blok `finally`, melempar exception (`throw`) di sana juga **menggantikan exception sebelumnya** yang mungkin muncul dari blok `try` atau `catch`.
+Mirip seperti penggunaan `return` di dalam blok `finally`, melempar _exception_ (`throw`) di sana juga **menggantikan _exception_ sebelumnya** yang mungkin muncul dari blok `try` atau `catch`.
 
-Akibatnya, exception asli yang seharusnya muncul akan **hilang**, dan yang tersisa hanya exception dari blok `finally`.
+Akibatnya, _exception_ asli yang seharusnya muncul akan **hilang**, dan yang tersisa hanya _exception_ dari blok `finally`.
 
 Contoh:
 
@@ -624,10 +624,10 @@ public int getPlayerScore(String playerFile) {
 ```
 
 Pada kode di atas, `IllegalStateException` yang dilempar dari blok `catch` akan **terhapus**, karena blok `finally` juga melempar `OtherException`.
-Akhirnya, hanya `OtherException` yang terlihat keluar dari metode ini.
+Akhirnya, hanya `Other_exception_` yang terlihat keluar dari metode ini.
 
 Kesimpulannya:
-Jangan pernah melempar exception baru dari dalam `finally` kecuali benar-benar yakin. Jika perlu menangani kondisi khusus di `finally`, sebaiknya lakukan dengan hati-hati—misalnya log error atau bersihkan sumber daya—tanpa mengacaukan exception utama yang sedang diproses.
+Jangan pernah melempar _exception_ baru dari dalam `finally` kecuali benar-benar yakin. Jika perlu menangani kondisi khusus di `finally`, sebaiknya lakukan dengan hati-hati—misalnya log error atau bersihkan sumber daya—tanpa mengacaukan exception utama yang sedang diproses.
 
 
 ### 5.4 | Menggunakan `throw` sebagai `goto`
@@ -648,14 +648,14 @@ public void doSomething() {
 
 Kode semacam ini aneh, karena `throw` di sini digunakan **untuk mengatur alur program**, bukan untuk **menangani kesalahan**.
 
-Pendekatan seperti ini membuat logika program jadi membingungkan, sulit diikuti, dan melanggar prinsip dasar dari pengecualian (exception) yang seharusnya hanya digunakan untuk menangani kondisi tak terduga, bukan untuk lompat-lompat antar bagian kode seperti `goto`.
+Pendekatan seperti ini membuat logika program jadi membingungkan, sulit diikuti, dan melanggar prinsip dasar dari pengecualian (_exception_) yang seharusnya hanya digunakan untuk menangani kondisi tak terduga, bukan untuk lompat-lompat antar bagian kode seperti `goto`.
 
 Kalau memang tujuannya hanya mengatur urutan eksekusi, gunakan kontrol alur normal seperti `if`, `return`, atau `break`, bukan `throw`.
 
 ---
 ## 6 | Common Exceptions and Errors
 
-Berikut beberapa pengecualian (exception) dan error umum yang sering ditemui dalam Java:
+Berikut beberapa pengecualian (_exception_) dan error umum yang sering ditemui dalam Java:
 
 ### 6.1 | Checked Exceptions**
 - *IOException* – Pengecualian ini biasanya menunjukkan bahwa terjadi kegagalan pada jaringan, sistem berkas (filesystem), atau database.
