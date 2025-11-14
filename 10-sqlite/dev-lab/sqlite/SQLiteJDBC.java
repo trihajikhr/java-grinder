@@ -16,14 +16,13 @@ public class SQLiteJDBC {
         atr.put('u', "UNIQUE KEY");
         atr.put('n', "NOT NULL");
         atr.put('m', "NULL");
-        atr.put('i', "AUTO_INCREMENT");
+        atr.put('i', "AUTOINCREMENT"); // sqlite:autoincrement - mysql:auto_increment
 
-        tipe.put('i', "INT");
-        tipe.put('g', "BIGINT");
-        tipe.put('d', "DECIMAL(15,3)");
+        tipe.put('i', "INTEGER");
+        tipe.put('d', "DECIMAL");
         tipe.put('f', "FLOAT");
         tipe.put('c', "CHAR");
-        tipe.put('v', "VARCHAR(100)");
+        tipe.put('v', "VARCHAR");
         tipe.put('b', "BOOLEAN");
         tipe.put('t', "TEXT");
         tipe.put('s', "DATE");
@@ -108,8 +107,10 @@ public class SQLiteJDBC {
             printAtr();
             while(true){
                 boolean pass = true;
-                atrVal = hand.safeName("Pilih beberapa atachment: ", 20);
-                atrVal = atrVal.toLowerCase();
+                atrVal = hand.safeName("Pilih beberapa attachment: ", 20);
+                atrVal = atrVal.toLowerCase().replace(" ", ""); // hilangkan spasi & lowercase
+
+                // cek valid
                 for(int i=0; i<atrVal.length(); i++){
                     if(!atr.containsKey(atrVal.charAt(i))){
                         System.out.println("Inputan invalid!");
@@ -121,14 +122,15 @@ public class SQLiteJDBC {
 
                 if(!pass) continue;
 
-                atrFinal.setLength(0);
                 for(int i=0; i<atrVal.length(); i++){
                     atrFinal.append(" ").append(atr.get(atrVal.charAt(i)));
                 }
-                break;
+
+                break; // keluar loop
             }
 
-            temp += var + " " + tipe.get(a) + " " + atrFinal;
+            temp += var + " " + tipe.get(a) + " " + atrFinal.toString().trim(); // pakai trim
+
             System.out.println("+> " + temp);
             query += temp;
             int pil = hand.safeInt("Ingin menambahkan data lagi? (1:ya, 0:tidak): ", 0,1);

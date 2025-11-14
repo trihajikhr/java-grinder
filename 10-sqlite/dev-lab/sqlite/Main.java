@@ -6,7 +6,7 @@ public class Main {
         SQLiteJDBC data = new SQLiteJDBC();
 
         System.out.println("=== PROGRAM PEMBUATAN DATABASE ===\n");
-        System.out.println("1 >> Pembuatan databse...");
+        System.out.println("1 >> Pembuatan database...");
 
         // membuat database cuy..
         String dbName = hand.safeName("Masukan nama database: ", 20);

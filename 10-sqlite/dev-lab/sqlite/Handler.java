@@ -67,6 +67,7 @@ public class Handler {
                 clearLine();
             }
         }
+        clearLine();
         return c;
     }
 
@@ -88,5 +89,9 @@ public class Handler {
             clearLine();
         }
         return ans;
+    }
+
+    public void debug(String prompt){
+        System.err.println("Value: " + prompt);
     }
 }
