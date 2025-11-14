@@ -29,11 +29,7 @@ Validasi tipe data di SQLite lebih longgar dan banyak bergantung pada aplikasi.
 
 ## 2 | Tidak Mendukung ENUM
 
-SQLite tidak menyediakan tipe data **ENUM**, yang umum digunakan pada MySQL.
-
-### 2.1 | SQLite:
-
-Gunakan kombinasi TEXT + CHECK:
+SQLite tidak menyediakan tipe data **ENUM**, yang umum digunakan pada MySQL. Sebagai gantinya, kita harus menggunakan kombinasi TEXT + CHECK:
 
 ```sql
 sesi TEXT CHECK(sesi IN ('pagi', 'siang', 'malam'))
@@ -49,7 +45,7 @@ SQLite hanya mengenali autoincrement pada bentuk berikut:
 INTEGER PRIMARY KEY AUTOINCREMENT
 ```
 
-### 3.1 | Perbedaan dengan DBMS lain:
+Perbedaan dengan DBMS lain:
 
 * MySQL: `AUTO_INCREMENT`
 * PostgreSQL: `SERIAL` atau `GENERATED AS IDENTITY`
@@ -151,7 +147,7 @@ Versi modern mengaktifkannya secara default, tetapi ini penting jika bekerja den
 
 ---
 
-# **Kesimpulan**
+## Kesimpulan
 
 SQLite menggunakan SQL, tetapi dengan filosofi yang berbeda: sederhana, ringan, dan fleksibel. Perbedaan paling signifikan meliputi:
 
@@ -160,9 +156,4 @@ SQLite menggunakan SQL, tetapi dengan filosofi yang berbeda: sederhana, ringan, 
 * Mekanisme autoincrement yang unik
 * Ketergantungan pada konvensi file tunggal
 
-SQLite ideal untuk aplikasi desktop, mobile, embedded system, prototipe, atau proyek kecil hingga menengah.
-Namun, untuk sistem berskala besar dengan kebutuhan transaksi tinggi, MySQL, PostgreSQL, atau SQL Server tetap lebih unggul.
-
----
-
-Kalau mau, aku bisa buatkan versi *cheat sheet* ringkas dengan tabel perbedaan SQL umum vs SQLite.
+SQLite ideal untuk aplikasi desktop, mobile, embedded system, prototipe, atau proyek kecil hingga menengah. Namun, untuk sistem berskala besar dengan kebutuhan transaksi tinggi, MySQL, PostgreSQL, atau SQL Server tetap lebih unggul.

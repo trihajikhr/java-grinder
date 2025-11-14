@@ -60,7 +60,7 @@ public class SQLiteJDBC {
         if(!fold.exists()) fold.mkdir();
 
         Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite:10-sqlite/sqlite-database/" + dbName  + ".db");
+        conn = DriverManager.getConnection("jdbc:sqlite:21-database-acces/10-sqlite/sqlite-database/" + dbName  + ".db");
     }
 
     public Connection createDatabase(String dbName){

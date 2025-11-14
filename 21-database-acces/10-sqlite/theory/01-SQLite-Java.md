@@ -268,4 +268,90 @@ create table peminjaman (
 );
 ```
 
-Oh ya, ingat baik-baik, bahwa query SQLite memiliki beberapa perbedaan. Dan perbedaan ini perlu diketahui supaya tidak melakukan kesalahan selama menggunakan query SQLite, kunjungi 
+Oh ya, ingat baik-baik, bahwa query SQLite memiliki beberapa perbedaan. Dan perbedaan ini perlu diketahui supaya tidak melakukan kesalahan selama menggunakan query SQLite, kunjungi [Perbedaan Query SQLite](03-Perbedaan-Query-SQLite.md) untuk penjelasan lebih lanjut.
+
+---
+
+## 4 | Insert Operation
+
+Prrogram Java berikut menunjukan cara mengambil dan menampilkan data dari table `company` yang sebelumnya ktia buat diatas:
+
+```java
+import java.sql.*;
+
+public class SQLiteJDBC {
+
+  public static void main( String args[] ) {
+
+   Connection c = null;
+   Statement stmt = null;
+   try {
+      Class.forName("org.sqlite.JDBC");
+      c = DriverManager.getConnection("jdbc:sqlite:test.db");
+      c.setAutoCommit(false);
+      System.out.println("Opened database successfully");
+
+      stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
+      
+      while ( rs.next() ) {
+         int id = rs.getInt("id");
+         String  name = rs.getString("name");
+         int age  = rs.getInt("age");
+         String  address = rs.getString("address");
+         float salary = rs.getFloat("salary");
+         
+         System.out.println( "ID = " + id );
+         System.out.println( "NAME = " + name );
+         System.out.println( "AGE = " + age );
+         System.out.println( "ADDRESS = " + address );
+         System.out.println( "SALARY = " + salary );
+         System.out.println();
+      }
+      rs.close();
+      stmt.close();
+      c.close();
+   } catch ( Exception e ) {
+      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+      System.exit(0);
+   }
+   System.out.println("Operation done successfully");
+  }
+}
+```
+
+Bila program diatas dikompilasi dan dijalankan, akan menghasilkan hasil sebagai berikut:
+
+```
+Opened database successfully
+ID = 1
+NAME = Paul
+AGE = 32
+ADDRESS = California
+SALARY = 20000.0
+
+ID = 2
+NAME = Allen
+AGE = 25
+ADDRESS = Texas
+SALARY = 15000.0
+
+ID = 3
+NAME = Teddy
+AGE = 23
+ADDRESS = Norway
+SALARY = 20000.0
+
+ID = 4
+NAME = Mark
+AGE = 25
+ADDRESS = Rich-Mond
+SALARY = 65000.0
+
+Operation done successfully
+```
+
+### 4.1 | Menggunakan Class
+
+Contoh diatas hanya memberikan inti dari bagaimana operasi `INSERT` digunakan pada SQLite, untuk bisa menggunakanya dengan lebih baik, aku akan mencoba untuk membuatnya lebih dinamis dan lebih enak:
+
