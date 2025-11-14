@@ -114,7 +114,7 @@ Pelajari dasar-dasar Java seperti sintaks dasar, tipe data, variabel, percabanga
 - [Data Types and Variables](01-learn-the-basics/theory/03-Data-Types-and-Variables.md)
 - [Variables and Scopes](01-learn-the-basics/theory/04-Variables-and-Scopes.md)
 - [Type Casting](01-learn-the-basics/theory/05-Type-Casting.md)
-- [Strings and Methods](01-learn-the-basics/theory/06-Strings-and-Methods.md)
+- [Strings and Methods](01-learn-the-basics/theory/06-Strings-and-Methods.md) - HERE
 - [Math Operations](01-learn-the-basics/theory/07-Math-Operations.md)
 - [Arrays](01-learn-the-basics/theory/08-Arrays.md)
 - [Conditionals](01-learn-the-basics/theory/09-Conditionals.md)
