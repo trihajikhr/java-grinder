@@ -36,7 +36,7 @@ SQLite adalah basis data relasional yang bersifat ringan dan berbasis berkas (*f
 
 Untuk pemasangan SQLite pada Intellij tergolong mudah. Anggap saja kita adalah pengguna Java yang cakap dan modern (😂 misal), mungkin kita akan menggunakan salah satu Java build tool, seperti Maven, Gradle, atau sejenisnya. Disini aku akan mencontohkan semisal kita membuat project java menggunakan Maven.
 
-Jika bingung, baca materi buatanku tentang [Apache Maven Java](../../08-java-build-tools/theory/01-Apache-Maven-Java.md). Jika tidak mau ambil pusing, buat saja projek baru, lalu ikuti pilihan berikut:
+Jika bingung, baca materi buatanku tentang [Apache Maven Java](../../../19-build-tools/maven/theory/01-Apache-Maven-Java.md). Jika tidak mau ambil pusing, buat saja projek baru, lalu ikuti pilihan berikut:
 
 ![img.png](media/img.png)
 

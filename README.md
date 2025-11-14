@@ -109,17 +109,17 @@ Java berfungsi sebagai **platform komputasi untuk pengembangan aplikasi**. Bahas
 
 Pelajari dasar-dasar Java seperti sintaks dasar, tipe data, variabel, percabangan (conditionals), fungsi, struktur data, paket (packages), dan lainnya.
 
-- [Basic Syntax](02-learn-the-basics/theory/01-Basic-Syntax.md)
-- [Lifecycle of a Program](02-learn-the-basics/theory/02-Lifecycle-of-a-Program.md)
-- [Data Types and Variables](02-learn-the-basics/theory/03-Data-Types-and-Variables.md)
-- [Variables and Scopes](02-learn-the-basics/theory/04-Variables-and-Scopes.md)
-- [Type Casting](02-learn-the-basics/theory/05-Type-Casting.md)
-- [Strings and Methods](02-learn-the-basics/theory/06-Strings-and-Methods.md)
-- [Math Operations](02-learn-the-basics/theory/07-Math-Operations.md)
-- [Arrays](02-learn-the-basics/theory/08-Arrays.md)
-- [Conditionals](02-learn-the-basics/theory/09-Conditionals.md)
-- [Loops](02-learn-the-basics/theory/10-Loops.md)
-- [Basics of OOP](02-learn-the-basics/theory/11-Basics-of-OOP.md)
+- [Basic Syntax](01-learn-the-basics/theory/01-Basic-Syntax.md)
+- [Lifecycle of a Program](01-learn-the-basics/theory/02-Lifecycle-of-a-Program.md)
+- [Data Types and Variables](01-learn-the-basics/theory/03-Data-Types-and-Variables.md)
+- [Variables and Scopes](01-learn-the-basics/theory/04-Variables-and-Scopes.md)
+- [Type Casting](01-learn-the-basics/theory/05-Type-Casting.md)
+- [Strings and Methods](01-learn-the-basics/theory/06-Strings-and-Methods.md)
+- [Math Operations](01-learn-the-basics/theory/07-Math-Operations.md)
+- [Arrays](01-learn-the-basics/theory/08-Arrays.md)
+- [Conditionals](01-learn-the-basics/theory/09-Conditionals.md)
+- [Loops](01-learn-the-basics/theory/10-Loops.md)
+- [Basics of OOP](01-learn-the-basics/theory/11-Basics-of-OOP.md)
 
 ---
 ## 3 | Basic OOP
