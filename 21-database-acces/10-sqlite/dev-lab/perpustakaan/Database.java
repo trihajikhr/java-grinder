@@ -1,5 +1,6 @@
 package perpustakaan;
 
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
 import java.sql.*;
@@ -8,9 +9,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Database {
     Handler hand = new Handler();
-    Connection con = null;
-    Statement stat = null;
-    ArrayList<String> sesion =  new ArrayList<String>(3);
+    private Connection con = null;
+    private Statement stat = null;
+    private ArrayList<String> sesion =  new ArrayList<String>(3);
 
     private void openDatabase() throws SQLException, ClassNotFoundException {
         this.con = DriverManager.getConnection("jdbc:sqlite:21-database-acces/10-sqlite/sqlite-database/perpustakaan.db");
@@ -30,6 +31,19 @@ public class Database {
             System.out.println(e.getMessage());
             System.exit(0);
         }
+    }
+
+    public void closeApp() {
+        try {
+            if (con != null && !con.isClosed()) {
+                con.commit();
+                con.close();
+                System.out.println("Koneksi ditutup. Program dihentikan.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Gagal menutup koneksi: " + e.getMessage());
+        }
+        System.exit(0);
     }
 
     public void tampilPustakawan() {
@@ -55,6 +69,43 @@ public class Database {
             System.out.println(e.getMessage());
             System.exit(0);
         }
+    }
+
+    private String getCurrentSession() {
+        LocalTime now = LocalTime.now();
+
+        if(!now.isBefore(LocalTime.of(6,0)) && now.isAfter(LocalTime.of(12,0))) {
+            return "pagi";
+        } else if(!now.isBefore(LocalTime.of(12,0)) && now.isAfter(LocalTime.of(18,0))) {
+            return "siang";
+        } else {
+            return "malam";
+        }
+    }
+
+    private ArrayList<Integer> tampilPustakawanWaktu(){
+        ArrayList<Integer> waktu = new ArrayList<>();
+        String session = getCurrentSession();
+        System.out.println("Sesi saat ini: " + session);
+        try {
+            String sql = "SELECT * FROM pustakawan WHERE sesi = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, session);
+
+            ResultSet rs = stmt.executeQuery();
+            System.out.println("Daftar pustakawan tersedia: ");
+            while(rs.next()){
+                waktu.add(rs.getInt("id_pustakawan"));
+                System.out.println("[" + rs.getInt("id_pustakawan") + "]: " + rs.getString("nama"));
+            }
+
+            rs.close();
+            stmt.close();
+            hand.skip();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return waktu;
     }
 
     public void tambahPustakawan() {
@@ -151,6 +202,26 @@ public class Database {
         System.err.println("Records created successfully");
     }
 
+    private ArrayList<Integer> dataMahasiswa() {
+        ArrayList<Integer> siswa = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM mahasiswa";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                System.out.println("["+ rs.getInt("id_mahasiswa") + "]: " + rs.getString("nama"));
+                siswa.add(rs.getInt("id_mahasiswa"));
+            }
+
+            rs.close();
+            stmt.close();
+            hand.skip();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return siswa;
+    }
+
     public void daftarBuku(){
         try {
             ResultSet rs = stat.executeQuery("SELECT * FROM buku");
@@ -209,11 +280,79 @@ public class Database {
         System.err.println("Records created successfully");
     }
 
-    public void peminjaman() {
-        System.out.println("Masukan");
-        PreparedStatement stmt = null;
+    private ArrayList<Integer> dataBuku(){
+        ArrayList<Integer> buku = new ArrayList<>();
         try {
+            String sql = "SELECT * FROM buku";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                System.out.println("["+ rs.getInt("id_buku") + "]: " + rs.getString("judul"));
+                buku.add(rs.getInt("id_buku"));
+            }
 
+            rs.close();
+            stmt.close();
+            hand.skip();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+        return buku;
+    }
+
+    public void peminjaman() {
+        PreparedStatement stmt = null;
+
+        ArrayList<Integer> waktu = tampilPustakawanWaktu();
+        if(waktu.isEmpty()){
+            System.out.println("Perpustakaan tidak memiliki pustakawan yang tersedia!");
+            System.out.println("Daftarkan beberapa pustakawan padda sesi ini!");
+            return;
+        }
+
+        int id_pustakawan = hand.safeArrayInput("Masukan id_pustakawan: ", waktu);
+        ArrayList<Integer> siswa =  dataMahasiswa();
+
+        if(siswa.isEmpty()){
+            System.out.println("Tidak ada mahasiswa terdaftar!");
+            return;
+        }
+
+        int id_mahasiswa = hand.safeArrayInput("Masukan id_mahasiswa: ", siswa);
+        ArrayList<Integer> buku = dataBuku();
+
+        if(buku.isEmpty()){
+            System.out.println("Tidak ada buku terdaftar!");
+            System.out.println("Daftarkan beberapa buku!");
+            return;
+        }
+
+        int id_buku =  hand.safeArrayInput("Masukan id_buku: ", buku);
+
+        try {
+            LocalDateTime temp = LocalDateTime.now();
+            String tanggal = temp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+            String sql = "INSERT INTO peminjaman (id_pustakawan, id_mahasiswa, id_buku, tanggal) VALUES (?, ?, ?, ?)";
+            stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, id_pustakawan);
+            stmt.setInt(2, id_mahasiswa);
+            stmt.setInt(3, id_buku);
+            stmt.setString(4, tanggal);
+            stmt.executeUpdate();
+            con.commit();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            System.err.println("Error bang");
+            System.exit(0);
+        }
+        System.err.println("Records created successfully");
+    }
+
+    public void daftarPeminjaman() {
+        PreparedStatement stmt = null;
+
     }
 }

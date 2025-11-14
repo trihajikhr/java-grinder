@@ -20,13 +20,15 @@ public class Perpustakaan {
                     5. Daftar Buku
                     6. Tambah Buku
                     7. Peminjaman
-                    8. Pengembalian
+                    8. Daftar Peminjaman
+                    9. Pengembalian
                     0. Keluar
                     """;
             System.out.println(menu);
-            int pil = hand.safeInt("Pilihan Anda: ", 0, 8);
+            int pil = hand.safeInt("Pilihan Anda: ", 0, 9);
 
             if (pil == 0) {
+                data.closeApp();
                 break;
             } else if(pil == 1) {
                 data.tampilPustakawan();
@@ -42,6 +44,10 @@ public class Perpustakaan {
                 data.tambahBuku();
             } else if(pil == 7){
                 data.peminjaman();
+            } else if(pil == 8){
+               // data.daftarPeminjaman();
+            } else if(pil == 9){
+               // data.pengembalian();
             }
         }
     }

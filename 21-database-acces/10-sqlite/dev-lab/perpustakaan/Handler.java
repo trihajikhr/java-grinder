@@ -1,5 +1,6 @@
 package perpustakaan;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -76,6 +77,35 @@ public class Handler {
                 clearLine();
             } else {
                 break;
+            }
+        }
+        return ans;
+    }
+
+    // safe pengecekan arraylist
+    public int safeArrayInput(String prompt, ArrayList<Integer> data) {
+        int ans;
+        while(true){
+            System.out.print(prompt);
+            if(scan.hasNextInt()){
+                ans = scan.nextInt();
+                boolean found = false;
+                for(int i=0; i< data.size(); i++){
+                    if(data.get(i) == ans){
+                        found = true;
+                        break;
+                    }
+                }
+
+                if(!found){
+                    System.out.println("Input diluar pilihan!");
+                    clearLine();
+                } else {
+                    break;
+                }
+            } else {
+                System.out.println("Input tidak valid");
+                clearLine();
             }
         }
         return ans;
