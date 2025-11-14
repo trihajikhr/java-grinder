@@ -1,6 +1,8 @@
-# 4 | Type Casting
+# 5 | Type Casting
 
 Sebelum mempelajari **Java Type Casting**, pastikan kamu sudah paham tentang **Tipe Data di Java**.
+
+---
 
 ## 1 | Type Casting
 
@@ -12,6 +14,8 @@ Di Java, ada 13 jenis konversi tipe data, tetapi pada tutorial ini kita fokus pa
 2. **Narrowing Type Casting**
 
 Untuk mempelajari jenis konversi lainnya, lihat dokumentasi resmi Java: [Java Type Conversion](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html).
+
+---
 
 ## 2 | Widening Type Casting
 
@@ -45,6 +49,8 @@ Di contoh di atas, variabel `num` (tipe `int`) **secara otomatis dikonversi** me
 * **Aturan:** tipe data yang lebih kecil (lower data type) dikonversi menjadi tipe data yang lebih besar (higher data type).
 * Tidak ada kehilangan data, sehingga konversi ini terjadi **otomatis**.
 * Juga dikenal sebagai **Implicit Type Casting**.
+
+---
 
 ## 3 | Narrowing Type Casting
 
@@ -82,6 +88,8 @@ int data = (int)num;
 * Tanda `(int)` menunjukkan bahwa variabel `num` **dikonversi secara eksplisit** menjadi tipe `int`.
 * **Aturan:** tipe data yang lebih besar (higher data type) dikonversi menjadi tipe data yang lebih kecil (lower data type), sehingga **ada kemungkinan kehilangan data**.
 * Juga dikenal sebagai **Explicit Type Casting**.
+
+---
 
 ## 4 | Contoh konversi tipe lain
 
@@ -147,6 +155,8 @@ int num = Integer.parseInt(data);
 
 **Catatan:** Jika string tidak bisa dikonversi menjadi integer, akan muncul **NumberFormatException**.
 
+---
+
 ## 5 | Cheat-Sheet Java Type Casting
 
 **Type Casting** adalah proses mengubah nilai dari satu tipe data ke tipe data lain (misal `int` → `double`).
@@ -192,6 +202,8 @@ System.out.println(data); // Output: 10
 * Alias: **Explicit Type Casting**
 
 **Tips:** Selalu sadar akan kemungkinan kehilangan data saat casting tipe besar → kecil.
+
+---
 
 ## 6 | Contoh Konversi Lain Diperluas
 
@@ -244,6 +256,7 @@ System.out.println(whole); // Output: 3
 
 * Nilai di belakang koma akan hilang.
 
+---
 
 ## 7 | Ringkasan Implicit vs Explicit
 
@@ -255,6 +268,8 @@ System.out.println(whole); // Output: 3
 | String → int | `Integer.parseInt(String)` | Manual    | Bisa Exception         |
 | int → char   | `(char) int`               | Manual    | Bisa karakter berbeda  |
 | long → int   | `(int) long`               | Manual    | Bisa overflow          |
+
+---
 
 ## 8 | Tips Praktis
 

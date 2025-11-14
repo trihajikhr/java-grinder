@@ -1,5 +1,9 @@
 # 1 | Basic Syntax
 
+Pada materi kali ini, kita akan belajar hal-hal yang sangat basic, yaitu jenis-jenis variabel, dan aturan penamaan variabel. Walaupun sederhana, namun penting untuk dipahami sebelum memulai materi Java yang lain.
+
+---
+
 ## 1 | Variables
 
 Seperti yang telah kamu pelajari pada bagian sebelumnya, sebuah **objek** menyimpan *state*-nya di dalam **field**.
@@ -81,6 +85,8 @@ Apabila konteks membutuhkan pembedaan yang lebih spesifik, maka akan disebutkan 
 
 Kadang kamu juga akan menjumpai istilah *member*.
 Sebuah *type* (tipe data atau kelas) memiliki *member* yang mencakup *field*, *method*, dan *nested type* (tipe yang dideklarasikan di dalam tipe lain).
+
+---
 
 ## 2 | Naming Variables
 

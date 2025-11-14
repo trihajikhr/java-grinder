@@ -9,6 +9,8 @@ Tujuan dari artikel ini adalah untuk menjelaskan hal itu — menjawab pertanyaan
 
 Setelah membaca tulisan ini, kamu akan memahami **siklus eksekusi (execution lifecycle)** dari sebuah aplikasi Java, serta **aktivitas-aktivitas yang dilakukan JVM** selama tahap eksekusi tersebut.
 
+---
+
 ## 1 | Execution Lifecycle
 
 Siklus eksekusi dari sebuah aplikasi Java secara umum dapat dibagi menjadi tiga tahap utama:
@@ -341,14 +343,14 @@ Pada contoh sebelumnya, *custom class loader* digunakan untuk memuat `LargeClass
 
 ---
 
-### Program Exit
+## 2 | Program Exit
 
 *Program exit* mengacu pada proses penghentian eksekusi program. Ini berarti semua *thread* yang bukan *daemon thread* akan dihentikan, atau ada *thread* yang memanggil metode `exit()` dari kelas `Runtime`.
 Metode ini menghentikan JVM dan keluar dengan kode keluar (*exit code*) yang ditentukan. Namun, penggunaan metode ini dibatasi oleh *security manager*. Jika ada *security manager* dan ia tidak mengizinkan program untuk keluar, maka pemanggilan `exit()` akan melempar `SecurityException`.
 
 ---
 
-### Kesimpulan
+## 3 | Kesimpulan
 
 Dalam artikel ini, kita telah membahas lebih dalam tentang **siklus eksekusi aplikasi Java**. Seperti yang dijelaskan, ada banyak tahap yang dilakukan sebelum metode `main()` dijalankan. Mulai dari **class loading**, **linking**, **initializing**, hingga **unloading**, JVM melakukan serangkaian langkah kompleks untuk memastikan program berjalan dengan benar.
 

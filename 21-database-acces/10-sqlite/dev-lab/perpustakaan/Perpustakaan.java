@@ -40,6 +40,8 @@ public class Perpustakaan {
                 data.daftarBuku();
             } else if(pil == 6){
                 data.tambahBuku();
+            } else if(pil == 7){
+                data.peminjaman();
             }
         }
     }

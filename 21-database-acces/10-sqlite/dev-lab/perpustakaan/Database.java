@@ -208,4 +208,12 @@ public class Database {
         }
         System.err.println("Records created successfully");
     }
+
+    public void peminjaman() {
+        System.out.println("Masukan");
+        PreparedStatement stmt = null;
+        try {
+
+        }
+    }
 }

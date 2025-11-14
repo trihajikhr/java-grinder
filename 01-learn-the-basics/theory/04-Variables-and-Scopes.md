@@ -1,10 +1,16 @@
-# Variable Scope in Java
+# 4 | Variable Scope in Java
+
+Scope variabel adalah area atau jangkauan dalam kode program di mana sebuah variabel dapat diakses dan digunakan. Variabel yang dideklarasikan di luar fungsi (scope global) dapat diakses di mana saja, sedangkan variabel yang dideklarasikan di dalam fungsi (scope lokal) hanya dapat diakses dari dalam fungsi tersebut. Memahami scope membantu menghindari konflik penamaan dan mengelola variabel secara efektif.
+
+---
 
 ## 1 | Gambaran Umum
 
 Di Java, seperti di bahasa pemrograman lainnya, setiap variabel memiliki **scope** atau ruang lingkup. Ini adalah bagian dari program di mana variabel tersebut bisa digunakan dan berlaku.
 
 Dalam tutorial ini, kita akan memperkenalkan **ruang lingkup yang tersedia di Java** dan membahas perbedaan di antara mereka.
+
+---
 
 ## 2 | Class Scope (Ruang Lingkup Kelas)
 
@@ -29,7 +35,7 @@ Di sini, `ClassScopeExample` memiliki variabel kelas `amount` yang bisa diakses 
 
 Jika kita **tidak menggunakan `private`**, variabel ini akan dapat diakses dari **seluruh package**. Lihat artikel tentang **access modifiers** untuk informasi lebih lanjut.
 
-
+---
 
 ## 3 | Method Scope (Ruang Lingkup Metode)
 
@@ -50,6 +56,8 @@ public class MethodScopeExample {
 
 Di `methodA`, kita membuat variabel metode bernama `area`.
 Oleh karena itu, kita hanya bisa menggunakan `area` di dalam `methodA`, dan **tidak bisa digunakan di tempat lain**.
+
+---
 
 ## 4 | Loop Scope (Ruang Lingkup Loop)
 
@@ -73,6 +81,8 @@ public class LoopScopeExample {
 
 Di sini, `name` adalah variabel metode yang hanya bisa digunakan **di dalam loop** dan **tidak berlaku di luar loop**.
 
+---
+
 ## 5 | Bracket Scope (Ruang Lingkup Kurung)
 
 Kita juga bisa mendefinisikan **ruang lingkup tambahan** menggunakan kurung `{}` di mana saja:
@@ -92,6 +102,8 @@ public class BracketScopeExample {
 ```
 
 Variabel `number` hanya berlaku **di dalam kurung** tempat ia dideklarasikan.
+
+---
 
 ## 6 | Scope dan Variable Shadowing
 
@@ -121,6 +133,9 @@ Lebih baik menggunakan **prefix `this`** untuk mengakses variabel kelas:
 System.out.println(this.title);
 ```
 
+---
+
 ## 7 |  Kesimpulan
 
-Kita telah mempelajari berbagai **ruang lingkup variabel** yang ada di Java.
+Variabel scope merupakan konsep yang menentukan ruang lingkup serta masa hidup sebuah variabel di dalam program. Dalam Java, ruang lingkup variabel dibedakan menjadi tiga kategori utama, yaitu *local variable*, *instance variable*, dan *class variable*. Local variable hanya berlaku di dalam blok kode tempat variabel tersebut dideklarasikan dan tidak dapat diakses setelah eksekusi keluar dari blok tersebut. Instance variable merupakan bagian dari suatu objek sehingga dapat diakses selama objek tersebut masih berada dalam memori. Sementara itu, class variable yang dideklarasikan dengan kata kunci `static` menjadi milik kelas dan tetap tersedia sepanjang program berjalan. Variabel berscope kecil akan lebih diutamakan jika terdapat penamaan yang sama dengan variabel berscope lebih besar, dan local variable wajib diinisialisasi sebelum digunakan, tidak seperti instance maupun class variable yang memiliki nilai awal bawaan. Penerapan scope yang tepat berfungsi menjaga keteraturan, mencegah konflik nilai, serta meningkatkan keterbacaan program. Oleh karena itu, variabel sebaiknya dideklarasikan sedekat mungkin dengan lokasi penggunaannya untuk meminimalkan ruang lingkup yang tidak perlu.
+
