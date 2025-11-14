@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="finance.db" uuid="c51ea7b7-a71a-42af-8969-f1dbff609d9f">
+    <data-source source="LOCAL" name="finance.db" uuid="825d2255-9cbc-4b62-acda-61dbe1722b15">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:10-sqlite/sqlite-database/finance.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:21-database-acces/10-sqlite/sqlite-database/finance.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="perpustakaan.db" uuid="ed3d7f92-9e46-40ca-b8f1-5a48fba68473">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:21-database-acces/10-sqlite/sqlite-database/perpustakaan.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

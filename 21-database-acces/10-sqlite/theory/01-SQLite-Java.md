@@ -223,5 +223,49 @@ Ketika program diatas dikompile dan dijalankan, maka akan membuat table `COMPANY
 
 ### 3.1 | Menggunakan Class
 
-Pendekatan diatas bsia ditingkatkan lagi, jadi aku mencoba membuat implementasi didalam class, untuk menjadikan operasi penambahan table di database menjadi lebih fleksibel. Sebenarnya aku hanya ingin latihan sederhana saja, karena proses pembuatan table sebenarnya akan jauh lebih cepat jika kita langsung menulis query pembuatan table. Pembuatan table pada proses perancangan database awal biasanya hanya dilakukan sekali, sehingga tidak masalah jika dibuat secara _hardcoded_. Tips tambahan, gunakan multiple line string (`"""..."""`) jika perlu.
+Pendekatan diatas bisa ditingkatkan lagi, jadi aku mencoba membuat implementasi didalam class, untuk menjadikan operasi penambahan table di database menjadi lebih fleksibel. Sebenarnya aku hanya ingin latihan sederhana saja, karena proses pembuatan table sebenarnya akan jauh lebih cepat jika kita langsung menulis query pembuatan table. Pembuatan table pada proses perancangan database awal biasanya hanya dilakukan sekali, sehingga tidak masalah jika dibuat secara _hardcoded_. Tips tambahan, gunakan multiple line string (`"""..."""`) jika perlu.
 
+Berikut link package class berisi program Java SQLite: [Java SQLite](../dev-lab/sqlite)
+
+### 3.2 | Cara Langsung
+
+Karena proses pembuatan table hanya dilakukan sekali diawal pembuatan program, dan biasanya tidak berubah banyak sepanjang jalanya program, lebih masuk akal untuk membuat table secara langsung dengan menggunakan query SQL. Jika sudah memiliki file database misal `test.db`, maka bisa saja langsung gunakan opsi tambah database, di pojok kanan atas Intellij. Lalu pilih `New`, dan pilih opsi `Data Source`, lalu pilih pilihan database `SQLite`. Setelah itu copy paste path dari lokasi database yang ingin kita koneksikan.
+
+Cek konektivitas, dan jika berhasil, klik `Apply`, lalu `oke`. Maka sekarang database kita sudah masuk kedalam daftar database yang aktif, dan bisa kita extend untuk melihat daftara table, dan bahkan isi dari database (_jika nanti sudah ada isinya_).
+
+Untuk membuat table secara langsung, klik opsi `New` lagi, dan pilih opsi `Query Console`. Nahh.. disinilah kita bisa mengetikan query SQL secara langsung untuk membuat table, misal seperti ini:
+
+```sql
+create table pustakawan (
+    id_pustakawan INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,
+    nama VARCHAR NOT NULL,
+    gaji DECIMAL NOT NULL,
+    sesi CHECK(sesi IN('pagi', 'siang', 'malam'))
+);
+
+create table mahasiswa (
+    id_mahasiswa INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    nama VARCHAR NOT NULL ,
+    tanggal_regis DATETIME,
+    buku_dipinjam INTEGER NOT NULL DEFAULT 0,
+    total_denda DECIMAL NOT NULL DEFAULT 0
+);
+
+create table buku (
+    id_buku INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,
+    judul VARCHAR NOT NULL,
+    penulis VARCHAR NOT NULL,
+    tahun_rilis INTEGER NOT NULL,
+    bahasa VARCHAR NOT NULL,
+    kuota INTEGER NOT NULL
+);
+
+create table peminjaman (
+    id_pustakawan INTEGER NOT NULL,
+    id_mahasiswa INTEGER NOT NULL,
+    id_buku INTEGER NOT NULL,
+    tanggal DATETIME NOT NULL
+);
+```
+
+Oh ya, ingat baik-baik, bahwa query SQLite memiliki beberapa perbedaan. Dan perbedaan ini perlu diketahui supaya tidak melakukan kesalahan selama menggunakan query SQLite, kunjungi 
