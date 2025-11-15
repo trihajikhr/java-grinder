@@ -19,8 +19,7 @@ jobs:
 
       - name: Build site with Jekyll
         run: |
-          gem install jekyll bundler
-          gem install just-the-docs
+          bundle install
           bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
