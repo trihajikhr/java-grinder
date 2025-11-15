@@ -1,0 +1,9 @@
+title: "API Design Learning Log"
+theme: "just-the-docs"
+
+# Enable dark mode
+just_the_docs:
+  logo: "/assets/images/logo.png" # optional
+  show_navbar: true
+  header_layout: "default"
+  color_scheme: "dark"
