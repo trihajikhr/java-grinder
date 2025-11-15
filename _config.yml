@@ -4,4 +4,5 @@ remote_theme: pmarsceill/just-the-docs
 just_the_docs:
   color_scheme: dark
   show_navbar: true
+  color_scheme_toggle: true
   header_layout: default
