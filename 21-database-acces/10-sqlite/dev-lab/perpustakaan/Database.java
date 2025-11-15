@@ -1,5 +1,6 @@
 package perpustakaan;
 
+import javax.xml.transform.Result;
 import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
@@ -351,8 +352,88 @@ public class Database {
         System.err.println("Records created successfully");
     }
 
+    public ResultSet cheryPicker(String table, String column, int id){
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM " + table + " WHERE " + column + " = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return rs;
+    }
+
     public void daftarPeminjaman() {
         PreparedStatement stmt = null;
+        String menu = """
+                      1. Cari berdasarkan Mahasiswa
+                      2. Cari berdasarkan Buku
+                      3. Tampilkan semuanya
+                      """;
+        System.out.println(menu);
+        int pil = hand.safeInt("Masukan pilihan anda: ", 1, 3);
 
+        if(pil == 1) {
+            try {
+                ArrayList<Integer> data = dataMahasiswa();
+                int n = hand.safeArrayInput("Masukan id_mahasiswa: ", data);
+                String sql = "SELECT * FROM peminjaman WHERE id_mahasiswa = ?";
+                stmt = con.prepareStatement(sql);
+                stmt.setInt(1, n);
+
+                ResultSet rs = stmt.executeQuery();
+                System.out.println("Daftar Pinjaman Mahasiswa: ");
+                while(rs.next()){
+                    System.out.println("Tanggal    : " + rs.getString("tanggal"));
+
+                    System.out.println("Pustakawan : " + cheryPicker("pustakawan", "id_pustakawan", rs.getInt("id_pustakawan")).getString("nama"));
+                    System.out.println("Mahasiswa  : " + cheryPicker("mahasiswa", "id_mahasiswa", rs.getInt("id_mahasiswa")).getString("nama"));
+                    System.out.println("Buku       : " + cheryPicker("buku", "id_buku", rs.getInt("id_buku")).getString("judul"));
+                    hand.skip();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } else if(pil == 2) {
+            try {
+                ArrayList<Integer> data = dataBuku();
+                int n = hand.safeArrayInput("Masukan id_buku: ", data);
+                String sql = "SELECT * FROM peminjaman WHERE id_buku = ?";
+                stmt = con.prepareStatement(sql);
+                stmt.setInt(1,n);
+
+                ResultSet rs = stmt.executeQuery();
+                System.out.println("Daftar Pinjaman Buku: ");
+                while(rs.next()){
+                    System.out.println("Tanggal    : " + rs.getString("tanggal"));
+
+                    System.out.println("Pustakawan : " + cheryPicker("pustakawan", "id_pustakawan", rs.getInt("id_pustakawan")).getString("nama"));
+                    System.out.println("Mahasiswa  : " + cheryPicker("mahasiswa", "id_mahasiswa", rs.getInt("id_mahasiswa")).getString("nama"));
+                    System.out.println("Buku       : " + cheryPicker("buku", "id_buku", rs.getInt("id_buku")).getString("judul"));
+                    hand.skip();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } else if(pil == 3) {
+            try {
+                String sql = "SELECT * FROM peminjaman";
+                stmt = con.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                System.out.println("Daftar Semua Pinjaman: ");
+                while (rs.next()) {
+                    System.out.println("Tanggal    : " + rs.getString("tanggal"));
+                    System.out.println("Pustakawan : " + cheryPicker("pustakawan", "id_pustakawan", rs.getInt("id_pustakawan")).getString("nama"));
+                    System.out.println("Mahasiswa  : " + cheryPicker("mahasiswa", "id_mahasiswa", rs.getInt("id_mahasiswa")).getString("nama"));
+                    System.out.println("Buku       : " + cheryPicker("buku", "id_buku", rs.getInt("id_buku")).getString("judul"));
+                    hand.skip();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

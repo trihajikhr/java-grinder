@@ -45,7 +45,7 @@ public class Perpustakaan {
             } else if(pil == 7){
                 data.peminjaman();
             } else if(pil == 8){
-               // data.daftarPeminjaman();
+                data.daftarPeminjaman();
             } else if(pil == 9){
                // data.pengembalian();
             }
