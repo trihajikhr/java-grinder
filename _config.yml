@@ -1,9 +1,7 @@
 title: "Java Learning Log"
-theme: "just-the-docs"
+remote_theme: pmarsceill/just-the-docs
 
-# Enable dark mode
 just_the_docs:
-  logo: "/assets/images/logo.png" # optional
+  color_scheme: dark
   show_navbar: true
-  header_layout: "default"
-  color_scheme: "dark"
+  header_layout: default
