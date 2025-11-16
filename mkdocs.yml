@@ -1,37 +1,54 @@
-site_name: Java Grinder
-site_url: https://sitename.exmaple
+site_name: Java Crash Course
+site_url: https://trihajikhr.github.io/java-grinder/
+site_description: 'A practical, no-nonsense Java crash course for learners who want to grasp core concepts fast—complete with explanations, examples, and real project guidance.'
+
 theme:
+  language: id
+  name: material
+  palette:
+    - scheme: slate
+      toggle:
+        name: Dark mode
+        icon: material/weather-sunny
+      primary: green
+      accent: blue
+    - scheme: slate
+      toggle:
+        name: Light mode
+        icon: material/weather-night
+      primary: deep-purple
+      accent: blue
   features:
     - navigation.footer
     - content.code.copy
     - content.code.select
     - content.code.annotate
-  name: material
-  font:
-  #      text: Merriweather Sans
-  #      code: Red HaT Mono
-
+    - search.suggest
+    - toc.integrate
+    - search.highlight
+    - search.share
+    - announce.dismiss
+  logo: logo.png
+  favicon: favicon.ico
   icon:
-    logo: fontawesome/solid/w
+    repo: fontawesome/brands/github
 
-  palette:
-    - scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Dark mode
-      primary: green
-      accent: deep-purple
-
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Light mode
-      primary: blue
-      accent: deep-orange
+repo_url: https://github.com/trihajikhr/java-grinder
+repo_name: trihajikhr/java-grinder
+#copyright: >
+#  Copyright © 2025 by <a href="https://github.com/trihajikhr">trihajikhr</a>.
+#  Licensed under MIT.<br/>
+#  Made with ❤️.
+copyright: >
+  Copyright © 2025 by <a href="https://github.com/trihajikhr">Trihaji Khoerur Rohman</a>.
+  Licensed under MIT.<br/>
+  Made with ❤️.
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+      tex_inline_wrap: [ '$', '$' ]
+      tex_block_wrap: [ '$$', '$$' ]
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -51,14 +68,48 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  - meta
+  - toc:
+      permalink: true
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascript/consent.js
+  - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+#extra_css:
+#  - stylesheets/extra.css
+
+#plugins:
+#  - mkdocs-simple-hooks:
+#      hooks:
+#        on_env: "hooks:on_env"
+#  - search
+#  - tags
+#  - literate-nav:
+#      nav_file: navigation.md
+#  - git-revision-date-localized:
+#      enable_creation_date: true
+#      enabled: true
+#  - git-authors
+#  - git-committers:
+#      repository: trihajikhr/java-grinder
+#      docs_path: docs/
+#      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
+#      enabled: false
+#      branch: main
+#  - macros
+#  - rss
+
 
 extra:
   social:
     - icon: simple/github
       link: https://github.com/trihajikhr
-
-copyright: Copyright &copy 2025 by Trihaji Khoerur Rohman | Made by Love ❤️
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
