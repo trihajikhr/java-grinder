@@ -21,7 +21,7 @@ theme:
   features:
     - navigation.path
     - navigation.top
-#    - navigation.tabs
+    - navigation.tabs
     - navigation.tracking
     - navigation.footer
     - content.code.copy
