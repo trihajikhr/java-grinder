@@ -117,7 +117,7 @@ extra:
     - icon: simple/github
       link: https://github.com/trihajikhr
     - icon: simple/rss
-      link: rss.xml
+      link: feed_rss_created.xml
   consent:
     title: Cookie consent
     description: >-
