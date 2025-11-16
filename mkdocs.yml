@@ -12,7 +12,7 @@ theme:
         icon: material/weather-sunny
       primary: green
       accent: blue
-    - scheme: slate
+    - scheme: default
       toggle:
         name: Light mode
         icon: material/weather-night

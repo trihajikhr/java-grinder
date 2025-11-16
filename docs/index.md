@@ -36,3 +36,5 @@ Keterangan folder:
 Baca teori, lalu perbanyak praktek. Dari praktek, kamu belajar dari error dengan menemukan solusi dan membuka konsep dan pendekatan baru.
 
 Tips: _Baca beberapa kode orang lain jika perlu_
+
+halo kawan apa yang kamu lakukan
