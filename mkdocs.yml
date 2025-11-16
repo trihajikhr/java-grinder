@@ -1,0 +1,64 @@
+site_name: Java Grinder
+site_url: https://sitename.exmaple
+theme:
+  features:
+    - navigation.footer
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+  name: material
+  font:
+  #      text: Merriweather Sans
+  #      code: Red HaT Mono
+
+  icon:
+    logo: fontawesome/solid/w
+
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep-purple
+
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep-orange
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: simple/github
+      link: https://github.com/trihajikhr
+
+copyright: Copyright &copy 2025 by Trihaji Khoerur Rohman | Made by Love ❤️
