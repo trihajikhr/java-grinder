@@ -21,7 +21,7 @@ theme:
   features:
     - navigation.path
     - navigation.top
-    - navigation.tabs
+#    - navigation.tabs
     - navigation.tracking
     - navigation.footer
     - content.code.copy
@@ -111,18 +111,13 @@ plugins:
       branch: main
 #  - macros
   - rss:
-      site_url: https://trihajikhr.github.io/java-grinder/
-      title: Java Crash Course Updates
-      description: Latest updates in my Java Crash Course docs
-      feed_path: rss.xml
-      include:
-        - "*.md"
-        - "**/*.md"
 
 extra:
   social:
     - icon: simple/github
       link: https://github.com/trihajikhr
+    - icon: simple/rss
+      link: rss.xml
   consent:
     title: Cookie consent
     description: >-

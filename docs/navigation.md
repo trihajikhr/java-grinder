@@ -17,3 +17,6 @@
     - [Conditionals](java-basic/09-Conditionals.md)
     - [Loops](java-basic/10-Loops.md)
     - [Basics of OOPS](java-basic/11-Basics-of-OOP.md)
+- Exception Handling
+    - [Exception Handling in Java](exception-handling/01-Exception-Handling-in-Java.md)
+    - [Kasus throws dan try catch](exception-handling/02-Kasus-throws-dan-try-catch.md)
