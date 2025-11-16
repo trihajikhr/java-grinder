@@ -1,0 +1,274 @@
+# Penggunaan throws
+
+Kata kunci `throws` digunakan pada saat deklarasi method, untuk memberi tahu Java dan juga programmer lain bahwa:
+
+_"Hei, method ini bisa melempar error jenis X, tolong kamu yang manggil siap-siap tangkap ya."_
+
+Biasanya penggunaan `throws` memiliki struktur umum seperti ini:
+
+```java
+void namaMethod() throws JenisException {
+    // kode yang bisa bikin error
+}
+```
+
+## 1 | Kasus 1 - `throws` Basic
+
+Misal aku memiliki kode Java, berikut adalah isi dari `Main.java`:
+
+```java
+package exception;
+
+public class Main {
+    public static void main(String[] args) {
+        Handler hand = new Handler();
+
+        hand.tambah();
+    }
+}
+```
+
+Dan ini adalah isi dari `Handler.java`:
+
+```java
+package exception;
+
+import java.util.Scanner;
+
+public class Handler {
+    Scanner scan = new Scanner(System.in);
+    
+    int tambah() {
+       int a = scan.nextInt();
+       int b = scan.nextInt();
+       return a + b;
+    }
+}
+```
+Jika inputan yang diberikan keduanya adalah angka, maka program akan berjalan tanpa error. Tapi jika kita memasukan huruf atau karakter apapun yang bukan angka ketika program berjalan, maka akan muncul error seperti ini:
+
+```bash
+Exception in thread "main" java.util.InputMismatchException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:964)
+	at java.base/java.util.Scanner.next(Scanner.java:1619)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2284)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2238)
+	at exception.Handler.tambah(Handler.java:9)
+	at exception.Main.main(Main.java:7)
+
+Process finished with exit code 1
+```
+
+Terdapat kesalahan inputan, dimana tipe data integer justru menerima karakter selain angka, sehingga program berhenti karena error. 
+
+Sekarang mari kita aplikasikan penggunaan `throws` untuk menghandle kasus ini. Sekarang, rubah kode program di file `Handler.java` menjadi seperti ini:
+
+```java
+package exception;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Handler {
+    Scanner scan = new Scanner(System.in);
+
+    int coba() throws InputMismatchException {
+        System.out.println("Masukkan dua angka: ");
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        return a + b;
+    }
+
+    void tambah() {
+        int ans;
+        try {
+            ans = coba();
+            System.out.println("Hasil: " + ans);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Input tidak valid, hanya angka yang diperbolehkan.");
+        }
+    }
+}
+```
+
+Kita membuat fungsi `tambah()` untuk melakukan pemanggilan secara aman pada fungsi `coba()`. Ketika fungsi `coba()` dideklarasikan dengan tambahan `throws`, maka fungsi tersebut menjadi memiliki kemampuan untuk bisa melempar exception atau error yang dialami pada fungsi tersebut, pada kasus ini yaitu `InputMismatchException`. Ketika hal ini terjadi, maka harus ada _penangkapnya_, sesuatu yang akan menangkap exceptions dari fungsi tersebut adalah `try-catch`.
+
+Oleh karena itu, fungsi `tambah()` harus memanggil fungsi `coba()` didalam blok `try`. Ketika program berjalan dengan baik, yaitu inputan sesuai, maka output berikut yang akan ditampilkan:
+
+```
+Masukkan dua angka:
+9
+10
+Hasil: 19
+```
+
+Tetapi ketika inputan yang dimasukan tidak sesuai, maka fungsi `coba()` akan melemparkan  exception tersebut, dan blok `catch` akan menangkapnya. Ketika blok `catch` yang bekerja, maka output yang dihasilkan akan berbeda, yaitu seperti ini:
+
+```
+Masukkan dua angka:
+8
+p
+Error: Input tidak valid, hanya angka yang diperbolehkan.
+```
+
+## 2 | Kasus 2 - Custom _Exceptions_
+
+Sekarang, selain fungsi tambah bisa mengatasi inputan yang tidak sesuai, sekarang kita akan merancang agar fungsi tersebut juga bisa mengatasi ketika inputan melebihi batas tertentu dengan cara yang lebih elegan, misal ketika inputan yang dimasukan adalah tidak boleh melebihi `1000000`.
+
+Pada kasus ini, perlu diketahui bahwa Java tidak memiliki exception untuk kasus seperti ini. Sehingga yang akan kita lakukan adalah dengan membuat `custom exception` sendiri.
+
+Berikut adalah perubahan file `Handler.java`:
+
+```java
+package exception;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Handler {
+    Scanner scan = new Scanner(System.in);
+
+    int coba() throws InputMismatchException, AngkaKelewatBatas {
+        System.out.println("Masukkan dua angka: ");
+        int a = scan.nextInt();
+
+        if(a > 1_000_000){
+            throw new AngkaKelewatBatas("Angka melebihi batas!");
+        }
+
+        int b = scan.nextInt();
+
+        if(b > 1_000_000){
+            throw new AngkaKelewatBatas("Angka melebihi batas!");
+        }
+
+        return a + b;
+    }
+
+    void tambah() {
+        int ans;
+        try {
+            ans = coba();
+            System.out.println("Hasil: " + ans);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Input tidak valid, hanya angka yang diperbolehkan.");
+        } catch (AngkaKelewatBatas e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+class AngkaKelewatBatas extends Exception {
+    public AngkaKelewatBatas(String msg) {
+        super(msg);
+    }
+}
+```
+
+Apa yang kita lakukan? Kita membuat custom exceptions kita sendiri dengan membuat class dengan nama `AngkaKelewatBatas()`. Class ini akan kita set sebagai sub-class dari class `Exception`,  yang sudah ada di Java. Dengan menjadikannya subclass dari `Exception`, berarti `AngkaKelewatBatas` termasuk ke dalam kategori _checked exception_ yang harus ditangani menggunakan `try-catch` atau dideklarasikan dengan `throws`.
+
+Class tersebut memiliki constructor yang menerima pesan dalam bentuk String (`msg`) dan meneruskanya ke constructor milik superclass `Exception` agar pesan tersebut bisa diakses melalui `getMessage()`.
+
+Pada fungsi `coba()`, kita menambahkan dua exception. Jadi jika kamu memiliki pertanyaan _"Apakah mungkin untuk suatu fungsi memiliki lebih dari satu exception"_, maka disini jawabanya adalah **bisa**. Bisa juga ditaruh oleh exception bawaan Java, namun karena disini fokus kita adalah belajar custom exception, maka contoh ini bisa digunakan.
+
+Exception `AngkaKelewatBatas` akan terpicu ketika blok `if` mendeteksi bahwa terdapat nilai dari variabel `a` atau `b` yang nilainya ada diatas `1000000`. Jika hal itu terjadi, maka blok `if` akan dijalankan, dan melemparkan exception dengan cara membuat objek class baru berupa `AngkaKelewatBatas()` sekalian memberikan message didalamnya.
+
+Ketika terjadi exception, alur program akan langsung berpindah ke block `catch` yang sesuai. Karena yang mentrigger exception adalah exception `AngkaKelewatBatas`, maka blok `catch` terakhir akan dieksekusi, menghasilkan output berupa:
+
+```
+Masukkan dua angka:
+1
+10000000
+Error: Angka melebihi batas!
+```
+
+## 3 | Kasus 3 - Multiple Exception
+
+Sebelumnya kita sudah menambahkan dua jenis exception pada fungsi `coba()`. Sekarang, kita akan mencoba menanganinya lebih banyak lagi secara bersamaan.
+
+Sejatinya kita bisa menaruh beberapa exception, semisal kita menambahkan 2 fungsi atau method berikut ke dalam file `Handler.java` sebelumnya.
+
+Berikut contoh fungsi `cobaBagi()` dan `bagi()` yang menggunakan tiga jenis exception sekaligus:
+
+```java
+float cobaBagi() throws InputMismatchException, AngkaKelewatBatas, ArithmeticException {
+    System.out.println("Masukkan dua angka: ");
+
+    float a = scan.nextFloat();
+    if(a > 1_000_000){
+        throw new AngkaKelewatBatas("Angka melebihi batas!");
+    }
+
+    float b = scan.nextFloat();
+    if(b > 1_000_000){
+        throw new AngkaKelewatBatas("Angka melebihi batas!");
+    }
+
+    if(b==0){
+        throw new ArithmeticException("Pembagi tidak boleh kosong!");
+    }
+
+    return a/b;
+}
+
+void bagi() {
+    float ans;
+    try {
+        ans = cobaBagi();
+        System.out.println("Hasil: " + ans);
+    } catch (InputMismatchException e) {
+        System.out.println("Error: " + e.getMessage());
+    } catch (ArithmeticException e) {
+        System.out.println("Error: " + e.getMessage());
+    } catch (AngkaKelewatBatas e) {
+        System.out.println("Error: " + e.getMessage());
+    }
+}
+```
+
+Kita menambahkanya menjadi 3 exception sekaligus, dan itu bisa.
+
+Info lagi, ada beberapa exception yang bisa diberikan message, ada juga yang tidak. Pada contoh di atas, `ArithmeticException` bisa diberikan message langsung karena konstruktor-nya mendukung parameter `String`. Sedangkan `InputMismatchException` tidak memiliki konstruktor seperti itu, sehingga kita tidak bisa menambahkan pesan custom tanpa membuat subclass baru. Caranya adalah membuat sub-class dari `InputMismatchException`, atau dengan kata lain membuat custom exception. Misal seperti ini:
+
+```java
+class InputTidakValid extends InputMismatchException {
+    public InputTidakValid(String msg) {
+        super(msg);
+    }
+}
+```
+
+Lalu apa gunanya message? Kegunaan dari message ini adalah untuk memberikan keterangan tambahan, yang bisa ditampilkan pada blok `catch` dengan `e.getMessage()`.
+
+Tambahan lagi, jika dirasa beberapa exception bisa digabung menjadi satu, dan keterangan message dibedakan dari isi dari `e.getMessage()`, maka kita bisa menggabungkan beberapa blok `catch` sebagai berikut:
+
+
+```java
+void bagi() {
+    float ans;
+    try {
+        ans = cobaBagi();
+        System.out.println("Hasil: " + ans);
+    } catch (InputMismatchException | AngkaKelewatBatas | ArithmeticException e) {
+        System.out.println("Error: " + e.getMessage());
+    } 
+}
+```
+Pendekatan multi-catch ini berguna jika penanganan semua exception tersebut sama, misalnya hanya menampilkan pesan error umum dari `getMessage()`.
+
+Berikut adalah contoh input dan outputnya, ketika pembagi adalah `0`:
+
+```
+Masukkan dua angka: 
+90
+0
+Error: Pembagi tidak boleh kosong!
+```
+
+Atau ketika angka melebihi batas:
+
+```
+Masukkan dua angka: 
+10000000
+Error: Angka melebihi batas!
+```
