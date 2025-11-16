@@ -1,0 +1,2601 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical, no-nonsense Java crash course for learners who want to grasp core concepts fast—complete with explanations, examples, and real project guidance.">
+      
+      
+      
+        <link rel="canonical" href="https://trihajikhr.github.io/java-grinder/exception-handling/01-Exception-Handling-in-Java/">
+      
+      
+        <link rel="prev" href="../../java-basic/11-Basics-of-OOP/">
+      
+      
+        <link rel="next" href="../02-Kasus-throws-dan-try-catch/">
+      
+      
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="Umpan RSS" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="Umpan RSS dari konten yang diperbarui" href="../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Exception Handling in Java - Java Crash Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exception-handling-in-java" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Java Crash Course" class="md-header__button md-logo" aria-label="Java Crash Course" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java Crash Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exception Handling in Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/trihajikhr/java-grinder" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    trihajikhr/java-grinder
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../java-basic/01-Basic-Syntax/" class="md-tabs__link">
+          
+  
+  
+  Java Basic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Exception Handling
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Java Crash Course" class="md-nav__button md-logo" aria-label="Java Crash Course" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    Java Crash Course
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/trihajikhr/java-grinder" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    trihajikhr/java-grinder
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tag-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../How-to-Contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Basic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java Basic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/01-Basic-Syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Syntax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/02-Lifecycle-of-a-Program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle of a Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/03-Data-Types-and-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types and Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/04-Variables-and-Scopes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Scopes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/05-Type-Casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/06-Strings-and-Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings and Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/07-Math-Operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/08-Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/09-Conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/10-Loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java-basic/11-Basics-of-OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of OOPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception Handling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling in Java
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-aturan-pertama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 | Aturan Pertama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 | Aturan Pertama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-apa-itu-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 | Apa itu Exception handling?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-kenapa-menggunakanya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 | Kenapa Menggunakanya?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hierarki-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 | Hierarki Exception
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 | Hierarki Exception">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-checked-exception-pengecualian-terperiksa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 | Checked Exception (Pengecualian Terperiksa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-unchecked-exception-pengecualian-tidak-terperiksa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | Unchecked Exception (Pengecualian Tidak Terperiksa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-error-kesalahan-fatal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | Error (Kesalahan Fatal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handling-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 | Handling Exceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 | Handling Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-throws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 | throws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-try-catch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 | try-catch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 | finally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 | try-with-resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-multiple-catch-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 | Multiple catch blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-union-catch-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 | Union catch blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-throwing-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 | Throwing Exceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 | Throwing Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-throwing-a-checked-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 | Throwing a checked exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-throwing-an-unchecked-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 | Throwing an unchecked exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-wrapping-and-rethrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 | Wrapping and rethrowing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-rethrowing-throwable-atau-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 | Rethrowing Throwable atau Exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 | Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 | Anti-Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 | Anti-Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-swallowing-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 | Swallowing exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-using-return-in-a-finally-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 | Using return in a finally block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-menggunakan-throw-di-dalam-finally-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 | Menggunakan throw di dalam finally block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-menggunakan-throw-sebagai-goto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 | Menggunakan throw sebagai goto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-exceptions-and-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 | Common Exceptions and Errors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 | Common Exceptions and Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-checked-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 | Checked Exceptions**
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-runtime-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 | Runtime Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 | Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-Kasus-throws-dan-try-catch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kasus throws dan try catch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-aturan-pertama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 | Aturan Pertama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 | Aturan Pertama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-apa-itu-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 | Apa itu Exception handling?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-kenapa-menggunakanya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 | Kenapa Menggunakanya?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hierarki-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 | Hierarki Exception
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 | Hierarki Exception">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-checked-exception-pengecualian-terperiksa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 | Checked Exception (Pengecualian Terperiksa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-unchecked-exception-pengecualian-tidak-terperiksa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | Unchecked Exception (Pengecualian Tidak Terperiksa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-error-kesalahan-fatal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | Error (Kesalahan Fatal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handling-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 | Handling Exceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 | Handling Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-throws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 | throws
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-try-catch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 | try-catch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 | finally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 | try-with-resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-multiple-catch-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 | Multiple catch blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-union-catch-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 | Union catch blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-throwing-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 | Throwing Exceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 | Throwing Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-throwing-a-checked-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 | Throwing a checked exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-throwing-an-unchecked-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 | Throwing an unchecked exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-wrapping-and-rethrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 | Wrapping and rethrowing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-rethrowing-throwable-atau-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 | Rethrowing Throwable atau Exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 | Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 | Anti-Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 | Anti-Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-swallowing-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 | Swallowing exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-using-return-in-a-finally-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 | Using return in a finally block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-menggunakan-throw-di-dalam-finally-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 | Menggunakan throw di dalam finally block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-menggunakan-throw-sebagai-goto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 | Menggunakan throw sebagai goto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-exceptions-and-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 | Common Exceptions and Errors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 | Common Exceptions and Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-checked-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 | Checked Exceptions**
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-runtime-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 | Runtime Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 | Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="exception-handling-in-java">Exception Handling in Java<a class="headerlink" href="#exception-handling-in-java" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Pada tutorial kali ini, kita akan belajar materi basic dari <em>exception handling</em> pada Java. Jadi, bersiaplah...</p>
+<hr />
+<h2 id="1-aturan-pertama">1 | Aturan Pertama<a class="headerlink" href="#1-aturan-pertama" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="11-apa-itu-exception-handling">1.1 | Apa itu <em>Exception handling</em>?<a class="headerlink" href="#11-apa-itu-exception-handling" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Untuk lebih memahami <em>exception</em> (pengecualian) dan <em>exception handling</em> (penanganan pengecualian), kita perlu membuat sebuah analogi nyata. Bayangkan kita melakukan sebuah pemesanan produk secara online, tetapi dijalan, rute yang biasa dilalui terdapat masalah . Perusahaan pengiriman yang baik akan mengatasi masalah ini dengan cara mencari atau mengalihkan rute pengiriman, sehingga produk akan tetap sampai tepat pada waktunya.</p>
+<p>Seperti halnya pada Java, kode bisa mengalami error ketika dieksekusi dan dijalankan. <em>Exception handling</em> yang baik harus bisa menangani error dan tetap membuat program berjalan dengan baik, memberikan penggunanya pengalaman yang memuaskan.</p>
+<h3 id="12-kenapa-menggunakanya">1.2 | Kenapa Menggunakanya?<a class="headerlink" href="#12-kenapa-menggunakanya" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Kita bisanya menulis kode pada lingkungan yang baik, file di sistem kita menyediakan semua yang kita cari dan butuhkan, dan jaringan mungkin selalu tersedia, dan JVM selalu memiliki cukup memory yang tersedia. Terkadang, kita menyebutnya dengan <strong>"Happy path"</strong>, atau <em>jalur yang menyenangkan</em>.</p>
+<p>Tapi pada kode skala produksi, file sistem bisa mengalami <em>corrupt</em>, jaringan mungkin down, dan JVM kehabisan memory untuk bekerja. Kode kita harus dirancang untuk mampu menghadapi situasi dari <strong>"Unhappy path"</strong> atau <em>jalan yang tidak menyenangkan</em> ini.</p>
+<p>Kita harus bisa menangani kondisi seperti ini karena bisa mengganggu kelancaran dan alur kerja program, dan berdampak negatif pada kinerja aplikasi.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getPlayers</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;players.dat&quot;</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">players</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllLines</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">players</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Player</span><span class="p">::</span><span class="k">new</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Kode diatas tidak memiliki penangan <code>IOException</code>, dan langsung mengirimkannya ke <em>call stack</em> secara langsung. Pada lingkungan yang baik, kode tersebut mungkin bekerja.</p>
+<p>Tapi, apa jadinya jika selama produksi, file <code>player.dat</code> ternyata hilang?</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Exception</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="s">&quot;main&quot;</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">file</span><span class="p">.</span><span class="na">NoSuchFileException</span><span class="p">:</span><span class="w"> </span><span class="n">players</span><span class="p">.</span><span class="na">dat</span><span class="w"> </span><span class="o">&lt;--</span><span class="w"> </span><span class="n">players</span><span class="p">.</span><span class="na">dat</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">exist</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">sun</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">fs</span><span class="p">.</span><span class="na">WindowsException</span><span class="p">.</span><span class="na">translateToIOException</span><span class="p">(</span><span class="n">Unknown</span><span class="w"> </span><span class="n">Source</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">sun</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">fs</span><span class="p">.</span><span class="na">WindowsException</span><span class="p">.</span><span class="na">rethrowAsIOException</span><span class="p">(</span><span class="n">Unknown</span><span class="w"> </span><span class="n">Source</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// ... more stack trace</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">file</span><span class="p">.</span><span class="na">Files</span><span class="p">.</span><span class="na">readAllLines</span><span class="p">(</span><span class="n">Unknown</span><span class="w"> </span><span class="n">Source</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">file</span><span class="p">.</span><span class="na">Files</span><span class="p">.</span><span class="na">readAllLines</span><span class="p">(</span><span class="n">Unknown</span><span class="w"> </span><span class="n">Source</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">Exceptions</span><span class="p">.</span><span class="na">getPlayers</span><span class="p">(</span><span class="n">Exceptions</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;--</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="n">arises</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">getPlayers</span><span class="p">()</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">12</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">at</span><span class="w"> </span><span class="n">Exceptions</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="n">Exceptions</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="mi">19</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;--</span><span class="w"> </span><span class="n">getPlayers</span><span class="p">()</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nf">main</span><span class="p">(),</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">19</span>
+</span></code></pre></div>
+<p>Tanpa <em>exception handling</em>, kode yang seharusnya bekerja dengan baik akan berhenti bekerja sama sekali. Kode yang bagus seharusnya bisa mengatasi masalah ini, kita sebagai penulis kode harus memiliki rencana jika terdapat sesuatu yang salah.</p>
+<p>Catat juga, satu keuntungan dari adanya <em>exception handling</em>, adalah kita bisa membuat <em>stack trace</em>. Dengan <em>stack trace</em>, kita bisa mengetahui bagian mana dari kode yang salah, tanpa perlu menggunakan debugger.</p>
+<hr />
+<h2 id="2-hierarki-exception">2 | Hierarki Exception<a class="headerlink" href="#2-hierarki-exception" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Pada dasarnya, <em>exception</em> hanyalah objek Java, dengan semua <em>exception</em> mewarisi dari <code>Throwable</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>              ---&gt; Throwable &lt;--- 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>              |    (checked)     |
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>              |                  |
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>              |                  |
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>      ---&gt; Exception           Error
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>      |    (checked)        (unchecked)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      |
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>RuntimeException
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  (unchecked)
+</span></code></pre></div>
+<p>Ada tiga kategori utama dari kondisi exception:</p>
+<ol>
+<li>Checked exceptions</li>
+<li>Unchecked exceptions / Runtime exceptions</li>
+<li>Errors</li>
+</ol>
+<p><em>Runtime exception</em> dan <em>unchecked exception</em> merujuk pada hal yang sama, sehingga seringkali bisa digunakan secara bergantian.</p>
+<h3 id="21-checked-exception-pengecualian-terperiksa">2.1 | Checked Exception (Pengecualian Terperiksa)<a class="headerlink" href="#21-checked-exception-pengecualian-terperiksa" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Checked exception</strong> adalah jenis pengecualian yang wajib ditangani oleh programmer, karena kompiler Java memeriksanya saat proses kompilasi. Artinya, kita harus menangani pengecualian tersebut secara langsung (menggunakan <code>try-catch</code>) atau menyatakannya akan dilempar ke luar metode dengan kata kunci <code>throws</code>.</p>
+<p>Menurut dokumentasi Oracle, <em>checked exception</em> digunakan ketika pemanggil metode masih mungkin melakukan pemulihan (recovery) dari kesalahan yang terjadi.</p>
+<p>Contoh <em>checked exception</em> yang umum adalah: 
+- <code>IOException</code>
+- <code>ServletException</code></p>
+<h3 id="23-unchecked-exception-pengecualian-tidak-terperiksa">2.3 | Unchecked Exception (Pengecualian Tidak Terperiksa)<a class="headerlink" href="#23-unchecked-exception-pengecualian-tidak-terperiksa" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Unchecked exception</strong> adalah jenis pengecualian yang tidak diwajibkan oleh kompiler Java untuk ditangani.</p>
+<p>Secara sederhana, jika kita membuat kelas <em>exception</em> yang mewarisi <code>RuntimeException</code>, maka <em>exception</em> tersebut termasuk <em>unchecked</em>; sedangkan jika tidak, maka ia tergolong <em>checked</em>.</p>
+<p>Meskipun tampak lebih praktis, dokumentasi Oracle menegaskan bahwa kedua jenis <em>exception</em> memiliki tujuan yang berbeda — <em>checked</em> digunakan untuk kesalahan situasional yang dapat dipulihkan, sedangkan <em>unchecked</em> digunakan untuk kesalahan akibat penggunaan kode yang salah (usage error).</p>
+<p>Beberapa contoh <em>unchecked exception</em>:</p>
+<ul>
+<li><code>NullPointerException</code></li>
+<li><code>IllegalArgumentException</code></li>
+<li><code>SecurityException</code></li>
+</ul>
+<h3 id="23-error-kesalahan-fatal">2.3 | Error (Kesalahan Fatal)<a class="headerlink" href="#23-error-kesalahan-fatal" title="Anchor link to this section for reference">&para;</a></h3>
+<p><strong>Error</strong> mewakili kondisi serius dan umumnya tidak dapat dipulihkan, seperti ketidakcocokan pustaka, rekursi tak berujung, atau kebocoran memori.</p>
+<p>Meskipun kelas <code>Error</code> tidak mewarisi <code>RuntimeException</code>, ia tetap termasuk dalam kategori <em>unchecked</em>, artinya kompiler tidak memaksa kita untuk menanganinya.</p>
+<p>Dalam praktiknya, menangani, membuat instance, atau menurunkan kelas <code>Error</code> adalah hal yang tidak lazim. Biasanya, error dibiarkan mengalir hingga ke level tertinggi agar program berhenti, karena ini menandakan adanya masalah serius pada sistem.</p>
+<p>Contoh error yang umum:</p>
+<ul>
+<li><code>StackOverflowError</code></li>
+<li><code>OutOfMemoryError</code></li>
+</ul>
+<hr />
+<h2 id="3-handling-exceptions">3 | Handling Exceptions<a class="headerlink" href="#3-handling-exceptions" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Dalam Java API, terdapat banyak bagian kode yang berpotensi menimbulkan kesalahan, dan beberapa di antaranya ditandai dengan <em>exception</em>, baik di deklarasi metode (signature) maupun di dokumentasi Javadoc, seperti berikut:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm"> * @exception FileNotFoundException ...</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm"> */</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="nf">Scanner</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fileName</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">   </span><span class="c1">// ...</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Seperti yang sudah dijelaskan sebelumnya, ketika kita memanggil metode yang “berisiko” semacam ini, kita wajib menangani <em>checked exception</em>, sedangkan <em>unchecked exception</em> boleh ditangani atau tidak — tergantung kebutuhan.</p>
+<p>Java menyediakan beberapa cara untuk menangani <em>exception</em> tersebut.</p>
+<h3 id="31-throws">3.1 | <code>throws</code><a class="headerlink" href="#31-throws" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Cara paling sederhana untuk "menangani" sebuah <em>exception</em> adalah dengan <strong>melemparkannya kembali</strong> menggunakan kata kunci <code>throws</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">));</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Karena <code>FileNotFoundException</code> merupakan <em>checked exception</em>, inilah cara paling sederhana untuk memenuhi aturan kompiler. Namun, akibatnya, setiap kode yang memanggil metode tersebut juga harus menangani <em>exception</em> itu!</p>
+<p>Sementara itu, <code>parseInt</code> dapat melempar <code>NumberFormatException</code>, tetapi karena jenisnya <em>unchecked</em>, kita tidak diwajibkan untuk menanganinya.</p>
+<h3 id="32-try-catch">3.2 | <code>try-catch</code><a class="headerlink" href="#32-try-catch" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Jika kita ingin menangani exception secara langsung, kita dapat menggunakan blok <code>try-catch</code>. Penanganannya bisa dilakukan dengan dua cara:</p>
+<ol>
+<li>Melempar kembali exception dalam bentuk lain:</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">));</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">noFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;File not found&quot;</span><span class="p">);</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Melakukan langkah pemulihan (recovery):</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">));</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">noFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;File not found, resetting score.&quot;</span><span class="p">);</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="33-finally">3.3 | <code>finally</code><a class="headerlink" href="#33-finally" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Ada kalanya kita memiliki kode yang harus dijalankan terlepas dari apakah terjadi exception atau tidak, dan di sinilah kata kunci <code>finally</code> digunakan.</p>
+<p>Dalam contoh sebelumnya, sebenarnya ada bug tersembunyi: secara default, Java tidak otomatis mengembalikan file handle ke sistem operasi.
+Karena itu, baik file berhasil dibaca atau tidak, kita harus memastikan proses pembersihan (cleanup) dilakukan dengan benar.</p>
+<p>Contoh paling sederhana:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">));</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">contents</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="n">contents</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pada contoh di atas, blok <code>finally</code> menunjukkan kode yang <strong>akan selalu dijalankan</strong>, apa pun yang terjadi saat mencoba membaca file.
+Bahkan jika <code>FileNotFoundException</code> dilempar ke luar metode, isi dari blok <code>finally</code> tetap akan dijalankan terlebih dahulu.</p>
+<p>Kita juga bisa menangani <em>exception</em> sekaligus memastikan sumber daya ditutup dengan aman:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">));</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">noFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;File not found, resetting score.&quot;</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">contents</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">                </span><span class="n">contents</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">io</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Couldn&#39;t close the reader!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">io</span><span class="p">);</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Karena metode <code>close()</code> juga termasuk “berisiko”, kita harus menangani <em>exception</em> yang mungkin muncul darinya.</p>
+<p>Meskipun terlihat rumit, setiap bagian dari kode ini memiliki peran penting untuk menangani setiap kemungkinan kesalahan dengan tepat.</p>
+<h3 id="34-try-with-resources">3.4 | <code>try</code>-with-resources<a class="headerlink" href="#34-try-with-resources" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Sejak Java 7, penulisan kode seperti contoh sebelumnya bisa dibuat jauh lebih sederhana saat bekerja dengan objek yang mengimplementasikan <code>AutoCloseable</code>.</p>
+<p>Contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;File not found, resetting score.&quot;</span><span class="p">);</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Dengan menempatkan objek yang bersifat <code>AutoCloseable</code> di dalam deklarasi <code>try</code>, kita tidak perlu lagi menutup resource secara manual — Java akan otomatis menutupnya setelah blok <code>try</code> selesai dieksekusi, baik berhasil maupun gagal.</p>
+<p>Kita tetap bisa menambahkan blok <code>finally</code> jika masih ada proses pembersihan lain yang perlu dilakukan.</p>
+<p>Untuk pembahasan lebih lengkap, bisa melihat artikel khusus yang membahas tentang <em>try-with-resources</em>.</p>
+<h3 id="35-multiple-catch-blocks">3.5 | Multiple catch blocks<a class="headerlink" href="#35-multiple-catch-blocks" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Kadang, sebuah blok kode bisa melempar lebih dari satu jenis <em>exception</em>, dan kita bisa menanganinya dengan beberapa blok <code>catch</code> yang berbeda:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Player file wouldn&#39;t load!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Player file was corrupted!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Beberapa blok <code>catch</code> memungkinkan kita menangani setiap <em>exception</em> secara terpisah sesuai kebutuhan.</p>
+<p>Perhatikan bahwa pada contoh di atas, <code>FileNotFoundException</code> tidak ditangani secara eksplisit, karena kelas tersebut merupakan turunan dari <code>IOException</code>.
+Dengan menangani <code>IOException</code>, Java secara otomatis menganggap semua subclass-nya juga sudah ditangani.</p>
+<p>Namun, jika kita ingin memperlakukan <code>FileNotFoundException</code> secara berbeda dari <code>IOException</code> yang lebih umum, kita bisa menulisnya seperti ini:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Player file not found!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Player file wouldn&#39;t load!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Player file was corrupted!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Java memungkinkan kita menangani subclass <em>exception</em> secara terpisah, tetapi pastikan urutannya benar — <em>exception</em> yang lebih spesifik harus ditangani terlebih dahulu sebelum yang lebih umum.</p>
+<h3 id="36-union-catch-blocks">3.6 | Union <code>catch</code> blocks<a class="headerlink" href="#36-union-catch-blocks" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Jika kita tahu bahwa beberapa <em>exception</em> akan ditangani dengan cara yang sama, sejak Java 7 kita bisa menggunakan satu blok <code>catch</code> untuk menangkap lebih dari satu jenis <em>exception</em> sekaligus:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">playerFile</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">contents</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Failed to load score!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Dengan sintaks seperti ini, Java akan menangkap salah satu dari <em>exception</em> yang disebutkan di dalam tanda pemisah <code>|</code>, lalu menanganinya menggunakan blok kode yang sama.</p>
+<p>Fitur ini membantu membuat kode lebih ringkas dan mudah dibaca ketika penanganan untuk beberapa jenis <em>exception</em> identik.</p>
+<hr />
+<h2 id="4-throwing-exceptions">4 | Throwing Exceptions<a class="headerlink" href="#4-throwing-exceptions" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Jika kita tidak ingin menangani <em>exception</em> secara langsung, atau ingin membuat <em>exception</em> sendiri agar bisa ditangani oleh kode lain, maka kita perlu memahami penggunaan kata kunci <code>throw</code>.</p>
+<p>Misalnya, kita membuat sendiri sebuah checked exception bernama <code>TimeoutException</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TimeoutException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TimeoutException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Lalu kita memiliki sebuah metode yang mungkin membutuhkan waktu lama untuk diselesaikan:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="c1">// ... potentially long operation</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="41-throwing-a-checked-exception">4.1 | Throwing a checked exception<a class="headerlink" href="#41-throwing-a-checked-exception" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Sama seperti pernyataan <code>return</code>, kita bisa menggunakan <code>throw</code> kapan saja di dalam metode.</p>
+<p>Biasanya, kita melempar <em>exception</em> untuk menandakan bahwa <strong>terjadi kesalahan atau kondisi yang tidak normal</strong>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">TimeoutException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">tooLong</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span><span class="c1">// ... potentially long operation</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeoutException</span><span class="p">(</span><span class="s">&quot;This operation took too long&quot;</span><span class="p">);</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Karena <code>TimeoutException</code> merupakan checked <em>exception</em>, kita juga harus menambahkan kata kunci <code>throws</code> pada deklarasi metode agar pemanggil metode mengetahui bahwa <em>exception</em> tersebut perlu ditangani.</p>
+<h3 id="42-throwing-an-unchecked-exception">4.2 | Throwing an unchecked exception<a class="headerlink" href="#42-throwing-an-unchecked-exception" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Jika kita ingin melakukan sesuatu seperti memvalidasi input, kita bisa menggunakan unchecked <em>exception</em>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">TimeoutException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isFilenameValid</span><span class="p">(</span><span class="n">playersFile</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Filename isn&#39;t valid!&quot;</span><span class="p">);</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Karena <code>IllegalArgumentException</code> termasuk unchecked <em>exception</em>, kita <strong>tidak wajib menandai metode dengan <code>throws</code></strong>, meskipun tetap boleh dilakukan jika ingin.</p>
+<p>Beberapa developer tetap menuliskannya sebagai bentuk dokumentasi agar lebih jelas bahwa metode tersebut dapat melempar <em>exception</em> tertentu.</p>
+<h3 id="44-wrapping-and-rethrowing">4.4 | Wrapping and rethrowing<a class="headerlink" href="#44-wrapping-and-rethrowing" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Kita juga bisa memilih untuk melempar kembali <em>exception</em> yang sudah kita tangkap:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">io</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">      </span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">io</span><span class="p">;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Atau, kita bisa membungkusnya dalam <em>exception</em> baru sebelum melemparkannya kembali:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="kd">throws</span><span class="w"> </span><span class="n">PlayerLoadException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">io</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">      </span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerLoadException</span><span class="p">(</span><span class="n">io</span><span class="p">);</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pendekatan ini berguna ketika kita ingin <strong>menyatukan berbagai jenis <em>exception</em> menjadi satu tipe yang lebih umum</strong>, sehingga penanganannya menjadi lebih sederhana di level yang lebih tinggi.</p>
+<h3 id="45-rethrowing-throwable-atau-exception">4.5 | Rethrowing Throwable atau Exception<a class="headerlink" href="#45-rethrowing-throwable-atau-exception" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Sekarang masuk ke kasus khusus.</p>
+<p>Jika di dalam suatu blok kode <strong>hanya ada kemungkinan munculnya unchecked exception</strong>, maka kita bisa menangkap dan melempar kembali (<code>rethrow</code>) <code>Throwable</code> atau <code>Exception</code> <strong>tanpa perlu menambahkannya ke deklarasi metode</strong> dengan <code>throws</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NullPointerException</span><span class="p">();</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Meskipun tampak sederhana, kode di atas <strong>tidak dapat melempar checked exception</strong>, sehingga walaupun kita menulis <code>throw t</code>, kompiler tidak mengharuskan adanya klausa <code>throws</code> pada deklarasi metode.</p>
+<p>Teknik ini sering digunakan dalam <strong>proxy class atau metode dinamis</strong>, di mana kita perlu menangani dan melempar ulang berbagai jenis <em>exception</em> tanpa mendefinisikan semuanya satu per satu.</p>
+<h3 id="45-inheritance">4.5 | Inheritance<a class="headerlink" href="#45-inheritance" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Ketika kita menandai suatu metode dengan kata kunci <code>throws</code>, hal itu akan memengaruhi bagaimana subclass boleh melakukan override terhadap metode tersebut.</p>
+<p>Jika metode di kelas induk melempar checked <em>exception</em>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Exceptions</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">      </span><span class="kd">throws</span><span class="w"> </span><span class="n">TimeoutException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Maka subclass masih boleh membuat versi override dengan <strong>signature yang lebih aman</strong> (tidak melempar checked <em>exception</em> apa pun):</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FewerExceptions</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Exceptions</span><span class="w"> </span><span class="p">{</span><span class="w">   </span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">        </span><span class="c1">// overridden</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Namun subclass <strong>tidak boleh</strong> membuat versi override yang <strong>lebih berisiko</strong>, yaitu yang menambahkan checked <em>exception</em> baru:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MoreExceptions</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Exceptions</span><span class="w"> </span><span class="p">{</span><span class="w">        </span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">loadAllPlayers</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playersFile</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">MyCheckedException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">        </span><span class="c1">// overridden</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Alasannya adalah karena <strong>kontrak metode ditentukan pada waktu kompilasi berdasarkan tipe referensi, bukan tipe objek sebenarnya</strong>.</p>
+<p>Contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">Exceptions</span><span class="w"> </span><span class="n">exceptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MoreExceptions</span><span class="p">();</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">exceptions</span><span class="p">.</span><span class="na">loadAllPlayers</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Kompiler hanya akan mengharuskan kita menangani <code>TimeoutException</code>, padahal implementasi di subclass <code>MoreExceptions</code> justru melempar exception lain (<code>MyCheckedException</code>).</p>
+<p>Kesimpulannya: subclass boleh melempar <strong>lebih sedikit</strong> checked <em>exception</em> daripada superclass-nya, <strong>tapi tidak boleh lebih banyak</strong>.</p>
+<hr />
+<h2 id="5-anti-patterns">5 | Anti-Patterns<a class="headerlink" href="#5-anti-patterns" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="51-swallowing-exceptions">5.1 | Swallowing exceptions<a class="headerlink" href="#51-swallowing-exceptions" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Ada satu cara lain untuk membuat kode kita tetap lolos dari pemeriksaan kompiler, yaitu dengan menangkap dan mengabaikan <em>exception</em> sepenuhnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// &lt;== catch and swallow</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Teknik ini disebut <em>swallowing exception</em> — artinya kita menangkap <em>exception</em> tapi tidak melakukan apa pun terhadapnya. Biasanya ini bukan praktik yang baik, karena masalahnya tidak diselesaikan, dan kode lain pun tidak bisa tahu bahwa ada kesalahan yang terjadi.</p>
+<p>Ada kalanya memang kita tahu bahwa <em>exception</em> tersebut <strong>tidak mungkin terjadi</strong>, misalnya karena kondisi yang sudah terjamin oleh logika program. Dalam kasus seperti itu, sebaiknya tetap beri komentar yang menjelaskan bahwa <em>exception</em> tersebut sengaja diabaikan:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="c1">// this will never happen</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Cara lain untuk “menelan” <em>exception</em> adalah dengan hanya mencetaknya ke error stream:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pendekatan ini sedikit lebih baik, karena setidaknya kita menulis pesan kesalahan untuk diagnosis di kemudian hari.
+Namun, cara yang lebih disarankan adalah dengan menggunakan logger:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Couldn&#39;t load the score&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Menangani <em>exception</em> dengan cara ini memang praktis, tapi kita perlu memastikan bahwa <strong>tidak ada informasi penting yang hilang</strong>, terutama jika pemanggil metode membutuhkan informasi itu untuk memperbaiki masalah.</p>
+<p>Kita juga bisa <em>tanpa sengaja</em> menelan <em>exception</em> dengan tidak menyertakannya sebagai penyebab ketika melempar exception baru:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerScoreException</span><span class="p">();</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Sekilas terlihat benar, karena kita melempar <em>exception</em> baru untuk memberi tahu bahwa ada kesalahan.
+Namun, kita kehilangan konteks asli (<code>IOException</code>) yang bisa membantu melacak akar masalahnya.</p>
+<p>Solusi yang benar adalah menyertakan <em>exception</em> asli sebagai penyebab:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerScoreException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Perbedaan kecil ini sangat penting — dengan menyertakan <code>IOException</code> sebagai penyebab, kita tetap mempertahankan jejak asal kesalahan sehingga lebih mudah untuk melakukan debug atau logging di kemudian hari.</p>
+<h3 id="52-using-return-in-a-finally-block">5.2 | Using return in a finally block<a class="headerlink" href="#52-using-return-in-a-finally-block" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Cara lain yang tanpa sadar bisa <em>menelan</em> <em>exception</em> adalah dengan menggunakan <code>return</code> di dalam blok <code>finally</code>.
+Ini berbahaya karena ketika <code>finally</code> mengembalikan nilai secara tiba-tiba, JVM akan <strong>mengabaikan <em>exception</em> yang dilempar</strong> dari blok <code>try</code>.</p>
+<p>Contoh:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IOException</span><span class="p">();</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">score</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;== IOException diabaikan</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Dalam kasus di atas, <code>IOException</code> tidak akan pernah terlihat oleh pemanggil metode, karena perintah <code>return</code> di dalam <code>finally</code> menimpa aliran eksekusi sebelumnya.</p>
+<p>Menurut <em>Java Language Specification</em>:</p>
+<blockquote>
+<p>Jika eksekusi blok <code>try</code> berakhir secara tiba-tiba karena suatu alasan R (misalnya karena exception), maka blok <code>finally</code> akan dijalankan terlebih dahulu.</p>
+<ul>
+<li>Jika blok <code>finally</code> berakhir secara normal, maka eksekusi <code>try</code> juga berakhir secara tiba-tiba karena alasan R.</li>
+<li>Namun, jika blok <code>finally</code> juga berakhir secara tiba-tiba karena alasan lain S (misalnya <code>return</code>, <code>throw</code>, atau <code>break</code>), maka alasan R akan <strong>dibuang</strong>, dan <code>try</code> akan berakhir karena alasan S.</li>
+</ul>
+</blockquote>
+<p>Artinya: jika kamu melakukan <code>return</code>, <code>throw</code> baru, atau keluar paksa dari <code>finally</code>, maka <em>exception</em> yang seharusnya muncul akan hilang total.
+Itu sebabnya, menempatkan <code>return</code> di dalam <code>finally</code> adalah praktik yang sebaiknya <strong>dihindari sepenuhnya</strong>.</p>
+<h3 id="53-menggunakan-throw-di-dalam-finally-block">5.3 | Menggunakan <code>throw</code> di dalam <code>finally</code> block<a class="headerlink" href="#53-menggunakan-throw-di-dalam-finally-block" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Mirip seperti penggunaan <code>return</code> di dalam blok <code>finally</code>, melempar <em>exception</em> (<code>throw</code>) di sana juga <strong>menggantikan <em>exception</em> sebelumnya</strong> yang mungkin muncul dari blok <code>try</code> atau <code>catch</code>.</p>
+<p>Akibatnya, <em>exception</em> asli yang seharusnya muncul akan <strong>hilang</strong>, dan yang tersisa hanya <em>exception</em> dari blok <code>finally</code>.</p>
+<p>Contoh:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPlayerScore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">playerFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">        </span><span class="c1">// ...</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">io</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="n">io</span><span class="p">);</span><span class="w"> </span><span class="c1">// &lt;== tertimpa oleh finally</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OtherException</span><span class="p">();</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pada kode di atas, <code>IllegalStateException</code> yang dilempar dari blok <code>catch</code> akan <strong>terhapus</strong>, karena blok <code>finally</code> juga melempar <code>OtherException</code>.
+Akhirnya, hanya <code>Other_exception_</code> yang terlihat keluar dari metode ini.</p>
+<p>Kesimpulannya:
+Jangan pernah melempar <em>exception</em> baru dari dalam <code>finally</code> kecuali benar-benar yakin. Jika perlu menangani kondisi khusus di <code>finally</code>, sebaiknya lakukan dengan hati-hati—misalnya log error atau bersihkan sumber daya—tanpa mengacaukan exception utama yang sedang diproses.</p>
+<h3 id="54-menggunakan-throw-sebagai-goto">5.4 | Menggunakan <code>throw</code> sebagai <code>goto</code><a class="headerlink" href="#54-menggunakan-throw-sebagai-goto" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Beberapa orang tergoda untuk menggunakan <code>throw</code> seolah-olah itu adalah pernyataan <code>goto</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">        </span><span class="c1">// sekumpulan kode pertama</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyException</span><span class="p">();</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">        </span><span class="c1">// sekumpulan kode kedua</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">MyException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">        </span><span class="c1">// sekumpulan kode ketiga</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">    </span><span class="p">}</span><span class="w">       </span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Kode semacam ini aneh, karena <code>throw</code> di sini digunakan <strong>untuk mengatur alur program</strong>, bukan untuk <strong>menangani kesalahan</strong>.</p>
+<p>Pendekatan seperti ini membuat logika program jadi membingungkan, sulit diikuti, dan melanggar prinsip dasar dari pengecualian (<em>exception</em>) yang seharusnya hanya digunakan untuk menangani kondisi tak terduga, bukan untuk lompat-lompat antar bagian kode seperti <code>goto</code>.</p>
+<p>Kalau memang tujuannya hanya mengatur urutan eksekusi, gunakan kontrol alur normal seperti <code>if</code>, <code>return</code>, atau <code>break</code>, bukan <code>throw</code>.</p>
+<hr />
+<h2 id="6-common-exceptions-and-errors">6 | Common Exceptions and Errors<a class="headerlink" href="#6-common-exceptions-and-errors" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Berikut beberapa pengecualian (<em>exception</em>) dan error umum yang sering ditemui dalam Java:</p>
+<h3 id="61-checked-exceptions">6.1 | Checked Exceptions**<a class="headerlink" href="#61-checked-exceptions" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li><em>IOException</em> – Pengecualian ini biasanya menunjukkan bahwa terjadi kegagalan pada jaringan, sistem berkas (filesystem), atau database.</li>
+</ul>
+<h3 id="62-runtime-exceptions">6.2 | Runtime Exceptions<a class="headerlink" href="#62-runtime-exceptions" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>
+<p><em>ArrayIndexOutOfBoundsException</em> – Terjadi ketika kita mencoba mengakses indeks array yang tidak ada, misalnya mencoba mengambil elemen indeks ke-5 dari array yang panjangnya hanya 3.</p>
+</li>
+<li>
+<p><em>ClassCastException</em> – Terjadi ketika kita mencoba melakukan konversi (cast) yang tidak sah, misalnya mengubah <code>String</code> menjadi <code>List</code>. Biasanya bisa dihindari dengan melakukan pemeriksaan <code>instanceof</code> sebelum melakukan casting.</p>
+</li>
+<li>
+<p><em>IllegalArgumentException</em> – Cara umum untuk menyatakan bahwa salah satu parameter yang diberikan ke metode atau konstruktor tidak valid.</p>
+</li>
+<li>
+<p><em>IllegalStateException</em> – Cara umum untuk menyatakan bahwa kondisi internal (seperti status objek) tidak valid.</p>
+</li>
+<li>
+<p><em>NullPointerException</em> – Terjadi ketika kita mencoba mengakses atau menggunakan objek yang bernilai <code>null</code>. Biasanya bisa dihindari dengan pemeriksaan <code>null</code> terlebih dahulu atau dengan menggunakan <code>Optional</code>.</p>
+</li>
+<li>
+<p><em>NumberFormatException</em> – Terjadi ketika kita mencoba mengonversi <code>String</code> menjadi angka, tetapi <code>String</code> tersebut mengandung karakter yang tidak valid, misalnya mencoba mengubah <code>"5f3"</code> menjadi angka.</p>
+</li>
+</ul>
+<h3 id="63-errors">6.3 | Errors<a class="headerlink" href="#63-errors" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>
+<p><em>StackOverflowError</em> – Terjadi ketika tumpukan (stack) terlalu besar. Kadang muncul pada aplikasi yang sangat besar, namun paling sering disebabkan oleh rekursi tanpa batas.</p>
+</li>
+<li>
+<p><em>NoClassDefFoundError</em> – Terjadi ketika sebuah kelas gagal dimuat, biasanya karena tidak ada di classpath atau gagal saat inisialisasi statis.</p>
+</li>
+<li>
+<p><em>OutOfMemoryError</em> – Terjadi ketika JVM kehabisan memori untuk membuat objek baru. Kadang disebabkan oleh kebocoran memori (memory leak).</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Pembaruan terakhir">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 November 2025 21:30:05 UTC">16 November 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Dibuat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 November 2025 21:30:05 UTC">16 November 2025</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Kontributor">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:trihajikhr@gmail.com">trihajikhr</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../java-basic/11-Basics-of-OOP/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Basics of OOPS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Basics of OOPS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-Kasus-throws-dan-try-catch/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Kasus throws dan try catch">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Kasus throws dan try catch
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 by <a href="https://github.com/trihajikhr">Trihaji Khoerur Rohman</a>. Licensed under MIT.<br/> Made with ❤️.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/trihajikhr" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="feed_rss_created.xml" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295M15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Terima</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Kelola pengaturan</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.tracking", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate", "search.suggest", "toc.follow", "search.highlight", "search.share", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascript/consent.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

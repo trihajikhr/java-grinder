@@ -1,0 +1,2197 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical, no-nonsense Java crash course for learners who want to grasp core concepts fast—complete with explanations, examples, and real project guidance.">
+      
+      
+      
+        <link rel="canonical" href="https://trihajikhr.github.io/java-grinder/java-basic/06-Strings-and-Methods/">
+      
+      
+        <link rel="prev" href="../05-Type-Casting/">
+      
+      
+        <link rel="next" href="../07-Math-Operations/">
+      
+      
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="Umpan RSS" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="Umpan RSS dari konten yang diperbarui" href="../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Strings and Methods - Java Crash Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java-string" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Java Crash Course" class="md-header__button md-logo" aria-label="Java Crash Course" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java Crash Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Strings and Methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Bagikan" aria-label="Bagikan" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/trihajikhr/java-grinder" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    trihajikhr/java-grinder
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-Basic-Syntax/" class="md-tabs__link">
+          
+  
+  
+  Java Basic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exception-handling/01-Exception-Handling-in-Java/" class="md-tabs__link">
+          
+  
+  
+  Exception Handling
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Java Crash Course" class="md-nav__button md-logo" aria-label="Java Crash Course" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    Java Crash Course
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/trihajikhr/java-grinder" title="Ke repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    trihajikhr/java-grinder
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tag-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../How-to-Contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Basic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java Basic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-Basic-Syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Syntax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-Lifecycle-of-a-Program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle of a Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-Data-Types-and-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types and Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-Variables-and-Scopes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Scopes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-Type-Casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings and Methods
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings and Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-representasi-string-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 | Representasi String Internal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 | Representasi String Internal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-compact-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 | Compact String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-membuat-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 | Membuat String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 | Membuat String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-literal-string-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 | Literal String Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-escape-karakter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 | Escape Karakter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-string-literals-sebagai-konstanta-atau-singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | String Literals sebagai Konstanta atau Singleton
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-java-text-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 | Java Text Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-indentasi-pada-java-text-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 | Indentasi pada Java Text Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-menggabungkan-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 | Menggabungkan String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 | Menggabungkan String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-kinerja-penggabungan-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 | Kinerja Penggabungan String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-panjang-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 | Panjang String
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-substrings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 | Substrings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mencari-dalam-string-dengan-indexof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 | Mencari dalam String dengan indexOf()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-mencocokkan-string-dengan-ekspresi-reguler-dengan-matches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 | Mencocokkan String dengan Ekspresi Reguler dengan matches()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-text-one-two-three-two-one-boolean-matches-textmatchestwo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String text = &quot;one two three two one&quot;; boolean matches = text.matches(&quot;.*two.*&quot;);
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparing-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 | Comparing Strings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 | Comparing Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-equals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 | equals()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-equalsignorecase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 | equalsIgnoreCase()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-startswith-dan-endswith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 | startsWith() dan endsWith()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-compareto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 | compareTo()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-Math-Operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-Conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-Loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-Basics-of-OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics of OOPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception Handling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exception-handling/01-Exception-Handling-in-Java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exception-handling/02-Kasus-throws-dan-try-catch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kasus throws dan try catch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-representasi-string-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 | Representasi String Internal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 | Representasi String Internal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-compact-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 | Compact String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-membuat-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 | Membuat String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 | Membuat String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-literal-string-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 | Literal String Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-escape-karakter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 | Escape Karakter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-string-literals-sebagai-konstanta-atau-singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 | String Literals sebagai Konstanta atau Singleton
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-java-text-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 | Java Text Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-indentasi-pada-java-text-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 | Indentasi pada Java Text Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-menggabungkan-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 | Menggabungkan String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 | Menggabungkan String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-kinerja-penggabungan-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 | Kinerja Penggabungan String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-panjang-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 | Panjang String
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-substrings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 | Substrings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mencari-dalam-string-dengan-indexof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 | Mencari dalam String dengan indexOf()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-mencocokkan-string-dengan-ekspresi-reguler-dengan-matches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 | Mencocokkan String dengan Ekspresi Reguler dengan matches()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-text-one-two-three-two-one-boolean-matches-textmatchestwo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String text = &quot;one two three two one&quot;; boolean matches = text.matches(&quot;.*two.*&quot;);
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparing-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 | Comparing Strings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 | Comparing Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-equals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 | equals()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-equalsignorecase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 | equalsIgnoreCase()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-startswith-dan-endswith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 | startsWith() dan endsWith()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-compareto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 | compareTo()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="java-string">Java String<a class="headerlink" href="#java-string" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Tipe data String dalam Java dapat berisi serangkaian karakter (string), seperti mutiara pada sutas tali. String adalah cara Anda bekerja dengan teks di Java. Setelah String dalam Java dibuat, Anda dapat mencari di dalamnya, membuat substring darinya, membuat string baru berdasarkan string pertama dengan beberapa bagian yang dignati, dan banyak hal lainya.</p>
+<hr />
+<h2 id="1-representasi-string-internal">1 | Representasi String Internal<a class="headerlink" href="#1-representasi-string-internal" title="Anchor link to this section for reference">&para;</a></h2>
+<p>String Java (sebelum Java 9) direpresentasikan secara internal di JVM menggunakan byte, yang dikodekan sebagai UTF-16. UTF-16 menggunakan 2 byte untuk merepresentasikan satu karakter. Dengan demikian, karakter-karakter dalam String Java direpresentasikan menggunakan <code>char</code> array.</p>
+<p>UTF adalah pengkodena karakter yang dapat merepresentasikan karakter dari berbagai bahasa (alfabet). Oleh karena itu, diperlukan 2 byte per karakter agar semua karakter yang berbeda ini dapat direpresentasikan dalam satu String.</p>
+<h3 id="11-compact-string">1.1 | Compact String<a class="headerlink" href="#11-compact-string" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Mulai Java 9 dan seterusnya, JVM dapat mengoptimalkan string menggunakan fitur Java baru yang disebut <em>compact strings</em>. Fitur compact strings memungkinkan Java VM mendeteksi apakah suatu string hanya berisi karakter ISO-8859-1/Latin-1. Jika ya, String hanya akan menggunakan 1 byte per karakter secara internal. Dengan demikian, karakter dari String Java yang ringkas dapat direpresentasikan oleh <code>byte</code> array, bukan <code>char</code> array.</p>
+<p>Keterwakilan sebuah String sebagai <em>compact string</em> akan terdeteksi saat string tersebut dibuat. String tidak dapat diubah setelah dibuat - jadi hal ini aman untuk dilakukan.</p>
+<hr />
+<h2 id="2-membuat-string">2 | Membuat String<a class="headerlink" href="#2-membuat-string" title="Anchor link to this section for reference">&para;</a></h2>
+<p>String dalam Java adalah objek. Oleh karena itu, Anda perlu menggunakan operator <code>new</code> untuk membuat objek String Java baru. Berikut adalah contoh pembuatan (instansiasi) String Java:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Halo Dunia&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Teks di dalam tanda kutip adalah teks yang akan dimuat dalam objek String.</p>
+<h3 id="21-literal-string-java">2.1 | Literal String Java<a class="headerlink" href="#21-literal-string-java" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Java memiliki cara yang lebih singkat untuk membuat String baru:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Halo Dunia&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Alih-alih meneruskan teks "Hello World" sebagai parameter ke konstruktor String, Anda cukup menuliskan teks itu sendiri di dalam tanda kutip ganda. Ini disebut literal String. Kompiler Java akan secara internal mencari cara untuk membuat String Java baru yang mewakili teks yang diberikan.</p>
+<h3 id="22-escape-karakter">2.2 | Escape Karakter<a class="headerlink" href="#22-escape-karakter" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Literal String Java menerima serangkaian karakter escape yang diterjemahkan menjadi karakter khusus dalam String yang dibuat. Karakter escape ini meliputi:</p>
+<table>
+<thead>
+<tr>
+<th>Esc. Karakter</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\\</code></td>
+<td>Diterjemahkan menjadi karakter tunggal backslash <code>\</code> dalam String</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Diterjemahkan menjadi karakter tab tunggal dalam string</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>Diterjemahkan menjadi karakter <em>carriege return</em> dalam String</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>Diterjemahkan menjadi karakter baris baru tunggal dalam String</td>
+</tr>
+</tbody>
+</table>
+<p>Berikut adalah contoh pembuatan String Java menggunakan karakter escape:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="w"> </span><span class="n">teks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;\tTeks ini ada di satu tab.\r\n&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Literal String ini akan menghasilkan String yang dimulai dengan karakter tab dan diakhiri dengan carriage return dan karakter baris baru.</p>
+<h3 id="23-string-literals-sebagai-konstanta-atau-singleton">2.3 |  String Literals sebagai Konstanta atau Singleton<a class="headerlink" href="#23-string-literals-sebagai-konstanta-atau-singleton" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Jika kamu menggunakan string yang sama (misal <code>"Hello World"</code>) di deklarasi variabel String lain, <strong>Java Virtual Machine (JVM)</strong> mungkin hanya akan membuat <strong>satu instance String</strong> di memori.
+Dengan demikian, literal string tersebut secara praktis menjadi <strong>konstanta atau singleton</strong>. Berbagai variabel yang diinisialisasi dengan string konstanta yang sama akan menunjuk ke <strong>instance String yang sama</strong> di memori.</p>
+<p><strong>Contoh:</strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">myString1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">String</span><span class="w"> </span><span class="n">myString2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Dalam kasus ini, JVM akan membuat <code>myString1</code> dan <code>myString2</code> menunjuk ke objek String yang sama.</p>
+<p>Lebih tepatnya, objek yang mewakili literal String Java diperoleh dari constant String pool yang disimpan secara internal oleh JVM.
+Artinya, bahkan kelas dari proyek berbeda yang dikompilasi secara terpisah, tetapi digunakan di aplikasi yang sama, dapat berbagi objek String konstanta. Proses berbagi ini terjadi pada saat runtime, bukan saat compile time.</p>
+<p>Jika kamu ingin memastikan bahwa dua variabel String menunjuk ke objek String yang berbeda, gunakan operator <code>new</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">String</span><span class="w"> </span><span class="n">myString1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">String</span><span class="w"> </span><span class="n">myString2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Meskipun nilai (teks) kedua String sama, JVM akan membuat dua objek berbeda di memori untuk mewakili keduanya.</p>
+<h3 id="24-java-text-blocks">2.4 |  Java Text Blocks<a class="headerlink" href="#24-java-text-blocks" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Java text blocks, atau dikenal juga sebagai <strong>Java multi-line strings</strong>, adalah fitur yang ditambahkan di Java 13 (saat preview) yang memudahkan kita untuk mendeklarasikan literal String yang membentang ke beberapa baris dalam kode Java.</p>
+<p>Contoh sintaks Java text block:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">String</span><span class="w"> </span><span class="n">textblock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s">                   This is a text inside a</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">                   text block</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">                   &quot;&quot;&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Perhatikan <strong>dua set delimiter (<code>"""</code>)</strong> di baris pertama dan terakhir. Tiga karakter kutip berturut-turut ini memberitahu Java compiler bahwa yang sedang dideklarasikan adalah <strong>text block</strong>.</p>
+<ul>
+<li>Kedua set karakter kutip harus berada di baris sendiri, di atas dan di bawah teks yang ingin dimasukkan ke text block.</li>
+<li>Hanya teks di antara baris dengan delimiter yang akan menjadi bagian dari hasil String Java.</li>
+</ul>
+<p>Di antara delimiter, kamu bisa menulis <strong>multi-line String</strong> tanpa perlu melakukan escape untuk <strong>newline</strong> atau karakter kutip.</p>
+<p>Contoh penggunaan kutip di dalam text block:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">String</span><span class="w"> </span><span class="n">textblock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">                   This is a text inside a</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">                   text block.</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">                   You can use &quot;quotes&quot; in here</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">                   without escaping them.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">                   &quot;&quot;&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Perhatikan kutip di sekitar kata <code>"quotes"</code>.</p>
+<ul>
+<li>Di literal String Java biasa, kamu harus melakukan escape untuk kutip ini.</li>
+<li>Di text block, escape tidak diperlukan, kecuali jika kamu ingin menyertakan tiga kutip berturut-turut (<code>"""</code>) sebagai bagian dari teks.</li>
+<li>Dalam kasus itu, kamu harus melakukan escape setidaknya satu kutip supaya compiler dapat membedakannya dari delimiter akhir text block.</li>
+</ul>
+<h3 id="25-indentasi-pada-java-text-block">2.5 | Indentasi pada Java Text Block<a class="headerlink" href="#25-indentasi-pada-java-text-block" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Pada contoh Java text block sebelumnya, teks di antara dua baris dengan tiga delimiter kutip (<code>"""</code>) diindentasikan agar <strong>posisinya sejajar secara horizontal dengan delimiter</strong>. Dengan kata lain, teks dimulai di posisi horizontal yang sama dengan delimiter. Hal ini dilakukan semata-mata untuk alasan <strong>formatting kode</strong>. Biasanya, kita tidak ingin semua karakter indentasi (spasi atau tab) menjadi bagian dari String yang sebenarnya dihasilkan dari text block ini.</p>
+<p>Yang terjadi sebenarnya adalah Java compiler menghapus semua karakter indentasi dari String yang dihasilkan oleh deklarasi text block. Cara compiler menentukan berapa banyak karakter indentasi yang dihapus adalah dengan melihat <strong>baris terakhir</strong> dari text block, yaitu baris yang berisi tiga karakter kutip terakhir. Indentasi dari karakter kutip pada baris terakhir ini menentukan berapa banyak karakter indentasi yang dihapus dari teks di dalam text block.</p>
+<p>Berikut contoh tiga Java text block dengan tingkat indentasi berbeda, dikontrol oleh posisi delimiter kutip terakhir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">String</span><span class="w"> </span><span class="n">textblock1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s">                   This is a Java text block</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s">                   &quot;&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">String</span><span class="w"> </span><span class="n">textblock2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s">                   This is a Java text block</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="s">                 &quot;&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">String</span><span class="w"> </span><span class="n">textblock3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="s">                   This is a Java text block</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="s">               &quot;&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">textblock1</span><span class="p">);</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">textblock2</span><span class="p">);</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">textblock3</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Perhatikan perbedaan posisi delimiter kutip terakhir:</p>
+<ul>
+<li>Pada contoh pertama, delimiter kutip terakhir berada <strong>sejajar dengan teks</strong>, sehingga semua karakter indentasi dihapus dari String.</li>
+<li>Pada contoh kedua, delimiter kutip terakhir berada <strong>2 karakter lebih ke kiri</strong> dibanding teks. Akibatnya, compiler menyisakan 2 karakter indentasi di String yang dihasilkan.</li>
+<li>Pada contoh ketiga, delimiter kutip terakhir berada <strong>4 karakter lebih ke kiri</strong> dibanding teks, sehingga 4 karakter indentasi disertakan di String.</li>
+</ul>
+<p>Output yang dihasilkan:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>This is a Java text block
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  This is a Java text block
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    This is a Java text block
+</span></code></pre></div>
+<p>Seperti terlihat, String yang dihasilkan memiliki tingkat indentasi yang berbeda.</p>
+<p>Intinya, perbedaan posisi horizontal karakter delimiter terakhir dan karakter paling kiri teks di text block menentukan seberapa banyak indentasi yang disertakan dalam String yang dihasilkan. Java compiler menggunakan perbandingan ini untuk menentukan indentasi yang harus dimasukkan.</p>
+<hr />
+<h2 id="3-menggabungkan-string">3 | Menggabungkan String<a class="headerlink" href="#3-menggabungkan-string" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Menggabungkan <em>String</em> berarti menambahkan satu <em>string</em> ke <em>string</em> lainnya. <em>String</em> dalam Java bersifat <em>immutable</em>, yang berarti nilai di dalamnya tidak dapat diubah setelah objek tersebut dibuat. Oleh karena itu, ketika dua objek <em>String</em> digabungkan, hasil penggabungannya sebenarnya disimpan pada objek <em>String</em> baru yang ketiga.</p>
+<p>Berikut contoh penggabungan <em>String</em> dalam Java:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">String</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">String</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">String</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">two</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Isi <em>String</em> yang direferensikan oleh variabel <code>three</code> adalah <code>Hello World</code>. Sementara itu, kedua objek <em>String</em> lainnya tidak mengalami perubahan.</p>
+<h3 id="31-kinerja-penggabungan-string">3.1 | Kinerja Penggabungan String<a class="headerlink" href="#31-kinerja-penggabungan-string" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Saat menggabungkan <em>String</em>, Anda perlu mewaspadai potensi masalah kinerja. Penggabungan dua <em>String</em> di Java akan diterjemahkan oleh <em>compiler</em> Java menjadi sesuatu seperti berikut:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">String</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">String</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; World&quot;</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">String</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">                    </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">two</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Seperti terlihat, sebuah objek <code>StringBuilder</code> baru dibuat, dengan <em>String</em> pertama diteruskan ke konstrukturnya, dan <em>String</em> kedua ditambahkan melalui metode <code>append()</code>, sebelum akhirnya memanggil metode <code>toString()</code>. Kode ini sebenarnya membuat dua objek: sebuah instance <code>StringBuilder</code> dan sebuah objek <em>String</em> baru yang dikembalikan oleh <code>toString()</code>.</p>
+<p>Jika dijalankan sebagai satu pernyataan tunggal, beban pembuatan objek tambahan ini tidak terlalu signifikan. Namun, bila digunakan di dalam sebuah <em>loop</em>, situasinya berubah.</p>
+<p>Berikut contoh <em>loop</em> yang memuat pola penggabungan <em>String</em> seperti di atas:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;five&quot;</span><span class="p">};</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">strings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">string</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Kode ini akan dikompilasi menjadi sesuatu yang kurang lebih seperti:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;five&quot;</span><span class="p">};</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">strings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">                    </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">string</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pada setiap iterasi dalam <em>loop</em> tersebut, sebuah objek <code>StringBuilder</code> baru dibuat. Selain itu, sebuah objek <em>String</em> juga dibuat melalui pemanggilan metode <code>toString()</code>. Hal ini menghasilkan sedikit beban pembuatan objek pada setiap iterasi: satu objek <code>StringBuilder</code> dan satu objek <code>String</code>. Namun, beban ini bukanlah penyebab utama menurunnya kinerja. Masalah sebenarnya muncul dari proses yang terjadi selama pembuatan objek-objek tersebut.</p>
+<p>Setiap kali kode <code>new StringBuilder(result)</code> dieksekusi, konstruktor <code>StringBuilder</code> menyalin seluruh karakter dari <em>String</em> <code>result</code> ke dalam <code>StringBuilder</code>. Semakin banyak iterasi yang dijalankan, semakin panjang <em>String</em> <code>result</code>. Semakin panjang <em>String</em> tersebut, semakin lama waktu yang dibutuhkan untuk menyalin karakter ke <code>StringBuilder</code>, dan kemudian menyalin kembali karakter-karakter tersebut ke <em>String</em> sementara yang dihasilkan oleh <code>toString()</code>. Dengan kata lain, semakin banyak iterasi, semakin lambat setiap iterasinya.</p>
+<p>Cara tercepat untuk menggabungkan <em>String</em> adalah dengan membuat satu <code>StringBuilder</code> saja, lalu menggunakannya kembali di dalam <em>loop</em>. Contohnya sebagai berikut:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;five&quot;</span><span class="p">};</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">temp</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">strings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">temp</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">string</span><span class="p">);</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Kode ini menghindari pembuatan objek <code>StringBuilder</code> dan objek <em>String</em> di dalam <em>loop</em>, sehingga juga menghindari proses penyalinan karakter dua kali—pertama ke dalam <code>StringBuilder</code>, dan kemudian kembali ke <em>String</em> baru.</p>
+<hr />
+<h2 id="4-panjang-string">4 | Panjang String<a class="headerlink" href="#4-panjang-string" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Anda dapat memperoleh panjang sebuah <em>String</em> dengan menggunakan metode <code>length()</code>. Panjang sebuah <em>String</em> adalah jumlah karakter yang dikandung oleh <em>String</em> tersebut—bukan jumlah byte yang digunakan untuk merepresentasikannya. Berikut contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-substrings">5 | Substrings<a class="headerlink" href="#5-substrings" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Anda dapat mengambil sebagian dari sebuah <em>String</em>. Proses ini disebut <em>substring</em>. Untuk melakukannya, Anda menggunakan metode <code>substring()</code> milik kelas <code>String</code>. Berikut contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">String</span><span class="w"> </span><span class="n">string1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">String</span><span class="w"> </span><span class="n">substring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string1</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Setelah kode tersebut dijalankan, variabel <code>substring</code> akan berisi teks <code>Hello</code>.</p>
+<p>Metode <code>substring()</code> menerima dua parameter. Parameter pertama adalah indeks karakter pertama yang akan disertakan dalam <em>substring</em>. Parameter kedua adalah indeks karakter setelah karakter terakhir yang akan disertakan. Perhatikan baik-baik: parameternya berarti <em>“dari – termasuk, sampai – tidak termasuk”</em>. Pola ini mungkin terlihat membingungkan sampai Anda terbiasa.</p>
+<p>Karakter pertama dalam sebuah <em>String</em> memiliki indeks 0, karakter kedua memiliki indeks 1, dan seterusnya. Karakter terakhir memiliki indeks <code>String.length() - 1</code>.</p>
+<hr />
+<h2 id="6-mencari-dalam-string-dengan-indexof">6 | Mencari dalam String dengan <code>indexOf()</code><a class="headerlink" href="#6-mencari-dalam-string-dengan-indexof" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Anda dapat mencari <em>substring</em> di dalam sebuah <em>String</em> dengan menggunakan metode <code>indexOf()</code>. Contohnya sebagai berikut:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">String</span><span class="w"> </span><span class="n">string1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string1</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Setelah kode tersebut dijalankan, variabel <code>index</code> akan bernilai 6. Metode <code>indexOf()</code> mengembalikan indeks karakter pertama dari <em>substring</em> yang cocok. Dalam contoh ini, huruf <strong>W</strong> pada kata <em>World</em> ditemukan pada indeks 6.</p>
+<p>Jika <em>substring</em> yang dicari tidak ditemukan di dalam <em>String</em>, metode <code>indexOf()</code> akan mengembalikan nilai <code>-1</code>.</p>
+<p>Terdapat juga versi lain dari metode <code>indexOf()</code> yang menerima parameter tambahan berupa indeks awal pencarian. Dengan cara ini, Anda dapat mencari lebih dari satu kemunculan <em>substring</em> dalam sebuah <em>String</em>. Contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">String</span><span class="w"> </span><span class="n">theString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;is this good or is this bad?&quot;</span><span class="p">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">String</span><span class="w"> </span><span class="n">substring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;is&quot;</span><span class="p">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theString</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">substring</span><span class="p">);</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">while</span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theString</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">substring</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Kode tersebut akan mencetak semua posisi di mana <em>substring</em> <code>"is"</code> ditemukan.</p>
+<p>Kode tersebut melakukan pencarian di dalam <em>string</em> <code>"is this good or is this bad?"</code> untuk menemukan semua kemunculan <em>substring</em> <code>"is"</code>. Pencarian dilakukan menggunakan metode <code>indexOf(substring, index)</code>. Parameter <code>index</code> menentukan dari posisi karakter mana pencarian harus dimulai. Pada contoh ini, pencarian dimulai dari satu karakter setelah posisi kemunculan sebelumnya. Hal ini memastikan bahwa pencarian tidak terus-menerus menemukan kemunculan yang sama.</p>
+<p>Keluaran yang dihasilkan dari kode tersebut adalah:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>0
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>5
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>16
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>21
+</span></code></pre></div>
+<p><em>Substring</em> <code>"is"</code> ditemukan sebanyak empat kali: dua kali sebagai kata tersendiri <code>"is"</code>, dan dua kali sebagai bagian dari kata <code>"this"</code>.</p>
+<p>Kelas <code>String</code> dalam Java juga menyediakan metode <code>lastIndexOf()</code> yang digunakan untuk menemukan kemunculan terakhir dari sebuah <em>substring</em>. Contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">String</span><span class="w"> </span><span class="n">theString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;is this good or is this bad?&quot;</span><span class="p">;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">String</span><span class="w"> </span><span class="n">substring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;is&quot;</span><span class="p">;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theString</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="n">substring</span><span class="p">);</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Keluaran dari kode tersebut adalah <code>21</code>, yaitu indeks kemunculan terakhir dari <em>substring</em> <code>"is"</code>.</p>
+<hr />
+<h2 id="7-mencocokkan-string-dengan-ekspresi-reguler-dengan-matches">7 | Mencocokkan String dengan Ekspresi Reguler dengan <code>matches()</code><a class="headerlink" href="#7-mencocokkan-string-dengan-ekspresi-reguler-dengan-matches" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Metode <code>matches()</code> pada kelas <code>String</code> menerima sebuah <em>regular expression</em> sebagai parameter, dan mengembalikan nilai <code>true</code> jika <em>regular expression</em> tersebut cocok dengan isi <em>string</em>, serta <code>false</code> jika tidak cocok.</p>
+<p>Berikut contoh penggunaan <code>matches()</code>:</p>
+<h2 id="string-text-one-two-three-two-one-boolean-matches-textmatchestwo"><div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;one two three two one&quot;</span><span class="p">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;.*two.*&quot;</span><span class="p">);</span>
+</span></code></pre></div><a class="headerlink" href="#string-text-one-two-three-two-one-boolean-matches-textmatchestwo" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="8-comparing-strings">8 | Comparing Strings<a class="headerlink" href="#8-comparing-strings" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Kelas <code>String</code> dalam Java menyediakan sejumlah metode untuk membandingkan <em>String</em>. Metode-metode tersebut antara lain:</p>
+<ul>
+<li><code>equals()</code></li>
+<li><code>equalsIgnoreCase()</code></li>
+<li><code>startsWith()</code></li>
+<li><code>endsWith()</code></li>
+<li><code>compareTo()</code></li>
+</ul>
+<h3 id="81-equals">8.1 | equals()<a class="headerlink" href="#81-equals" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Metode <code>equals()</code> digunakan untuk memeriksa apakah dua <em>String</em> benar-benar identik. Jika keduanya sama persis, <code>equals()</code> mengembalikan <code>true</code>. Jika tidak sama, metode ini mengembalikan <code>false</code>. Berikut contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">String</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">String</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;def&quot;</span><span class="p">;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">String</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">String</span><span class="w"> </span><span class="n">four</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ABC&quot;</span><span class="p">;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">two</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">three</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">four</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div>
+<p><em>String</em> <code>one</code> dan <code>three</code> bernilai sama, tetapi <code>one</code> tidak sama dengan <code>two</code> maupun <code>four</code>. Perlu diperhatikan bahwa perbandingan ini bersifat <em>case-sensitive</em>—huruf kecil dianggap berbeda dari huruf besar.</p>
+<p>Keluaran dari kode tersebut adalah:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>false
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>true
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>false
+</span></code></pre></div>
+<h3 id="82-equalsignorecase">8.2 | equalsIgnoreCase()<a class="headerlink" href="#82-equalsignorecase" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Kelas <code>String</code> juga memiliki metode <code>equalsIgnoreCase()</code> yang membandingkan dua <em>String</em> tanpa memperhatikan perbedaan huruf besar dan huruf kecil. Dengan demikian, huruf kapital dianggap sama dengan huruf kecil yang bersesuaian.</p>
+<h3 id="83-startswith-dan-endswith">8.3 | startsWith() dan endsWith()<a class="headerlink" href="#83-startswith-dan-endswith" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Metode <code>startsWith()</code> dan <code>endsWith()</code> digunakan untuk memeriksa apakah sebuah <em>String</em> diawali atau diakhiri dengan <em>substring</em> tertentu. Berikut contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">String</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a good day to code&quot;</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;This&quot;</span><span class="p">)</span><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;This&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">endsWith</span><span class="w">  </span><span class="p">(</span><span class="s">&quot;code&quot;</span><span class="p">)</span><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">endsWith</span><span class="w">  </span><span class="p">(</span><span class="s">&quot;shower&quot;</span><span class="p">)</span><span class="w">  </span><span class="p">);</span>
+</span></code></pre></div>
+<p>Contoh ini membuat sebuah <em>String</em> dan memeriksa apakah <em>String</em> tersebut diawali atau diakhiri oleh beberapa <em>substring</em>.</p>
+<ul>
+<li>
+<p>Baris pertama (setelah deklarasi <em>String</em>) memeriksa apakah <em>String</em> diawali oleh <code>"This"</code>. Karena cocok, metode <code>startsWith()</code> mengembalikan <code>true</code>.</p>
+</li>
+<li>
+<p>Baris kedua memeriksa apakah <em>String</em> diawali oleh <code>"This"</code> jika pemeriksaan dimulai dari karakter pada indeks 5. Hasilnya <code>false</code>, karena karakter pada indeks 5 adalah <code>"i"</code>.</p>
+</li>
+<li>
+<p>Baris ketiga memeriksa apakah <em>String</em> diakhiri dengan <code>"code"</code>. Karena sesuai, metode <code>endsWith()</code> mengembalikan <code>true</code>.</p>
+</li>
+<li>
+<p>Baris keempat memeriksa apakah <em>String</em> diakhiri dengan <code>"shower"</code>. Karena tidak sesuai, hasilnya <code>false</code>.</p>
+</li>
+</ul>
+<h3 id="84-compareto">8.4 | compareTo()<a class="headerlink" href="#84-compareto" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Metode <code>compareTo()</code> membandingkan sebuah <em>String</em> dengan <em>String</em> lain dan mengembalikan nilai bertipe <code>int</code> yang menunjukkan apakah <em>String</em> tersebut lebih kecil, sama, atau lebih besar dibandingkan <em>String</em> yang menjadi pembanding.</p>
+<ul>
+<li>Jika <em>String</em> berada <strong>sebelum</strong> <em>String</em> pembanding dalam urutan penyortiran, <code>compareTo()</code> mengembalikan nilai negatif.</li>
+<li>Jika keduanya berada pada posisi penyortiran yang <strong>sama</strong>, metode ini mengembalikan <code>0</code>.</li>
+<li>Jika <em>String</em> berada <strong>setelah</strong> <em>String</em> pembanding dalam urutan penyortiran, metode ini mengembalikan nilai positif.</li>
+</ul>
+<p>Contohnya:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">String</span><span class="w"> </span><span class="n">one</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">String</span><span class="w"> </span><span class="n">two</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;def&quot;</span><span class="p">;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">String</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abd&quot;</span><span class="p">;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">two</span><span class="p">)</span><span class="w">   </span><span class="p">);</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">one</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">three</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div>
+<p>Contoh ini membandingkan <em>String</em> <code>one</code> dengan dua <em>String</em> lainnya. Keluaran dari kode tersebut adalah:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>-3
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>-1
+</span></code></pre></div>
+<p>Nilai negatif muncul karena <em>String</em> <code>one</code> berada lebih awal dalam urutan penyortiran dibandingkan kedua <em>String</em> lainnya.</p>
+<p>Metode <code>compareTo()</code> sebenarnya berasal dari antarmuka <code>Comparable</code>, yang dibahas lebih mendalam dalam materi tentang penyortiran.</p>
+<p>Perlu diperhatikan bahwa <code>compareTo()</code> tidak selalu menghasilkan hasil yang benar untuk <em>String</em> dalam bahasa selain bahasa Inggris. Untuk melakukan penyortiran <em>String</em> secara benar dalam bahasa tertentu, gunakan kelas <code>Collator</code>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Pembaruan terakhir">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 November 2025 21:30:05 UTC">16 November 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Dibuat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 November 2025 21:30:05 UTC">16 November 2025</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Kontributor">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:trihajikhr@gmail.com">trihajikhr</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-Type-Casting/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Type Casting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Type Casting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-Math-Operations/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Math Operations">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Math Operations
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 by <a href="https://github.com/trihajikhr">Trihaji Khoerur Rohman</a>. Licensed under MIT.<br/> Made with ❤️.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/trihajikhr" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="feed_rss_created.xml" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295M15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Terima</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Kelola pengaturan</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.top", "navigation.tabs", "navigation.tracking", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate", "search.suggest", "toc.follow", "search.highlight", "search.share", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascript/consent.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
