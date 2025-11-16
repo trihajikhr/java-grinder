@@ -37,4 +37,5 @@ Baca teori, lalu perbanyak praktek. Dari praktek, kamu belajar dari error dengan
 
 Tips: _Baca beberapa kode orang lain jika perlu_
 
-halo kawan apa yang kamu lakukan
+halo kawan apa yang kamu lakukan, aku harap kita bisa bersahabata!
+enthalah
