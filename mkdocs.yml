@@ -110,7 +110,14 @@ plugins:
       enabled: false
       branch: main
 #  - macros
-  - rss
+  - rss:
+      site_url: https://trihajikhr.github.io/java-grinder/
+      title: Java Crash Course Updates
+      description: Latest updates in my Java Crash Course docs
+      feed_path: rss.xml
+      include:
+        - "*.md"
+        - "**/*.md"
 
 extra:
   social:
