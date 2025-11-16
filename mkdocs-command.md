@@ -1,3 +1,5 @@
+# Mkdocs Tutorial
+
 - `mkdocs new .` : Menjadikan folder saat ini Mkdcos, dan akan membuat file `mkdocs.yml`, dan folder `docs/index.md`
 - `mkdocs new <nama-project>` : bikin project MkDocs baru
 - `mkdocs serve` : jalankan server lokal dengan live reload
@@ -24,7 +26,7 @@
 - `mkdocs --quiet` : minimal output (biar terminal nggak berisik)
 - `mkdocs --verbose` : debug mode, tampilkan detail build
 
-pusat bantuan:
+## pusat bantuan:
 
 - `mkdocs --help`
 - `mkdocs serve --help`
@@ -32,3 +34,8 @@ pusat bantuan:
 
 - `mkdocs plugins list` : list plugin terinstall
 - `mkdocs plugins reload` : Reload plugin tertentu
+
+## Literate nav
+Untuk meengatur navbar dan struktur folder dengan baik, lebih baik gunakan plugin pip berupa `mkdocs-literate-nav`. Hasilnya akan jauh lebih rapi.
+
+Aku sempat menghadapi error berkali-kali, karena ternyata children harus memiliki jarak sebanyak 2 tab dari parent. Lihat pada bagian kiri penanda baris, warnanya harus coklat! Ini penting supaya tidak error!
