@@ -1,9 +1,14 @@
-name: ci
+name: mkdocs ci
 on:
-  push:
-    branches:
-      - master
-      - main
+
+# workflow manual
+  workflow_dispatch:
+
+# workflow otomatis
+#  push:
+#    branches:
+#      - master
+#      - main
 permissions:
   contents: write
 jobs:
