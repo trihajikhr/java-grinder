@@ -36,8 +36,8 @@ jobs:
           pip install mkdocs
           pip install mkdocs-material
           pip install mkdocs-literate-nav
-          pip install mkdocs-git-revision-date-localized
-          pip install mkdocs-rss
+          pip install mkdocs-git-revision-date-localized-plugin
+          pip install mkdocs-rss-plugin
         # tambahkan plugin lain kalau ada
 
       - name: Deploy
